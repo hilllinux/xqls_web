@@ -1,0 +1,551 @@
+<!doctype html>
+<html lang="zh-CN" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="智慧水务解决方案，综合运用传感装备、边缘计算、物联网、大数据等信息技术，实现水务工作科学化、精细化和智能化。"
+    />
+    <title>智慧水务解决方案 | 浙江小桥流水环境科技有限公司</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "PingFang SC", "Microsoft YaHei", "Arial", "sans-serif"],
+            },
+            colors: {
+              ink: "#07141C",
+              steel: "#24333D",
+              river: "#0D6F8F",
+              pale: "#F4F7F8",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        text-rendering: optimizeLegibility;
+      }
+      .hero-bg {
+        background-image:
+          radial-gradient(circle at 72% 40%, rgba(13, 111, 143, 0.24), rgba(13, 111, 143, 0) 36%),
+          linear-gradient(90deg, rgba(3, 12, 18, 0.94) 0%, rgba(3, 12, 18, 0.74) 42%, rgba(3, 12, 18, 0.24) 100%),
+          url("http://www.xqls.com.cn/assets/images/solution-banner.png");
+      }
+      .detail-bg {
+        background-image:
+          linear-gradient(180deg, rgba(7, 20, 28, 0.08), rgba(7, 20, 28, 0.82)),
+          url("http://www.xqls.com.cn/assets/images/solution-banner.png");
+      }
+      .site-header {
+        background: transparent;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+      .site-header.is-scrolled {
+        background: rgba(255, 255, 255, 0.94);
+        color: #07141c;
+        border-color: rgba(15, 23, 42, 0.12);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .site-header:hover {
+        background: rgba(255, 255, 255, 0.96);
+        color: #07141c;
+        border-color: rgba(15, 23, 42, 0.12);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .site-header .phone-link,
+      .site-header .menu-button {
+        border-color: rgba(255, 255, 255, 0.38);
+      }
+      .site-header.is-scrolled .phone-link,
+      .site-header.is-scrolled .menu-button {
+        border-color: rgba(15, 23, 42, 0.22);
+      }
+      .site-header:hover .phone-link,
+      .site-header:hover .menu-button {
+        border-color: rgba(13, 111, 143, 0.32);
+      }
+      .site-header nav {
+        color: rgba(255, 255, 255, 0.72);
+      }
+      .site-header.is-scrolled nav {
+        color: #07141c;
+      }
+      .site-header:hover nav {
+        color: #07141c;
+      }
+      .site-header:hover .header-brand,
+      .site-header:hover .header-brand-en {
+        color: #0d6f8f;
+      }
+      .site-header nav a:hover {
+        color: #fff !important;
+      }
+      .site-header.is-scrolled nav a:hover {
+        color: #07141c !important;
+      }
+      .site-header:hover nav a:hover {
+        color: #0d6f8f !important;
+      }
+      .site-header .phone-link:hover {
+        background: #fff;
+        color: #07141c;
+      }
+      .site-header.is-scrolled .phone-link:hover {
+        background: #07141c;
+        color: #fff;
+      }
+      .site-header:hover .phone-link:hover {
+        background: #0d6f8f;
+        color: #fff;
+      }
+      .site-header.is-scrolled #mobileMenu {
+        background: #fff;
+        color: #07141c;
+        border-color: rgba(15, 23, 42, 0.12);
+      }
+      .site-header.is-scrolled #mobileMenu .mobile-menu-muted {
+        color: rgba(7, 20, 28, 0.62);
+      }
+      .header-nav {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      }
+      .header-brand {
+        font-size: 22px;
+        font-weight: 500;
+        font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      }
+      .header-brand-en {
+        margin-top: 7px;
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.58);
+        font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      }
+      .site-header.is-scrolled .header-brand-en {
+        color: rgba(7, 20, 28, 0.5);
+      }
+      .brand-logo-color,
+      .brand-logo-white {
+        transition: opacity 0.25s ease;
+      }
+      .brand-logo-color {
+        opacity: 0;
+      }
+      .site-header.is-scrolled .brand-logo-color,
+      .site-header:hover .brand-logo-color {
+        opacity: 1;
+      }
+      .site-header.is-scrolled .brand-logo-white,
+      .site-header:hover .brand-logo-white {
+        opacity: 0;
+      }
+      .nav-link {
+        position: relative;
+        display: inline-flex;
+        height: 86px;
+        align-items: center;
+        color: inherit;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 3px;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.28s ease;
+      }
+      .nav-link:hover::after {
+        transform: scaleX(1);
+      }
+      .nav-dropdown {
+        position: relative;
+        height: 86px;
+        display: inline-flex;
+        align-items: center;
+      }
+      .nav-dropdown-panel {
+        position: fixed;
+        left: 50%;
+        top: 86px;
+        width: min(1040px, calc(100vw - 48px));
+        transform: translateX(-50%) translateY(10px);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+      .nav-dropdown:hover .nav-dropdown-panel {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+      }
+      .product-menu-link:hover {
+        color: #0d6f8f !important;
+      }
+    </style>
+  </head>
+  <body class="bg-white font-sans text-ink antialiased">
+    <header id="siteHeader" class="site-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md transition-all duration-300">
+      <div class="mx-auto flex h-[86px] max-w-[1440px] items-center justify-between px-6 lg:px-12">
+        <a href="index.html#home" class="flex items-center gap-3 leading-none" aria-label="小桥流水环境科技首页">
+          <span class="relative h-11 w-20 shrink-0">
+            <img
+              src="assets/logo-white.png"
+              alt="小桥流水环境科技 Logo"
+              class="brand-logo-white absolute inset-0 h-full w-full object-contain"
+            />
+            <img
+              src="assets/logo.png"
+              alt=""
+              class="brand-logo-color absolute inset-0 h-full w-full object-contain"
+            />
+          </span>
+          <span>
+            <span class="header-brand block">小桥流水环境科技</span>
+            <span class="header-brand-en block">XQLS Environmental Technology</span>
+          </span>
+        </a>
+
+        <nav class="header-nav hidden items-center gap-7 xl:gap-11 lg:flex" aria-label="主导航">
+          <a class="nav-link" href="index.html#about">关于我们</a>
+          <div class="nav-dropdown">
+            <a class="nav-link" href="index.html#products">产品与服务</a>
+            <div class="nav-dropdown-panel z-50 rounded-lg border border-slate-200 bg-white p-6 text-ink shadow-xl">
+              <div class="grid gap-5 lg:grid-cols-5">
+                <div>
+                  <a href="index.html#products" class="product-menu-link text-base font-semibold text-river">水质采样</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-xw-1d.html">XW-1D型水质自动采样器</a>
+                    <a class="product-menu-link" href="index.html#products">XW-1J2便携式地下水采样器</a>
+                    <a class="product-menu-link" href="index.html#products">XW-1H型水质自动采样器</a>
+                    <a class="product-menu-link" href="index.html#products">XW-1B2型水质自动采样器</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#products" class="product-menu-link text-base font-semibold text-river">水质分析</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#products">XW-9B3型一体化多参数分析留样仪</a>
+                    <a class="product-menu-link" href="index.html#products">XW-9300型一体化多参数分析留样仪</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#products" class="product-menu-link text-base font-semibold text-river">管网监测</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#products">XW-9103微功耗无线智能监测终端</a>
+                    <a class="product-menu-link" href="index.html#products">XW-9103多普勒流量计</a>
+                    <a class="product-menu-link" href="index.html#products">XW-9103S窨井水质多参数监测仪</a>
+                    <a class="product-menu-link" href="index.html#products">XW-9102浮标监测站</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#products" class="product-menu-link text-base font-semibold text-river">系统集成</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#products">XW-4F型智能控制仪</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#products" class="product-menu-link text-base font-semibold text-river">固废管理</a>
+                  <p class="mt-4 text-sm leading-6 text-slate-500">敬请期待</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a class="nav-link" href="index.html#solutions">解决方案</a>
+            <div class="nav-dropdown-panel z-50 rounded-lg border border-slate-200 bg-white p-6 text-ink shadow-xl">
+              <div class="grid gap-5 lg:grid-cols-6">
+                <div>
+                  <a href="index.html#solutions" class="product-menu-link text-base font-semibold text-river">智慧水务</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-smart-water.html">智慧水务</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#solutions" class="product-menu-link text-base font-semibold text-river">智慧水利</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#solutions">智慧水利</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#solutions" class="product-menu-link text-base font-semibold text-river">地下水监测</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#solutions">地下水监测</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#solutions" class="product-menu-link text-base font-semibold text-river">排水监控</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#solutions">雨水监测系统</a>
+                    <a class="product-menu-link" href="index.html#solutions">断面水质监测</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#solutions" class="product-menu-link text-base font-semibold text-river">管网监测</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#solutions">零直排管理系统</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#solutions" class="product-menu-link text-base font-semibold text-river">饮用水监测</a>
+                  <p class="mt-4 text-sm leading-6 text-slate-500">敬请期待</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="nav-link" href="index.html#capability">创新能力</a>
+          <a class="nav-link" href="index.html#news">资讯动态</a>
+          <a class="nav-link" href="#contact">联系我们</a>
+        </nav>
+
+        <a
+          href="tel:0571-88212121"
+          class="phone-link hidden h-10 items-center gap-2 rounded-md border px-5 text-sm font-medium transition-colors lg:inline-flex"
+        >
+          <i data-lucide="phone" class="h-4 w-4"></i>
+          0571-88212121
+        </a>
+
+        <button
+          id="menuToggle"
+          class="menu-button inline-flex h-10 w-10 items-center justify-center border lg:hidden"
+          aria-label="打开导航"
+          type="button"
+        >
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+
+      <div id="mobileMenu" class="hidden border-t border-white/10 bg-ink px-6 py-5 lg:hidden">
+        <nav class="grid gap-4 text-sm" aria-label="移动端导航">
+          <a href="index.html#about">关于我们</a>
+          <a href="index.html#products">产品与服务</a>
+          <div class="grid gap-3 border-l border-white/20 pl-4 text-xs leading-5">
+            <div>
+              <p class="font-semibold text-river">水质采样</p>
+              <a href="product-xw-1d.html" class="mobile-menu-muted mt-1 block text-white/60">XW-1D型水质自动采样器</a>
+            </div>
+            <div>
+              <p class="font-semibold text-river">水质分析</p>
+              <p class="mobile-menu-muted mt-1 text-white/60">XW-9B3 / XW-9300 一体化多参数分析留样仪</p>
+            </div>
+            <div>
+              <p class="font-semibold text-river">管网监测</p>
+              <p class="mobile-menu-muted mt-1 text-white/60">XW-9103 / XW-9103S / XW-9102</p>
+            </div>
+            <div>
+              <p class="font-semibold text-river">系统集成</p>
+              <p class="mobile-menu-muted mt-1 text-white/60">XW-4F型智能控制仪</p>
+            </div>
+          </div>
+          <a href="index.html#solutions">解决方案</a>
+          <a href="index.html#capability">创新能力</a>
+          <a href="index.html#news">资讯动态</a>
+          <a href="#contact">联系我们</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero-bg relative flex min-h-screen items-end overflow-hidden bg-cover bg-center text-white">
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-ink to-transparent"></div>
+        <div class="pointer-events-none absolute right-[-12rem] top-28 hidden h-[36rem] w-[36rem] rounded-full border border-white/10 lg:block"></div>
+        <div class="pointer-events-none absolute right-24 top-56 hidden h-72 w-72 rounded-full border border-white/10 lg:block"></div>
+
+        <div class="relative mx-auto w-full max-w-[1440px] px-6 pb-10 pt-32 lg:px-12 lg:pb-14">
+          <div class="max-w-5xl">
+            <p class="mb-8 inline-flex border-l-2 border-white/55 pl-5 text-sm font-semibold uppercase text-white/68">
+              Smart Water · Solution
+            </p>
+            <h1 class="max-w-5xl text-5xl font-semibold leading-[1.04] md:text-7xl">
+              智慧水务
+            </h1>
+            <p class="mt-10 max-w-3xl text-xl leading-9 text-white/76">
+              综合运用传感装备、边缘计算、工业控制、物联网、大数据等信息技术，实现水务工作的科学化、精细化和智能化。
+            </p>
+            <div class="mt-12 flex flex-wrap gap-5">
+              <a href="#overview" class="inline-flex h-12 items-center gap-3 rounded-md bg-white px-7 text-sm font-semibold text-ink hover:bg-pale">
+                查看方案详情
+                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+              </a>
+              <a href="#contact" class="inline-flex h-12 items-center rounded-md border border-white/35 px-7 text-sm font-semibold text-white hover:bg-white hover:text-ink">
+                联系咨询
+              </a>
+            </div>
+          </div>
+
+          <div class="mt-20 grid border-y border-white/15 bg-white/[0.03] backdrop-blur-sm lg:grid-cols-3">
+            <div class="min-h-28 px-6 py-6 lg:px-10">
+              <p class="text-xs uppercase text-white/42">Smart</p>
+              <p class="mt-3 text-lg font-semibold">全方位水务系统智能化</p>
+            </div>
+            <div class="min-h-28 border-t border-white/15 px-6 py-6 lg:border-l lg:border-t-0 lg:px-10">
+              <p class="text-xs uppercase text-white/42">Integration</p>
+              <p class="mt-3 text-lg font-semibold">厂站网一体化联合调度</p>
+            </div>
+            <div class="min-h-28 border-t border-white/15 px-6 py-6 lg:border-l lg:border-t-0 lg:px-10">
+              <p class="text-xs uppercase text-white/42">Lifecycle</p>
+              <p class="mt-3 text-lg font-semibold">水资源循环全生命周期管理</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="overview" class="bg-white py-24 lg:py-32">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div class="detail-bg min-h-[520px] bg-cover bg-center p-8 text-white lg:p-10">
+              <div class="flex h-full flex-col justify-end">
+                <p class="text-sm text-white/68">Solution Overview</p>
+                <h2 class="mt-4 text-4xl font-semibold leading-tight">智慧水务</h2>
+                <p class="mt-4 text-lg text-white/72">智慧城市的重要组成部分</p>
+              </div>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-river">方案概述</p>
+              <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">
+                让水务管理更智能、更科学、更精细。
+              </h2>
+              <div class="mt-10 grid gap-6 text-base leading-8 text-slate-600">
+                <p>
+                  智慧水务作为智慧城市的重要部分，是体现城市管理智能化水平的重要标志之一，关系到城市运行资源优化配置、政府职能提升、公共服务完善等内容，国家高度重视，因此密集出台相关政策文件用于建设指导。
+                </p>
+                <p>
+                  智慧水务是指综合运用传感装备、边缘计算、工业控制、物联网、大数据、计算模型、空间地理等信息技术，在水资源循环的整个生命周期里，聚焦生产和运行过程，通过平台进行监管、分析、处理和辅助决策，形成融合智能感知、智能仿真、智能诊断、智能预警、智能调度、智能处置、智能控制和智能服务的全方位水务系统，实现水务工作的科学化、精细化和智能化。
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="scenarios" class="bg-ink py-24 text-white lg:py-32">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="mb-16 w-full">
+            <p class="text-sm font-semibold text-white/55">特色场景</p>
+            <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">
+              覆盖水务管理全场景智能化应用。
+            </h2>
+          </div>
+
+          <div class="grid overflow-hidden border-l border-t border-white/15 md:grid-cols-2 lg:grid-cols-3">
+            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+              <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">01</p>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">管网全过程管理</h3>
+              <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
+                实现管网从勘测成果入库、管网编辑、静态诊断、管网GIS、管网运行监控、基于模型的管网运行过程动态诊断和管网问题处置派发的闭环管理。
+              </p>
+            </article>
+            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+              <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">02</p>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">水质污染溯源</h3>
+              <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
+                实现污水厂、雨水排口、管网监测点等不同监测场景下水质发生异常时，系统能够依据多种因素，进行综合研判，快速实现污染区域溯源和定位，并将取证、送检、处置等任务形成线上化的闭环过程。
+              </p>
+            </article>
+            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+              <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">03</p>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">设施设备巡养</h3>
+              <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
+                依托移动端和PC端，将管网、泵站等设施设备的巡检、养护等工作形成线上化的管理方式，包括计划制定、计划审核、计划执行、任务分析及过程中事件的处置。
+              </p>
+            </article>
+            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+              <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">04</p>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">厂站网智能调度</h3>
+              <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
+                通过模型，实现污水处理厂、污水泵站、污水管网的"厂站网"一体化联合调度，解决自成体系、孤立运行的管理难题。实现排水区域协同智能调度，减少冒溢、降低能耗、稳定流量、延长泵站寿命。
+              </p>
+            </article>
+            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+              <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">05</p>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">污水零直排监管</h3>
+              <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
+                围绕"污水零直排区"建设管理需求，聚焦零直排区排查、建设、评估、验收、运维等全过程，通过不同的系统模块，实现智慧化的管理。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="bg-pale py-24 lg:py-32">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="mb-12 rounded-lg bg-river px-8 py-12 text-center text-white lg:px-12">
+            <h2 class="text-4xl font-semibold">了解智慧水务解决方案</h2>
+            <a href="tel:0571-88212121" class="mt-8 inline-flex h-12 items-center rounded-md bg-white px-7 text-sm font-semibold text-ink hover:bg-pale">
+              联系我们
+            </a>
+          </div>
+          <div class="grid overflow-hidden rounded-lg bg-white lg:grid-cols-[1.1fr_0.9fr]">
+            <div class="p-10 lg:p-16">
+              <p class="text-sm font-semibold text-river">联系咨询</p>
+              <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">获取智慧水务方案支持</h2>
+              <p class="mt-8 max-w-2xl text-lg leading-9 text-slate-600">
+                如需了解智慧水务平台建设、系统集成或运维配置，可联系小桥流水技术团队。
+              </p>
+            </div>
+            <div class="bg-ink p-10 text-white lg:p-16">
+              <div class="grid gap-8 text-base text-white/76">
+                <p class="flex gap-4"><i data-lucide="phone" class="h-5 w-5 shrink-0 text-white"></i>0571-88212121</p>
+                <p class="flex gap-4"><i data-lucide="mail" class="h-5 w-5 shrink-0 text-white"></i>xqls@xqls.com.cn</p>
+                <p class="flex gap-4"><i data-lucide="clock" class="h-5 w-5 shrink-0 text-white"></i>周一至周五（9:00-18:00）</p>
+                <p class="flex gap-4 leading-8"><i data-lucide="map-pin" class="h-5 w-5 shrink-0 text-white"></i>浙江省杭州市余杭区余杭塘路2301号海智中心3号楼801室</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-ink py-8 text-white">
+      <div class="mx-auto flex max-w-[1440px] flex-col gap-4 px-6 text-sm text-white/55 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+        <div>
+          <p>© <span id="year"></span> 浙江小桥流水环境科技有限公司 All rights reserved</p>
+          <p class="mt-2">浙ICP备12045722号-3 · 浙公网安备 33011002016969号</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <img src="assets/qr-code.png" alt="小桥流水公众号二维码" class="h-20 w-20 rounded bg-white p-1" />
+          <div>
+            <p class="font-semibold text-white/75">关注公众号</p>
+            <p class="mt-1">小桥流水</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const siteHeader = document.getElementById("siteHeader");
+      const heroSection = document.querySelector(".hero-bg");
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const updateHeader = () => {
+        const threshold = heroSection.offsetHeight - siteHeader.offsetHeight;
+        siteHeader.classList.toggle("is-scrolled", window.scrollY >= threshold);
+      };
+      updateHeader();
+      window.addEventListener("scroll", updateHeader, { passive: true });
+      window.addEventListener("resize", updateHeader);
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+      });
+      document.getElementById("year").textContent = new Date().getFullYear();
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
