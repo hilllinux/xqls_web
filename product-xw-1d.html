@@ -1,579 +1,620 @@
-<!DOCTYPE html>
-<html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>XW-1D型水质自动采样器 — 小桥流水</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            aqua: { 50: '#ecfeff', 100: '#cffafe', 200: '#a5f3fc', 300: '#67e8f9', 400: '#22d3ee', 500: '#06b6d4', 600: '#0891b2', 700: '#0e7490', 800: '#155e75', 900: '#164e63' },
-            navy: { 50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc', 400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1', 800: '#075985', 900: '#0c4a6e' },
-          }
-        }
+<!doctype html>
+<html lang="zh-CN" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="XW-1D型水质自动采样器，支持多种采样模式、远程无线监控、恒温留样与复杂现场部署。"
+    />
+    <title>XW-1D型水质自动采样器 | 浙江小桥流水环境科技有限公司</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "PingFang SC", "Microsoft YaHei", "Arial", "sans-serif"],
+            },
+            colors: {
+              ink: "#07141C",
+              steel: "#24333D",
+              river: "#0D6F8F",
+              pale: "#F4F7F8",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        text-rendering: optimizeLegibility;
       }
-    }
-  </script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
-    * { font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', sans-serif; }
-    body { background: #030f1a; color: #e2e8f0; overflow-x: hidden; }
-
-    /* Animated water wave background */
-    .wave-bg {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      z-index: 0; pointer-events: none; overflow: hidden;
-    }
-    .wave {
-      position: absolute; width: 200%; height: 200%;
-      top: -50%; left: -50%;
-      background: radial-gradient(ellipse at 30% 50%, rgba(6,182,212,0.12) 0%, transparent 50%),
-                  radial-gradient(ellipse at 70% 30%, rgba(14,116,144,0.10) 0%, transparent 50%),
-                  radial-gradient(ellipse at 50% 80%, rgba(2,132,199,0.08) 0%, transparent 50%);
-      animation: waveDrift 20s ease-in-out infinite;
-    }
-    .wave:nth-child(2) { animation-delay: -7s; opacity: 0.6; }
-    .wave:nth-child(3) { animation-delay: -14s; opacity: 0.4; }
-    @keyframes waveDrift {
-      0%, 100% { transform: translate(0, 0) rotate(0deg); }
-      33% { transform: translate(-3%, 2%) rotate(1deg); }
-      66% { transform: translate(2%, -2%) rotate(-1deg); }
-    }
-
-    /* Grid overlay */
-    .grid-overlay {
-      position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-      z-index: 1; pointer-events: none;
-      background-image:
-        linear-gradient(rgba(6,182,212,0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(6,182,212,0.03) 1px, transparent 1px);
-      background-size: 60px 60px;
-    }
-
-    .content { position: relative; z-index: 10; }
-
-    /* Glowing border */
-    .glow-border {
-      border: 1px solid rgba(6,182,212,0.25);
-      box-shadow: 0 0 20px rgba(6,182,212,0.08), inset 0 0 20px rgba(6,182,212,0.03);
-    }
-    .glow-border:hover {
-      border-color: rgba(6,182,212,0.5);
-      box-shadow: 0 0 30px rgba(6,182,212,0.15), inset 0 0 30px rgba(6,182,212,0.05);
-    }
-
-    /* Card entrance */
-    .card-animate {
-      opacity: 0; transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
-    .card-animate.visible { opacity: 1; transform: translateY(0); }
-
-    /* Pulse dot */
-    .pulse-dot {
-      width: 8px; height: 8px; border-radius: 50%;
-      background: #22d3ee; box-shadow: 0 0 8px #22d3ee;
-      animation: pulse 2s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.5; transform: scale(0.8); }
-    }
-
-    /* Hero product image gradient */
-    .product-hero {
-      background: linear-gradient(135deg, #0c4a6e 0%, #0369a1 35%, #0891b2 65%, #164e63 100%);
-      position: relative; overflow: hidden;
-    }
-    .product-hero::before {
-      content: ''; position: absolute; inset: 0;
-      background:
-        radial-gradient(circle at 20% 50%, rgba(34,211,238,0.3) 0%, transparent 40%),
-        radial-gradient(circle at 80% 20%, rgba(6,182,212,0.2) 0%, transparent 35%),
-        radial-gradient(circle at 50% 80%, rgba(14,116,144,0.3) 0%, transparent 40%);
-    }
-    .product-hero::after {
-      content: ''; position: absolute; bottom: -2px; left: 0; right: 0; height: 80px;
-      background: linear-gradient(to top, #030f1a, transparent);
-    }
-
-    /* Scanning line effect */
-    .scan-line {
-      position: absolute; left: 0; right: 0; height: 2px;
-      background: linear-gradient(90deg, transparent, rgba(34,211,238,0.6), transparent);
-      animation: scan 3s ease-in-out infinite;
-    }
-    @keyframes scan {
-      0% { top: 0; opacity: 0; }
-      10% { opacity: 1; }
-      90% { opacity: 1; }
-      100% { top: 100%; opacity: 0; }
-    }
-
-    /* Feature icon glow */
-    .feature-icon {
-      background: linear-gradient(135deg, #0891b2, #06b6d4);
-      box-shadow: 0 4px 20px rgba(6,182,212,0.3);
-    }
-    .feature-icon i { color: #fff; }
-
-    /* Spec table */
-    .spec-row:nth-child(odd) { background: rgba(6,182,212,0.04); }
-    .spec-row:nth-child(even) { background: rgba(6,182,212,0.02); }
-
-    /* CTA button */
-    .btn-cta {
-      background: linear-gradient(135deg, #0891b2, #06b6d4);
-      box-shadow: 0 4px 20px rgba(6,182,212,0.4);
-      transition: all 0.3s ease;
-    }
-    .btn-cta:hover {
-      box-shadow: 0 6px 30px rgba(6,182,212,0.6);
-      transform: translateY(-2px);
-    }
-
-    /* Floating particles */
-    .particle {
-      position: absolute; width: 3px; height: 3px; border-radius: 50%;
-      background: rgba(34,211,238,0.6);
-      animation: floatUp linear infinite;
-    }
-    @keyframes floatUp {
-      0% { transform: translateY(0) translateX(0); opacity: 0; }
-      20% { opacity: 1; }
-      80% { opacity: 1; }
-      100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
-    }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 6px; }
-    ::-webkit-scrollbar-track { background: #030f1a; }
-    ::-webkit-scrollbar-thumb { background: #0891b2; border-radius: 3px; }
-
-    /* Nav */
-    .nav-glass {
-      background: rgba(3,15,26,0.85);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(6,182,212,0.15);
-    }
-  </style>
-</head>
-<body>
-
-<!-- Animated background -->
-<div class="wave-bg">
-  <div class="wave"></div>
-  <div class="wave"></div>
-  <div class="wave"></div>
-</div>
-<div class="grid-overlay"></div>
-
-<!-- Particles -->
-<div id="particles" style="position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:5;overflow:hidden;"></div>
-
-<!-- Navigation -->
-<nav class="nav-glass fixed top-0 left-0 right-0 z-50">
-  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-    <a href="index.html" class="flex items-center gap-3 group">
-      <div class="w-10 h-10 rounded-lg feature-icon flex items-center justify-center">
-        <i class="fas fa-water text-white text-lg"></i>
-      </div>
-      <div>
-        <div class="text-white font-bold text-lg leading-none">小桥流水</div>
-        <div class="text-aqua-400 text-xs tracking-widest uppercase">XQLS Tech</div>
-      </div>
-    </a>
-    <div class="hidden md:flex items-center gap-8 text-sm text-slate-300">
-      <a href="index.html" class="hover:text-aqua-400 transition-colors">首页</a>
-      <a href="#product-info" class="hover:text-aqua-400 transition-colors">产品简介</a>
-      <a href="#features" class="hover:text-aqua-400 transition-colors">产品特点</a>
-      <a href="#scenarios" class="hover:text-aqua-400 transition-colors">应用场景</a>
-    </div>
-    <a href="tel:0571-88212121" class="btn-cta text-white text-sm font-medium px-5 py-2.5 rounded-lg flex items-center gap-2">
-      <i class="fas fa-phone text-xs"></i> 0571-88212121
-    </a>
-  </div>
-</nav>
-
-<!-- Hero Section -->
-<section class="relative min-h-[70vh] flex items-center pt-24 pb-16 overflow-hidden">
-  <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center w-full relative z-10">
-    <!-- Left: Text -->
-    <div class="space-y-8">
-      <div class="flex items-center gap-3">
-        <div class="pulse-dot"></div>
-        <span class="text-aqua-400 text-sm font-medium tracking-widest uppercase">水质监测专家</span>
-      </div>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white leading-tight">
-        XW-1D型<br/>
-        <span class="bg-gradient-to-r from-aqua-400 to-sky-400 bg-clip-text text-transparent">水质自动采样器</span>
-      </h1>
-      <p class="text-slate-400 text-lg leading-relaxed max-w-lg">
-        自主研发 · 智能采样 · 符合国家环保标准<br/>
-        <span class="text-aqua-400 font-semibold">HJ 353 / HJ/T 37</span> 认证产品
-      </p>
-      <div class="flex flex-wrap gap-4">
-        <a href="#product-info" class="btn-cta text-white font-semibold px-8 py-3.5 rounded-xl flex items-center gap-2">
-          了解更多 <i class="fas fa-arrow-down text-sm"></i>
+      .hero-bg {
+        background-image:
+          radial-gradient(circle at 72% 40%, rgba(13, 111, 143, 0.24), rgba(13, 111, 143, 0) 36%),
+          linear-gradient(90deg, rgba(3, 12, 18, 0.94) 0%, rgba(3, 12, 18, 0.74) 42%, rgba(3, 12, 18, 0.24) 100%),
+          url("http://www.xqls.tech/statics/2024/fcf1d451425e49b083491f60a86471e6.jpg");
+      }
+      .detail-bg {
+        background-image:
+          linear-gradient(180deg, rgba(7, 20, 28, 0.08), rgba(7, 20, 28, 0.82)),
+          url("http://www.xqls.tech/statics/2024/fcf1d451425e49b083491f60a86471e6.jpg");
+      }
+      .site-header {
+        background: transparent;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+      .site-header.is-scrolled {
+        background: rgba(255, 255, 255, 0.94);
+        color: #07141c;
+        border-color: rgba(15, 23, 42, 0.12);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .site-header:hover {
+        background: rgba(255, 255, 255, 0.96);
+        color: #07141c;
+        border-color: rgba(15, 23, 42, 0.12);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .site-header .phone-link,
+      .site-header .menu-button {
+        border-color: rgba(255, 255, 255, 0.38);
+      }
+      .site-header.is-scrolled .phone-link,
+      .site-header.is-scrolled .menu-button {
+        border-color: rgba(15, 23, 42, 0.22);
+      }
+      .site-header:hover .phone-link,
+      .site-header:hover .menu-button {
+        border-color: rgba(13, 111, 143, 0.32);
+      }
+      .site-header nav {
+        color: rgba(255, 255, 255, 0.72);
+      }
+      .site-header.is-scrolled nav {
+        color: #07141c;
+      }
+      .site-header:hover nav {
+        color: #07141c;
+      }
+      .site-header:hover .header-brand,
+      .site-header:hover .header-brand-en {
+        color: #0d6f8f;
+      }
+      .site-header nav a:hover {
+        color: #fff !important;
+      }
+      .site-header.is-scrolled nav a:hover {
+        color: #07141c !important;
+      }
+      .site-header:hover nav a:hover {
+        color: #0d6f8f !important;
+      }
+      .site-header .phone-link:hover {
+        background: #fff;
+        color: #07141c;
+      }
+      .site-header.is-scrolled .phone-link:hover {
+        background: #07141c;
+        color: #fff;
+      }
+      .site-header:hover .phone-link:hover {
+        background: #0d6f8f;
+        color: #fff;
+      }
+      .site-header.is-scrolled #mobileMenu {
+        background: #fff;
+        color: #07141c;
+        border-color: rgba(15, 23, 42, 0.12);
+      }
+      .site-header.is-scrolled #mobileMenu .mobile-menu-muted {
+        color: rgba(7, 20, 28, 0.62);
+      }
+      .header-nav {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      }
+      .header-brand {
+        font-size: 22px;
+        font-weight: 500;
+        font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      }
+      .header-brand-en {
+        margin-top: 7px;
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.58);
+        font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      }
+      .site-header.is-scrolled .header-brand-en {
+        color: rgba(7, 20, 28, 0.5);
+      }
+      .brand-logo-color,
+      .brand-logo-white {
+        transition: opacity 0.25s ease;
+      }
+      .brand-logo-color {
+        opacity: 0;
+      }
+      .site-header.is-scrolled .brand-logo-color,
+      .site-header:hover .brand-logo-color {
+        opacity: 1;
+      }
+      .site-header.is-scrolled .brand-logo-white,
+      .site-header:hover .brand-logo-white {
+        opacity: 0;
+      }
+      .nav-link {
+        position: relative;
+        display: inline-flex;
+        height: 86px;
+        align-items: center;
+        color: inherit;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 3px;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.28s ease;
+      }
+      .nav-link:hover::after {
+        transform: scaleX(1);
+      }
+      .nav-dropdown {
+        position: relative;
+        height: 86px;
+        display: inline-flex;
+        align-items: center;
+      }
+      .nav-dropdown-panel {
+        position: fixed;
+        left: 50%;
+        top: 86px;
+        width: min(1040px, calc(100vw - 48px));
+        transform: translateX(-50%) translateY(10px);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+      .nav-dropdown:hover .nav-dropdown-panel {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+      }
+      .product-menu-link:hover {
+        color: #0d6f8f !important;
+      }
+    </style>
+  </head>
+  <body class="bg-white font-sans text-ink antialiased">
+    <header id="siteHeader" class="site-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md transition-all duration-300">
+      <div class="mx-auto flex h-[86px] max-w-[1440px] items-center justify-between px-6 lg:px-12">
+        <a href="index.html#home" class="flex items-center gap-3 leading-none" aria-label="小桥流水环境科技首页">
+          <span class="relative h-11 w-20 shrink-0">
+            <img
+              src="assets/logo-white.png"
+              alt="小桥流水环境科技 Logo"
+              class="brand-logo-white absolute inset-0 h-full w-full object-contain"
+            />
+            <img
+              src="assets/logo.png"
+              alt=""
+              class="brand-logo-color absolute inset-0 h-full w-full object-contain"
+            />
+          </span>
+          <span>
+            <span class="header-brand block">小桥流水环境科技</span>
+            <span class="header-brand-en block">XQLS Environmental Technology</span>
+          </span>
         </a>
-        <a href="tel:0571-88212121" class="glow-border text-aqua-400 font-semibold px-8 py-3.5 rounded-xl flex items-center gap-2 hover:text-white transition-colors">
-          <i class="fas fa-headset"></i> 立即咨询
-        </a>
-      </div>
-      <!-- Stats -->
-      <div class="grid grid-cols-3 gap-6 pt-4">
-        <div class="text-center">
-          <div class="text-3xl font-extrabold text-white">CCEP</div>
-          <div class="text-slate-500 text-sm mt-1">环保认证</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-extrabold text-white">7+</div>
-          <div class="text-slate-500 text-sm mt-1">采样模式</div>
-        </div>
-        <div class="text-center">
-          <div class="text-3xl font-extrabold text-white">4G</div>
-          <div class="text-slate-500 text-sm mt-1">无线通讯</div>
-        </div>
-      </div>
-    </div>
-    <!-- Right: Product Visual -->
-    <div class="relative">
-      <div class="product-hero rounded-3xl h-[420px] flex items-center justify-center relative overflow-hidden">
-        <div class="scan-line"></div>
-        <!-- Device illustration -->
-        <svg viewBox="0 0 300 400" class="w-64 h-auto relative z-10 drop-shadow-2xl" xmlns="http://www.w3.org/2000/svg">
-          <!-- Device body -->
-          <rect x="40" y="60" width="220" height="300" rx="16" fill="#0c4a6e" stroke="#22d3ee" stroke-width="2"/>
-          <!-- Screen area -->
-          <rect x="60" y="80" width="180" height="120" rx="8" fill="#011627" stroke="#0891b2" stroke-width="1.5"/>
-          <!-- Screen content -->
-          <text x="150" y="115" text-anchor="middle" fill="#22d3ee" font-size="10" font-family="monospace">WATER QUALITY</text>
-          <text x="150" y="132" text-anchor="middle" fill="#67e8f9" font-size="8" font-family="monospace">MONITORING SYSTEM</text>
-          <line x1="70" y1="142" x2="230" y2="142" stroke="#0891b2" stroke-width="0.5" stroke-dasharray="4,2"/>
-          <text x="100" y="158" fill="#a5f3fc" font-size="7" font-family="monospace">pH: 7.24</text>
-          <text x="100" y="170" fill="#a5f3fc" font-size="7" font-family="monospace">DO: 8.1 mg/L</text>
-          <text x="100" y="182" fill="#a5f3fc" font-size="7" font-family="monospace">TDS: 215 ppm</text>
-          <text x="200" y="158" fill="#a5f3fc" font-size="7" font-family="monospace">Flow: 12.4</text>
-          <text x="200" y="170" fill="#a5f3fc" font-size="7" font-family="monospace">Status: OK</text>
-          <circle cx="220" cy="164" r="4" fill="#22d3ee" opacity="0.8"/>
-          <!-- Status LEDs -->
-          <circle cx="80" y="215" r="5" fill="#22d3ee">
-            <animate attributeName="opacity" values="1;0.4;1" dur="2s" repeatCount="indefinite"/>
-          </circle>
-          <circle cx="100" cy="215" r="5" fill="#22d3ee" opacity="0.6"/>
-          <circle cx="120" cy="215" r="5" fill="#164e63"/>
-          <!-- Pump unit -->
-          <rect x="80" y="230" width="140" height="50" rx="8" fill="#0369a1" stroke="#0891b2" stroke-width="1"/>
-          <text x="150" y="252" text-anchor="middle" fill="#bae6fd" font-size="8">PERISTALTIC PUMP</text>
-          <text x="150" y="267" text-anchor="middle" fill="#67e8f9" font-size="7">Precision Sampling Unit</text>
-          <!-- Sample bottles -->
-          <rect x="60" y="295" width="35" height="55" rx="4" fill="#0e7490" stroke="#22d3ee" stroke-width="1" opacity="0.9"/>
-          <rect x="105" y="295" width="35" height="55" rx="4" fill="#0e7490" stroke="#22d3ee" stroke-width="1" opacity="0.7"/>
-          <rect x="150" y="295" width="35" height="55" rx="4" fill="#0e7490" stroke="#22d3ee" stroke-width="1" opacity="0.5"/>
-          <rect x="195" y="295" width="35" height="55" rx="4" fill="#0e7490" stroke="#22d3ee" stroke-width="1" opacity="0.3"/>
-          <!-- Water drop icon -->
-          <path d="M150 20 C150 20 130 45 130 55 C130 62 139 68 150 68 C161 68 170 62 170 55 C170 45 150 20 150 20Z" fill="#22d3ee" opacity="0.7"/>
-          <text x="150" y="45" text-anchor="middle" fill="white" font-size="8" font-weight="bold">H₂O</text>
-          <!-- Pipe connectors -->
-          <rect x="25" y="100" width="18" height="8" rx="2" fill="#0891b2"/>
-          <rect x="25" y="150" width="18" height="8" rx="2" fill="#0891b2"/>
-          <rect x="257" y="120" width="18" height="8" rx="2" fill="#0891b2"/>
-          <rect x="257" y="170" width="18" height="8" rx="2" fill="#0891b2"/>
-        </svg>
-        <!-- Floating data tags -->
-        <div class="absolute top-8 right-8 bg-navy-800/80 border border-aqua-500/30 rounded-lg px-3 py-2 text-xs font-mono">
-          <div class="text-aqua-400">FLOW: 12.4 m³/h</div>
-          <div class="text-slate-400 mt-1">实时监测中</div>
-        </div>
-        <div class="absolute bottom-20 left-8 bg-navy-800/80 border border-aqua-500/30 rounded-lg px-3 py-2 text-xs font-mono">
-          <div class="text-aqua-400">SAMPLE: #0037</div>
-          <div class="text-slate-400 mt-1">等待分析</div>
-        </div>
-      </div>
-      <!-- Glow behind hero -->
-      <div class="absolute -inset-4 bg-gradient-to-r from-aqua-500/10 to-sky-500/10 rounded-3xl blur-2xl -z-10"></div>
-    </div>
-  </div>
-</section>
 
-<!-- Product Info Section -->
-<section id="product-info" class="py-24 relative">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="card-animate glow-border rounded-2xl p-8 md:p-12 bg-navy-900/50 backdrop-blur-sm">
-      <div class="flex items-center gap-3 mb-8">
-        <div class="w-1 h-8 bg-gradient-to-b from-aqua-400 to-sky-600 rounded-full"></div>
-        <h2 class="text-3xl font-bold text-white">产品简介</h2>
+        <nav class="header-nav hidden items-center gap-7 xl:gap-11 lg:flex" aria-label="主导航">
+          <a class="nav-link" href="index.html#about">关于我们</a>
+          <div class="nav-dropdown">
+            <a class="nav-link" href="index.html#products">产品与服务</a>
+            <div class="nav-dropdown-panel z-50 rounded-lg border border-slate-200 bg-white p-6 text-ink shadow-xl">
+              <div class="grid gap-5 lg:grid-cols-5">
+                <div>
+                  <a href="index.html#products" class="product-menu-link text-base font-semibold text-river">水质采样</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-xw-1d.html">XW-1D型水质自动采样器</a>
+                    <a class="product-menu-link" href="index.html#products">XW-1J2便携式地下水采样器</a>
+                    <a class="product-menu-link" href="index.html#products">XW-1H型水质自动采样器</a>
+                    <a class="product-menu-link" href="index.html#products">XW-1B2型水质自动采样器</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#products" class="product-menu-link text-base font-semibold text-river">水质分析</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#products">XW-9B3型一体化多参数分析留样仪</a>
+                    <a class="product-menu-link" href="index.html#products">XW-9300型一体化多参数分析留样仪</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#products" class="product-menu-link text-base font-semibold text-river">管网监测</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#products">XW-9103微功耗无线智能监测终端</a>
+                    <a class="product-menu-link" href="index.html#products">XW-9103多普勒流量计</a>
+                    <a class="product-menu-link" href="index.html#products">XW-9103S窨井水质多参数监测仪</a>
+                    <a class="product-menu-link" href="index.html#products">XW-9102浮标监测站</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#products" class="product-menu-link text-base font-semibold text-river">系统集成</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#products">XW-4F型智能控制仪</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#products" class="product-menu-link text-base font-semibold text-river">固废管理</a>
+                  <p class="mt-4 text-sm leading-6 text-slate-500">敬请期待</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a class="nav-link" href="index.html#solutions">解决方案</a>
+            <div class="nav-dropdown-panel z-50 rounded-lg border border-slate-200 bg-white p-6 text-ink shadow-xl">
+              <div class="grid gap-5 lg:grid-cols-6">
+                <div>
+                  <a href="index.html#solutions" class="product-menu-link text-base font-semibold text-river">智慧水务</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#solutions">智慧水务</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#solutions" class="product-menu-link text-base font-semibold text-river">智慧水利</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#solutions">智慧水利</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#solutions" class="product-menu-link text-base font-semibold text-river">地下水监测</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#solutions">地下水监测</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#solutions" class="product-menu-link text-base font-semibold text-river">排水监控</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#solutions">雨水监测系统</a>
+                    <a class="product-menu-link" href="index.html#solutions">断面水质监测</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#solutions" class="product-menu-link text-base font-semibold text-river">管网监测</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="index.html#solutions">零直排管理系统</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="index.html#solutions" class="product-menu-link text-base font-semibold text-river">饮用水监测</a>
+                  <p class="mt-4 text-sm leading-6 text-slate-500">敬请期待</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="nav-link" href="index.html#capability">创新能力</a>
+          <a class="nav-link" href="index.html#news">资讯动态</a>
+          <a class="nav-link" href="#contact">联系我们</a>
+        </nav>
+
+        <a
+          href="tel:0571-88212121"
+          class="phone-link hidden h-10 items-center gap-2 rounded-md border px-5 text-sm font-medium transition-colors lg:inline-flex"
+        >
+          <i data-lucide="phone" class="h-4 w-4"></i>
+          0571-88212121
+        </a>
+
+        <button
+          id="menuToggle"
+          class="menu-button inline-flex h-10 w-10 items-center justify-center border lg:hidden"
+          aria-label="打开导航"
+          type="button"
+        >
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
       </div>
-      <div class="grid md:grid-cols-3 gap-8">
-        <div class="md:col-span-2">
-          <p class="text-slate-300 text-lg leading-relaxed mb-6">
-            XW-1D型水质自动采样器是我公司<strong class="text-aqua-400">最新自主研发、设计、生产</strong>的智能化多功能水质采样装置。
-          </p>
-          <p class="text-slate-400 leading-relaxed mb-4">
-            采用<strong class="text-white">精密蠕动泵</strong>作为精确输送单元，使采样精度大幅度提高；使用<strong class="text-white">全不锈钢机体外壳</strong>，防雨设计，使采样器的安装不受环境因素的影响。
-          </p>
-          <p class="text-slate-400 leading-relaxed mb-4">
-            内嵌多种采样模式（比例采样、定时定量、定流定量、流量触发采样、定量采样等），采样器可按流量等比例、时间等比例或其他采样模式进行自动采样。
-          </p>
-          <p class="text-slate-400 leading-relaxed mb-4">
-            <strong class="text-white">稳压装置</strong>的使用，使采样器不受由于排污泵压力不稳、气泡过多等对采样精度的影响；<strong class="text-white">内嵌提升和回水单元</strong>，使采样器能适应"重力流"的排污企业和远距离采样，同时还可以将余水回压至排污管道。
-          </p>
-          <p class="text-slate-400 leading-relaxed">
-            使用<strong class="text-white">恒温装置</strong>，可以使样品保持新鲜不受污染。本采样器设有<strong class="text-aqua-400">远程无线通讯接口</strong>，接收上位计算机或指定的控制装置的信息，实现远程采样监控。
-          </p>
-        </div>
-        <!-- Spec sidebar -->
-        <div class="bg-navy-800/50 rounded-xl p-6 border border-aqua-500/20">
-          <h3 class="text-aqua-400 font-semibold mb-4 flex items-center gap-2">
-            <i class="fas fa-microchip"></i> 核心参数
-          </h3>
-          <div class="space-y-3 text-sm">
-            <div class="flex justify-between items-center py-2 border-b border-aqua-500/10">
-              <span class="text-slate-400">采样精度</span>
-              <span class="text-white font-medium">≤±5%</span>
+
+      <div id="mobileMenu" class="hidden border-t border-white/10 bg-ink px-6 py-5 lg:hidden">
+        <nav class="grid gap-4 text-sm" aria-label="移动端导航">
+          <a href="index.html#about">关于我们</a>
+          <a href="index.html#products">产品与服务</a>
+          <div class="grid gap-3 border-l border-white/20 pl-4 text-xs leading-5">
+            <div>
+              <p class="font-semibold text-river">水质采样</p>
+              <a href="product-xw-1d.html" class="mobile-menu-muted mt-1 block text-white/60">XW-1D型水质自动采样器</a>
             </div>
-            <div class="flex justify-between items-center py-2 border-b border-aqua-500/10">
-              <span class="text-slate-400">最大扬程</span>
-              <span class="text-white font-medium">8m</span>
+            <div>
+              <p class="font-semibold text-river">水质分析</p>
+              <p class="mobile-menu-muted mt-1 text-white/60">XW-9B3 / XW-9300 一体化多参数分析留样仪</p>
             </div>
-            <div class="flex justify-between items-center py-2 border-b border-aqua-500/10">
-              <span class="text-slate-400">通讯方式</span>
-              <span class="text-white font-medium">4G/GPRS</span>
+            <div>
+              <p class="font-semibold text-river">管网监测</p>
+              <p class="mobile-menu-muted mt-1 text-white/60">XW-9103 / XW-9103S / XW-9102</p>
             </div>
-            <div class="flex justify-between items-center py-2 border-b border-aqua-500/10">
-              <span class="text-slate-400">样品保存</span>
-              <span class="text-white font-medium">恒温 4±2℃</span>
+            <div>
+              <p class="font-semibold text-river">系统集成</p>
+              <p class="mobile-menu-muted mt-1 text-white/60">XW-4F型智能控制仪</p>
             </div>
-            <div class="flex justify-between items-center py-2 border-b border-aqua-500/10">
-              <span class="text-slate-400">机体材质</span>
-              <span class="text-white font-medium">全不锈钢</span>
+          </div>
+          <a href="index.html#solutions">解决方案</a>
+          <a href="index.html#capability">创新能力</a>
+          <a href="index.html#news">资讯动态</a>
+          <a href="#contact">联系我们</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero-bg relative flex min-h-screen items-end overflow-hidden bg-cover bg-center text-white">
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-ink to-transparent"></div>
+        <div class="pointer-events-none absolute right-[-12rem] top-28 hidden h-[36rem] w-[36rem] rounded-full border border-white/10 lg:block"></div>
+        <div class="pointer-events-none absolute right-24 top-56 hidden h-72 w-72 rounded-full border border-white/10 lg:block"></div>
+
+        <div class="relative mx-auto w-full max-w-[1440px] px-6 pb-10 pt-32 lg:px-12 lg:pb-14">
+          <div class="max-w-5xl">
+            <p class="mb-8 inline-flex border-l-2 border-white/55 pl-5 text-sm font-semibold uppercase text-white/68">
+              Water Quality Sampling · XW-1D
+            </p>
+            <h1 class="max-w-5xl text-5xl font-semibold leading-[1.04] md:text-7xl">
+              XW-1D型
+              <span class="block text-white/72">水质自动采样器</span>
+            </h1>
+            <p class="mt-10 max-w-3xl text-xl leading-9 text-white/76">
+              面向污染源、排水口和水质在线监测场景，实现多模式自动采样、恒温留样、远程控制与现场联动。
+            </p>
+            <div class="mt-12 flex flex-wrap gap-5">
+              <a href="#features" class="inline-flex h-12 items-center gap-3 rounded-md bg-white px-7 text-sm font-semibold text-ink hover:bg-pale">
+                查看产品特点
+                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+              </a>
+              <a href="#contact" class="inline-flex h-12 items-center rounded-md border border-white/35 px-7 text-sm font-semibold text-white hover:bg-white hover:text-ink">
+                联系咨询
+              </a>
             </div>
-            <div class="flex justify-between items-center py-2">
-              <span class="text-slate-400">认证标准</span>
-              <span class="text-aqua-400 font-medium text-xs">HJ 353 / HJ/T 37</span>
+          </div>
+
+          <div class="mt-20 grid border-y border-white/15 bg-white/[0.03] backdrop-blur-sm lg:grid-cols-3">
+            <div class="min-h-28 px-6 py-6 lg:px-10">
+              <p class="text-xs uppercase text-white/42">Sampling</p>
+              <p class="mt-3 text-lg font-semibold">定时、等比、触发、远程控制多模式采样</p>
+            </div>
+            <div class="min-h-28 border-t border-white/15 px-6 py-6 lg:border-l lg:border-t-0 lg:px-10">
+              <p class="text-xs uppercase text-white/42">Storage</p>
+              <p class="mt-3 text-lg font-semibold">恒温留样，保障样品保存状态</p>
+            </div>
+            <div class="min-h-28 border-t border-white/15 px-6 py-6 lg:border-l lg:border-t-0 lg:px-10">
+              <p class="text-xs uppercase text-white/42">Operation</p>
+              <p class="mt-3 text-lg font-semibold">远程查询、参数设置与采样记录管理</p>
             </div>
           </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-<!-- Features Section -->
-<section id="features" class="py-24 relative">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="text-center mb-16 card-animate">
-      <div class="flex items-center justify-center gap-3 mb-4">
-        <div class="w-8 h-px bg-aqua-500/40"></div>
-        <span class="text-aqua-400 text-sm font-medium tracking-widest uppercase">Product Features</span>
-        <div class="w-8 h-px bg-aqua-500/40"></div>
-      </div>
-      <h2 class="text-4xl font-extrabold text-white">产品特点</h2>
-      <p class="text-slate-400 mt-4 max-w-2xl mx-auto">智能化设计 · 多元化采样 · 远程可控</p>
-    </div>
-    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-      <!-- Feature 1 -->
-      <div class="card-animate glow-border rounded-2xl p-7 bg-navy-900/60 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-300">
-        <div class="feature-icon w-14 h-14 rounded-xl flex items-center justify-center mb-5">
-          <i class="fas fa-certificate text-xl"></i>
-        </div>
-        <h3 class="text-white font-bold text-lg mb-3">权威认证 · 符合国标</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">符合环保部标准 <strong class="text-aqua-400">HJ 353、HJ/T 37</strong> 标准要求，通过 CCEP 环境保护产品认证</p>
-      </div>
-      <!-- Feature 2 -->
-      <div class="card-animate glow-border rounded-2xl p-7 bg-navy-900/60 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-300" style="transition-delay:0.1s">
-        <div class="feature-icon w-14 h-14 rounded-xl flex items-center justify-center mb-5">
-          <i class="fas fa-sliders-h text-xl"></i>
-        </div>
-        <h3 class="text-white font-bold text-lg mb-3">多种采样模式</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">定时、时间等比、排放等比、流量等比、流量跟随、流量触发、远程控制等多种采样模式自由切换</p>
-      </div>
-      <!-- Feature 3 -->
-      <div class="card-animate glow-border rounded-2xl p-7 bg-navy-900/60 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-300" style="transition-delay:0.2s">
-        <div class="feature-icon w-14 h-14 rounded-xl flex items-center justify-center mb-5">
-          <i class="fas fa-flask text-xl"></i>
-        </div>
-        <h3 class="text-white font-bold text-lg mb-3">灵活留样方式</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">支持超标留样、平行监测留样、比对监测留样、远程控制留样；单瓶单样、单瓶混样、多瓶单样、多瓶混样</p>
-      </div>
-      <!-- Feature 4 -->
-      <div class="card-animate glow-border rounded-2xl p-7 bg-navy-900/60 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-300" style="transition-delay:0.3s">
-        <div class="feature-icon w-14 h-14 rounded-xl flex items-center justify-center mb-5">
-          <i class="fas fa-wifi text-xl"></i>
-        </div>
-        <h3 class="text-white font-bold text-lg mb-3">远程无线监控</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">与远程平台软件联网后，可实现<strong class="text-aqua-400">远程状态查询、参数设置、记录上传、远程采样</strong>等全部功能</p>
-      </div>
-      <!-- Feature 5 -->
-      <div class="card-animate glow-border rounded-2xl p-7 bg-navy-900/60 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-300" style="transition-delay:0.4s">
-        <div class="feature-icon w-14 h-14 rounded-xl flex items-center justify-center mb-5">
-          <i class="fas fa-cogs text-xl"></i>
-        </div>
-        <h3 class="text-white font-bold text-lg mb-3">模块化免维护</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">预处理罐雨刮式自清洗系统 + 整机模块化设计，大幅减少日常维护工作量</p>
-      </div>
-      <!-- Feature 6 -->
-      <div class="card-animate glow-border rounded-2xl p-7 bg-navy-900/60 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-300" style="transition-delay:0.5s">
-        <div class="feature-icon w-14 h-14 rounded-xl flex items-center justify-center mb-5">
-          <i class="fas fa-shield-alt text-xl"></i>
-        </div>
-        <h3 class="text-white font-bold text-lg mb-3">户外工业级防护</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">全不锈钢防雨机体，可安装于压力管道现场，自排空功能将废液压回管道，适用各种复杂环境</p>
-      </div>
-      <!-- Feature 7 -->
-      <div class="card-animate glow-border rounded-2xl p-7 bg-navy-900/60 backdrop-blur-sm hover:-translate-y-1 transition-transform duration-300 md:col-span-2 lg:col-span-1" style="transition-delay:0.6s">
-        <div class="feature-icon w-14 h-14 rounded-xl flex items-center justify-center mb-5">
-          <i class="fas fa-tint text-xl"></i>
-        </div>
-        <h3 class="text-white font-bold text-lg mb-3">精密蠕动泵技术</h3>
-        <p class="text-slate-400 text-sm leading-relaxed">采用精密蠕动泵作为精确输送单元，采样精度大幅提高；配合稳压装置，无惧压力波动和气泡干扰</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Scenarios Section -->
-<section id="scenarios" class="py-24 relative">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="card-animate text-center mb-12">
-      <div class="flex items-center justify-center gap-3 mb-4">
-        <div class="w-8 h-px bg-aqua-500/40"></div>
-        <span class="text-aqua-400 text-sm font-medium tracking-widest uppercase">Application Scenarios</span>
-        <div class="w-8 h-px bg-aqua-500/40"></div>
-      </div>
-      <h2 class="text-4xl font-extrabold text-white">应用场景</h2>
-    </div>
-    <div class="card-animate glow-border rounded-2xl p-8 md:p-12 bg-navy-900/50 backdrop-blur-sm">
-      <p class="text-slate-300 text-lg leading-relaxed mb-8">
-        本产品适用于<strong class="text-aqua-400">工业和生活等各类废水排放单位</strong>，实现在线自动采样、离线分析的在线自动采样器。
-      </p>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        <div class="bg-navy-800/60 rounded-xl p-5 text-center border border-aqua-500/15 hover:border-aqua-500/40 transition-colors">
-          <i class="fas fa-building text-aqua-400 text-2xl mb-3"></i>
-          <div class="text-white font-semibold text-sm">政府环保部门</div>
-        </div>
-        <div class="bg-navy-800/60 rounded-xl p-5 text-center border border-aqua-500/15 hover:border-aqua-500/40 transition-colors">
-          <i class="fas fa-industry text-aqua-400 text-2xl mb-3"></i>
-          <div class="text-white font-semibold text-sm">污水处理厂</div>
-        </div>
-        <div class="bg-navy-800/60 rounded-xl p-5 text-center border border-aqua-500/15 hover:border-aqua-500/40 transition-colors">
-          <i class="fas fa-flask text-aqua-400 text-2xl mb-3"></i>
-          <div class="text-white font-semibold text-sm">化工企业</div>
-        </div>
-        <div class="bg-navy-800/60 rounded-xl p-5 text-center border border-aqua-500/15 hover:border-aqua-500/40 transition-colors">
-          <i class="fas fa-paint-brush text-aqua-400 text-2xl mb-3"></i>
-          <div class="text-white font-semibold text-sm">造纸印染行业</div>
-        </div>
-      </div>
-      <div class="mt-8 text-center">
-        <p class="text-slate-400">覆盖工业废水、生活污水排放全场景的在线自动采样监测需求</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA Section -->
-<section class="py-20 relative">
-  <div class="max-w-4xl mx-auto px-6 text-center">
-    <div class="card-animate glow-border rounded-3xl p-12 bg-gradient-to-br from-navy-900/80 to-aqua-900/30 backdrop-blur-sm relative overflow-hidden">
-      <div class="scan-line" style="animation-delay:1s"></div>
-      <div class="relative z-10">
-        <h2 class="text-3xl md:text-4xl font-extrabold text-white mb-4">获取专业解决方案</h2>
-        <p class="text-slate-400 mb-8 max-w-xl mx-auto">我们的技术团队为您提供从产品选型、方案设计到安装调试的全流程服务</p>
-        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-          <a href="tel:0571-88212121" class="btn-cta text-white font-bold text-lg px-10 py-4 rounded-xl flex items-center gap-3 w-full sm:w-auto justify-center">
-            <i class="fas fa-phone-alt"></i> 0571-88212121
-          </a>
-          <a href="index.html" class="glow-border text-aqua-400 font-semibold px-8 py-4 rounded-xl flex items-center gap-2 hover:text-white transition-colors">
-            <i class="fas fa-th-large"></i> 浏览全部产品
-          </a>
-        </div>
-        <p class="text-slate-500 text-sm mt-6">周一至周五 9:00 - 18:00</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Footer -->
-<footer class="border-t border-aqua-900/50 py-10 mt-8 relative z-10">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="grid md:grid-cols-3 gap-8 mb-8">
-      <div>
-        <div class="flex items-center gap-3 mb-4">
-          <div class="w-8 h-8 rounded feature-icon flex items-center justify-center">
-            <i class="fas fa-water text-white text-sm"></i>
+      <section id="overview" class="bg-white py-24 lg:py-32">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="grid gap-14 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
+            <div class="detail-bg min-h-[520px] bg-cover bg-center p-8 text-white lg:p-10">
+              <div class="flex h-full flex-col justify-end">
+                <p class="text-sm text-white/68">Product Overview</p>
+                <h2 class="mt-4 text-4xl font-semibold leading-tight">自动采样、留样与远程管理一体化</h2>
+              </div>
+            </div>
+            <div>
+              <p class="text-sm font-semibold text-river">产品简介</p>
+              <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">
+                为复杂水质现场提供稳定、可追溯的采样能力。
+              </h2>
+              <div class="mt-10 grid gap-6 text-base leading-8 text-slate-600">
+                <p>
+                  XW-1D型水质自动采样器是面向工业废水、生活污水、污染源排口和水质在线监测站点的智能化多功能采样装置，适用于在线自动采样与离线分析协同使用。
+                </p>
+                <p>
+                  设备采用精密蠕动泵作为输送单元，支持定时定量、时间等比、流量等比、流量触发、外部控制和远程启动等采样方式，满足不同监管和运维场景的留样要求。
+                </p>
+                <p>
+                  通过恒温保存、采样记录、报警记录、开关门记录和远程通讯能力，帮助现场运维人员提升样品留存可靠性与过程追溯效率。
+                </p>
+              </div>
+            </div>
           </div>
-          <span class="text-white font-bold">小桥流水</span>
         </div>
-        <p class="text-slate-400 text-sm leading-relaxed">浙江小桥流水环境科技有限公司<br/>专注水质监测与采样技术</p>
-      </div>
-      <div>
-        <h4 class="text-white font-semibold mb-3">联系方式</h4>
-        <div class="space-y-2 text-sm text-slate-400">
-          <div><i class="fas fa-phone text-aqua-400 mr-2"></i> 0571-88212121</div>
-          <div><i class="fas fa-clock text-aqua-400 mr-2"></i> 周一至周五 9:00-18:00</div>
-          <div><i class="fas fa-map-marker-alt text-aqua-400 mr-2"></i> 浙江省杭州市余杭区<br/><span class="ml-6">余杭塘路2301号海智中心3号楼801室</span></div>
+      </section>
+
+      <section id="features" class="bg-pale py-24 lg:py-32">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="mb-14 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+            <div>
+              <p class="text-sm font-semibold text-river">产品特点</p>
+              <h2 class="mt-6 text-4xl font-semibold md:text-6xl">面向无人值守现场的可靠设计</h2>
+            </div>
+            <p class="max-w-xl text-lg leading-8 text-slate-600">
+              从采样触发、样品保存、数据记录到远程控制，覆盖水质采样设备的关键工作链路。
+            </p>
+          </div>
+
+          <div class="grid gap-px overflow-hidden bg-slate-200 md:grid-cols-2 lg:grid-cols-4">
+            <article class="bg-white p-8 lg:p-10">
+              <i data-lucide="timer" class="h-8 w-8 text-river"></i>
+              <p class="mt-8 text-sm font-semibold text-river">01</p>
+              <h3 class="mt-3 text-2xl font-semibold">多种采样模式</h3>
+              <p class="mt-5 text-sm leading-7 text-slate-600">
+                支持定时、时间等比、流量等比、流量触发、外控采样和远程启动等模式。
+              </p>
+            </article>
+            <article class="bg-white p-8 lg:p-10">
+              <i data-lucide="flask-conical" class="h-8 w-8 text-river"></i>
+              <p class="mt-8 text-sm font-semibold text-river">02</p>
+              <h3 class="mt-3 text-2xl font-semibold">灵活留样策略</h3>
+              <p class="mt-5 text-sm leading-7 text-slate-600">
+                支持超标留样、比对留样、平行监测留样和远程控制留样，满足监管取证需求。
+              </p>
+            </article>
+            <article class="bg-white p-8 lg:p-10">
+              <i data-lucide="snowflake" class="h-8 w-8 text-river"></i>
+              <p class="mt-8 text-sm font-semibold text-river">03</p>
+              <h3 class="mt-3 text-2xl font-semibold">恒温样品保存</h3>
+              <p class="mt-5 text-sm leading-7 text-slate-600">
+                通过恒温保存能力降低样品变质风险，提升后续实验室分析的有效性。
+              </p>
+            </article>
+            <article class="bg-white p-8 lg:p-10">
+              <i data-lucide="radio-tower" class="h-8 w-8 text-river"></i>
+              <p class="mt-8 text-sm font-semibold text-river">04</p>
+              <h3 class="mt-3 text-2xl font-semibold">远程无线通讯</h3>
+              <p class="mt-5 text-sm leading-7 text-slate-600">
+                可与平台联动，实现状态查询、参数设置、记录上传和远程采样控制。
+              </p>
+            </article>
+            <article class="bg-white p-8 lg:p-10">
+              <i data-lucide="shield-check" class="h-8 w-8 text-river"></i>
+              <p class="mt-8 text-sm font-semibold text-river">05</p>
+              <h3 class="mt-3 text-2xl font-semibold">户外防护结构</h3>
+              <p class="mt-5 text-sm leading-7 text-slate-600">
+                不锈钢机体与防雨设计适配排口、泵站、污水厂等复杂安装环境。
+              </p>
+            </article>
+            <article class="bg-white p-8 lg:p-10">
+              <i data-lucide="activity" class="h-8 w-8 text-river"></i>
+              <p class="mt-8 text-sm font-semibold text-river">06</p>
+              <h3 class="mt-3 text-2xl font-semibold">精密输送控制</h3>
+              <p class="mt-5 text-sm leading-7 text-slate-600">
+                精密蠕动泵配合稳压设计，降低压力波动、气泡等因素对采样精度的影响。
+              </p>
+            </article>
+            <article class="bg-white p-8 lg:p-10 md:col-span-2">
+              <i data-lucide="file-clock" class="h-8 w-8 text-river"></i>
+              <p class="mt-8 text-sm font-semibold text-river">07</p>
+              <h3 class="mt-3 text-2xl font-semibold">全过程记录追溯</h3>
+              <p class="mt-5 max-w-3xl text-sm leading-7 text-slate-600">
+                采样记录、报警记录、开关门记录和停电记录自动留存，便于运维复盘、监管核查和长期运行管理。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="scenarios" class="bg-ink py-24 text-white lg:py-32">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="mb-16 w-full">
+            <p class="text-sm font-semibold text-white/55">应用场景</p>
+            <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">
+              覆盖污染源排放与水环境监管重点现场。
+            </h2>
+          </div>
+
+          <div class="grid overflow-hidden border-l border-t border-white/15 md:grid-cols-2 lg:grid-cols-4">
+            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+              <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">01</p>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">污染源排口</h3>
+              <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
+                面向重点排污单位出水口，支撑日常监管、异常留样和执法取证。
+              </p>
+            </article>
+            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+              <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">02</p>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">污水处理厂</h3>
+              <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
+                用于进出水采样、比对监测、超标留样和厂站运行过程追溯。
+              </p>
+            </article>
+            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+              <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">03</p>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">工业园区</h3>
+              <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
+                服务化工、印染、造纸等企业集聚区的排水节点采样与集中监管。
+              </p>
+            </article>
+            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+              <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">04</p>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">水质监测站</h3>
+              <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
+                与在线分析仪、数采仪和业务平台协同，形成自动监测闭环。
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="bg-pale py-24 lg:py-32">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="mb-12 rounded-lg bg-river px-8 py-12 text-center text-white lg:px-12">
+            <h2 class="text-4xl font-semibold">了解 XW-1D 现场适配方案</h2>
+            <a href="tel:0571-88212121" class="mt-8 inline-flex h-12 items-center rounded-md bg-white px-7 text-sm font-semibold text-ink hover:bg-pale">
+              联系我们
+            </a>
+          </div>
+          <div class="grid overflow-hidden rounded-lg bg-white lg:grid-cols-[1.1fr_0.9fr]">
+            <div class="p-10 lg:p-16">
+              <p class="text-sm font-semibold text-river">联系咨询</p>
+              <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">获取产品选型与项目方案支持</h2>
+              <p class="mt-8 max-w-2xl text-lg leading-9 text-slate-600">
+                如需确认采样模式、安装条件、平台联动或运维配置，可联系小桥流水技术团队。
+              </p>
+            </div>
+            <div class="bg-ink p-10 text-white lg:p-16">
+              <div class="grid gap-8 text-base text-white/76">
+                <p class="flex gap-4"><i data-lucide="phone" class="h-5 w-5 shrink-0 text-white"></i>0571-88212121</p>
+                <p class="flex gap-4"><i data-lucide="mail" class="h-5 w-5 shrink-0 text-white"></i>xqls@xqls.com.cn</p>
+                <p class="flex gap-4"><i data-lucide="clock" class="h-5 w-5 shrink-0 text-white"></i>周一至周五（9:00-18:00）</p>
+                <p class="flex gap-4 leading-8"><i data-lucide="map-pin" class="h-5 w-5 shrink-0 text-white"></i>浙江省杭州市余杭区余杭塘路2301号海智中心3号楼801室</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-ink py-8 text-white">
+      <div class="mx-auto flex max-w-[1440px] flex-col gap-4 px-6 text-sm text-white/55 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+        <div>
+          <p>© <span id="year"></span> 浙江小桥流水环境科技有限公司 All rights reserved</p>
+          <p class="mt-2">浙ICP备12045722号-3 · 浙公网安备 33011002016969号</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <img src="assets/qr-code.png" alt="小桥流水公众号二维码" class="h-20 w-20 rounded bg-white p-1" />
+          <div>
+            <p class="font-semibold text-white/75">关注公众号</p>
+            <p class="mt-1">小桥流水</p>
+          </div>
         </div>
       </div>
-      <div>
-        <h4 class="text-white font-semibold mb-3">快速链接</h4>
-        <div class="space-y-2 text-sm">
-          <a href="index.html" class="block text-slate-400 hover:text-aqua-400 transition-colors">· 产品中心</a>
-          <a href="index.html" class="block text-slate-400 hover:text-aqua-400 transition-colors">· 关于我们</a>
-          <a href="index.html" class="block text-slate-400 hover:text-aqua-400 transition-colors">· 新闻中心</a>
-        </div>
-      </div>
-    </div>
-    <div class="border-t border-aqua-900/30 pt-6 flex flex-col md:flex-row items-center justify-between text-sm text-slate-500">
-      <span>Copyright © 2019-2022 浙江小桥流水环境科技有限公司 All rights reserved</span>
-      <span>浙ICP备12045722号-3 | 浙公网安备 33011002016969号</span>
-    </div>
-  </div>
-</footer>
+    </footer>
 
-<!-- Scroll animation + particles -->
-<script>
-  // Intersection Observer for card animations
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.card-animate').forEach(el => observer.observe(el));
-
-  // Generate floating particles
-  (function() {
-    const container = document.getElementById('particles');
-    for (let i = 0; i < 20; i++) {
-      const p = document.createElement('div');
-      p.className = 'particle';
-      p.style.left = Math.random() * 100 + '%';
-      p.style.bottom = '-10px';
-      p.style.animationDuration = (8 + Math.random() * 12) + 's';
-      p.style.animationDelay = Math.random() * 10 + 's';
-      p.style.width = (2 + Math.random() * 3) + 'px';
-      p.style.height = p.style.width;
-      container.appendChild(p);
-    }
-  })();
-
-  // Smooth scroll for anchor links
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
-  });
-</script>
-</body>
+    <script>
+      const siteHeader = document.getElementById("siteHeader");
+      const heroSection = document.querySelector(".hero-bg");
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const updateHeader = () => {
+        const threshold = heroSection.offsetHeight - siteHeader.offsetHeight;
+        siteHeader.classList.toggle("is-scrolled", window.scrollY >= threshold);
+      };
+      updateHeader();
+      window.addEventListener("scroll", updateHeader, { passive: true });
+      window.addEventListener("resize", updateHeader);
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+      });
+      document.getElementById("year").textContent = new Date().getFullYear();
+      lucide.createIcons();
+    </script>
+  </body>
 </html>
