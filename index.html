@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="浙江小桥流水环境科技有限公司，专注城市级环保、水务和水利系统解决方案。"
+      content="浙江小桥流水环境科技有限公司，城市生命线 / 韧性城市数字化服务商，提供咨询规划、数字平台、智能感知硬件、AI算法与一体化运维服务。"
     />
     <title>浙江小桥流水环境科技有限公司</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -33,9 +33,9 @@
       }
       .hero-bg {
         background-image:
-          radial-gradient(circle at 72% 40%, rgba(13, 111, 143, 0.22), rgba(13, 111, 143, 0) 34%),
-          linear-gradient(90deg, rgba(3, 12, 18, 0.94) 0%, rgba(3, 12, 18, 0.72) 38%, rgba(3, 12, 18, 0.22) 100%),
-          url("https://wds-service-1258344699.file.myqcloud.com/20/14187/png/1695178526410f5e1f3fcba996e9534cc38d43a443429.png?version=0");
+          radial-gradient(circle at 72% 40%, rgba(13, 111, 143, 0.2), rgba(13, 111, 143, 0) 34%),
+          linear-gradient(90deg, rgba(3, 12, 18, 0.96) 0%, rgba(3, 12, 18, 0.78) 44%, rgba(3, 12, 18, 0.14) 100%),
+          url("assets/hero-lifeline-bg.jpg");
       }
       .water-bg {
         background-image:
@@ -197,7 +197,7 @@
         position: fixed;
         left: 50%;
         top: 86px;
-        width: min(1040px, calc(100vw - 48px));
+        width: min(1180px, calc(100vw - 48px));
         transform: translateX(-50%) translateY(10px);
         opacity: 0;
         pointer-events: none;
@@ -269,43 +269,57 @@
         <nav class="header-nav hidden items-center gap-7 xl:gap-11 lg:flex" aria-label="主导航">
           <a class="nav-link" href="#about">关于我们</a>
           <div class="nav-dropdown">
-            <a class="nav-link" href="#products">产品与服务</a>
+            <a class="nav-link" href="products.html">产品与服务</a>
             <div class="nav-dropdown-panel z-50 rounded-lg border border-slate-200 bg-white p-6 text-ink shadow-xl">
-              <div class="grid gap-5 lg:grid-cols-5">
+              <div class="grid gap-5 lg:grid-cols-6">
                 <div>
-                  <a href="#products" class="product-menu-link text-base font-semibold text-river">水质采样</a>
+                  <a href="products.html?category=sampling" class="product-menu-link text-base font-semibold text-river">水质采样</a>
                   <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
-                    <a class="product-menu-link" href="product-xw-1d.html">XW-1D型水质自动采样器</a>
-                    <a class="product-menu-link" href="#products">XW-1J2便携式地下水采样器</a>
-                    <a class="product-menu-link" href="#products">XW-1H型水质自动采样器</a>
-                    <a class="product-menu-link" href="#products">XW-1B2型水质自动采样器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-1d3">XW-1D3户外水质采样器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-1j2">XW-1J2便携式地下水采样器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-1j">XW-1J地下水在线采样器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-1h2">XW-1H2环保水质采样器</a>
                   </div>
                 </div>
                 <div>
-                  <a href="#products" class="product-menu-link text-base font-semibold text-river">水质分析</a>
+                  <a href="products.html?category=analysis" class="product-menu-link text-base font-semibold text-river">水质分析</a>
                   <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
-                    <a class="product-menu-link" href="#products">XW-9B3型一体化多参数分析留样仪</a>
-                    <a class="product-menu-link" href="#products">XW-9300型一体化多参数分析留样仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9308">XW-9308全光谱水质分析仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9b">XW-9B一体化多参数分析仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9203">XW-9203多参数水质在线分析仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-p100">XW-P100便携式五参数分析仪</a>
                   </div>
                 </div>
                 <div>
-                  <a href="#products" class="product-menu-link text-base font-semibold text-river">管网监测</a>
+                  <a href="products.html?category=sensor" class="product-menu-link text-base font-semibold text-river">数字传感</a>
                   <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
-                    <a class="product-menu-link" href="#products">XW-9103微功耗无线智能监测终端</a>
-                    <a class="product-menu-link" href="#products">XW-9103多普勒流量计</a>
-                    <a class="product-menu-link" href="#products">XW-9103S窨井水质多参数监测仪</a>
-                    <a class="product-menu-link" href="#products">XW-9102浮标监测站</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2duv">XW-2DUV数字COD传感器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2dan">XW-2DAN数字氨氮传感器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2ddo">XW-2DDO数字溶解氧传感器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2dph">XW-2DpH数字pH传感器</a>
                   </div>
                 </div>
                 <div>
-                  <a href="#products" class="product-menu-link text-base font-semibold text-river">系统集成</a>
+                  <a href="products.html?category=monitoring" class="product-menu-link text-base font-semibold text-river">管网监测</a>
                   <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
-                    <a class="product-menu-link" href="#products">XW-4F型智能控制仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9103">XW-9103微功耗智能终端</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2ddf">XW-2DDF多普勒流量计</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9102e">XW-9102E小型浮标站</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9105lv">XW-9105LV井盖传感器</a>
                   </div>
                 </div>
                 <div>
-                  <a href="#products" class="product-menu-link text-base font-semibold text-river">固废管理</a>
-                  <p class="mt-4 text-sm leading-6 text-slate-500">敬请期待</p>
+                  <a href="products.html?category=control" class="product-menu-link text-base font-semibold text-river">系统控制</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xw-4f2">XW-4F2智能控制仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9108">XW-9108雨污分流控制系统</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="products.html?category=solid" class="product-menu-link text-base font-semibold text-river">固废管理</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xs-2s">XS-2S固废管理系统终端</a>
+                  </div>
                 </div>
               </div>
             </div>
@@ -315,45 +329,52 @@
             <div class="nav-dropdown-panel z-50 rounded-lg border border-slate-200 bg-white p-6 text-ink shadow-xl">
               <div class="grid gap-5 lg:grid-cols-6">
                 <div>
-                  <a href="#solutions" class="product-menu-link text-base font-semibold text-river">智慧水务</a>
+                  <a href="solution-water-supply.html" class="product-menu-link text-base font-semibold text-river">智慧供水</a>
                   <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
-                    <a class="product-menu-link" href="solution-smart-water.html">智慧水务</a>
+                    <a class="product-menu-link" href="solution-water-supply.html#core-systems">DMA计量分区</a>
+                    <a class="product-menu-link" href="solution-water-supply.html#core-systems">管网智能调度</a>
                   </div>
                 </div>
                 <div>
-                  <a href="#solutions" class="product-menu-link text-base font-semibold text-river">智慧水利</a>
+                  <a href="solution-drainage.html" class="product-menu-link text-base font-semibold text-river">智慧排水</a>
                   <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
-                    <a class="product-menu-link" href="#solutions">智慧水利</a>
+                    <a class="product-menu-link" href="solution-drainage.html#core-systems">厂站网河调度</a>
+                    <a class="product-menu-link" href="solution-drainage.html#core-systems">污染源溯源</a>
                   </div>
                 </div>
                 <div>
-                  <a href="#solutions" class="product-menu-link text-base font-semibold text-river">地下水监测</a>
+                  <a href="solution-flood-control.html" class="product-menu-link text-base font-semibold text-river">智慧防涝</a>
                   <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
-                    <a class="product-menu-link" href="#solutions">地下水监测</a>
+                    <a class="product-menu-link" href="solution-flood-control.html#core-systems">内涝监测预报</a>
+                    <a class="product-menu-link" href="solution-flood-control.html#core-systems">应急调度一张图</a>
                   </div>
                 </div>
                 <div>
-                  <a href="#solutions" class="product-menu-link text-base font-semibold text-river">排水监控</a>
+                  <a href="solution-gas.html" class="product-menu-link text-base font-semibold text-river">智慧燃气</a>
                   <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
-                    <a class="product-menu-link" href="#solutions">雨水监测系统</a>
-                    <a class="product-menu-link" href="#solutions">断面水质监测</a>
+                    <a class="product-menu-link" href="solution-gas.html#core-systems">泄漏监测预警</a>
+                    <a class="product-menu-link" href="solution-gas.html#core-systems">巡检抢修闭环</a>
                   </div>
                 </div>
                 <div>
-                  <a href="#solutions" class="product-menu-link text-base font-semibold text-river">管网监测</a>
+                  <a href="solution-bridge-tunnel.html" class="product-menu-link text-base font-semibold text-river">智慧道桥隧</a>
                   <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
-                    <a class="product-menu-link" href="#solutions">零直排管理系统</a>
+                    <a class="product-menu-link" href="solution-bridge-tunnel.html#core-systems">结构健康监测</a>
+                    <a class="product-menu-link" href="solution-bridge-tunnel.html#core-systems">设施全生命周期</a>
                   </div>
                 </div>
                 <div>
-                  <a href="#solutions" class="product-menu-link text-base font-semibold text-river">饮用水监测</a>
-                  <p class="mt-4 text-sm leading-6 text-slate-500">敬请期待</p>
+                  <a href="solution-ai.html" class="product-menu-link text-base font-semibold text-river">AI算法中心</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-ai.html#core-systems">管道病害识别</a>
+                    <a class="product-menu-link" href="solution-ai.html#core-systems">水污染动力模型</a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
           <a class="nav-link" href="#capability">创新能力</a>
-          <a class="nav-link" href="#news">资讯动态</a>
+          <a class="nav-link" href="cases.html">经典案例</a>
           <a class="nav-link" href="#contact">联系我们</a>
         </nav>
 
@@ -378,50 +399,62 @@
       <div id="mobileMenu" class="hidden border-t border-white/10 bg-ink px-6 py-5 lg:hidden">
         <nav class="grid gap-4 text-sm" aria-label="移动端导航">
           <a href="#about">关于我们</a>
-          <a href="#products">产品与服务</a>
+          <a href="products.html">产品与服务</a>
           <div class="grid gap-3 border-l border-white/20 pl-4 text-xs leading-5">
             <div>
               <p class="font-semibold text-river">水质采样</p>
-              <a href="product-xw-1d.html" class="mobile-menu-muted mt-1 block text-white/60">XW-1D型水质自动采样器</a>
+              <a href="products.html?category=sampling" class="mobile-menu-muted mt-1 block text-white/60">XW-1D3 / XW-1J2 / XW-1H2</a>
             </div>
             <div>
               <p class="font-semibold text-river">水质分析</p>
-              <p class="mobile-menu-muted mt-1 text-white/60">XW-9B3 / XW-9300 一体化多参数分析留样仪</p>
+              <a href="products.html?category=analysis" class="mobile-menu-muted mt-1 block text-white/60">XW-9308 / XW-9B / XW-9203</a>
+            </div>
+            <div>
+              <p class="font-semibold text-river">数字传感</p>
+              <a href="products.html?category=sensor" class="mobile-menu-muted mt-1 block text-white/60">XW-2DUV / XW-2DAN / XW-2DDO</a>
             </div>
             <div>
               <p class="font-semibold text-river">管网监测</p>
-              <p class="mobile-menu-muted mt-1 text-white/60">XW-9103 / XW-9103S / XW-9102</p>
+              <a href="products.html?category=monitoring" class="mobile-menu-muted mt-1 block text-white/60">XW-9103 / XW-2DDF / XW-9102E</a>
             </div>
             <div>
-              <p class="font-semibold text-river">系统集成</p>
-              <p class="mobile-menu-muted mt-1 text-white/60">XW-4F型智能控制仪</p>
+              <p class="font-semibold text-river">系统控制</p>
+              <a href="products.html?category=control" class="mobile-menu-muted mt-1 block text-white/60">XW-4F2 / XW-9108</a>
+            </div>
+            <div>
+              <p class="font-semibold text-river">固废管理</p>
+              <a href="product-detail.html?id=xs-2s" class="mobile-menu-muted mt-1 block text-white/60">XS-2S固废管理系统终端</a>
             </div>
           </div>
           <a href="#solutions">解决方案</a>
           <div class="grid gap-3 border-l border-white/20 pl-4 text-xs leading-5">
             <div>
-              <p class="font-semibold text-river">智慧水务</p>
-              <p class="mobile-menu-muted mt-1 text-white/60">智慧水务</p>
+              <a href="solution-water-supply.html" class="font-semibold text-river">智慧供水</a>
+              <p class="mobile-menu-muted mt-1 text-white/60">DMA计量分区 / 管网智能调度</p>
             </div>
             <div>
-              <p class="font-semibold text-river">智慧水利</p>
-              <p class="mobile-menu-muted mt-1 text-white/60">智慧水利</p>
+              <a href="solution-drainage.html" class="font-semibold text-river">智慧排水</a>
+              <p class="mobile-menu-muted mt-1 text-white/60">厂站网河调度 / 污染源溯源</p>
             </div>
             <div>
-              <p class="font-semibold text-river">地下水监测</p>
-              <p class="mobile-menu-muted mt-1 text-white/60">地下水监测</p>
+              <a href="solution-flood-control.html" class="font-semibold text-river">智慧防涝</a>
+              <p class="mobile-menu-muted mt-1 text-white/60">监测预报 / 应急调度一张图</p>
             </div>
             <div>
-              <p class="font-semibold text-river">排水监控</p>
-              <p class="mobile-menu-muted mt-1 text-white/60">雨水监测系统 / 断面水质监测</p>
+              <a href="solution-gas.html" class="font-semibold text-river">智慧燃气</a>
+              <p class="mobile-menu-muted mt-1 text-white/60">泄漏监测预警 / 巡检抢修闭环</p>
             </div>
             <div>
-              <p class="font-semibold text-river">管网监测</p>
-              <p class="mobile-menu-muted mt-1 text-white/60">零直排管理系统</p>
+              <a href="solution-bridge-tunnel.html" class="font-semibold text-river">智慧道桥隧</a>
+              <p class="mobile-menu-muted mt-1 text-white/60">结构健康监测 / 生命周期管理</p>
+            </div>
+            <div>
+              <a href="solution-ai.html" class="font-semibold text-river">AI算法模型</a>
+              <p class="mobile-menu-muted mt-1 text-white/60">管道病害识别 / 水污染动力模型</p>
             </div>
           </div>
           <a href="#capability">创新能力</a>
-          <a href="#news">资讯动态</a>
+          <a href="cases.html">经典案例</a>
           <a href="#contact">联系我们</a>
         </nav>
       </div>
@@ -436,14 +469,14 @@
         <div class="relative mx-auto w-full max-w-[1440px] px-6 pb-10 pt-32 lg:px-12 lg:pb-14">
           <div class="max-w-5xl">
             <p class="mb-8 inline-flex border-l-2 border-white/55 pl-5 text-sm font-semibold uppercase text-white/68">
-              Smart Water · Smart Environment
+              City Lifeline · Resilient City
             </p>
-            <h1 class="max-w-5xl text-6xl font-semibold leading-[1.02] md:text-8xl">
-              数字守护环境
-              <span class="block text-white/72">创新领航未来</span>
+            <h1 class="max-w-5xl text-5xl font-semibold leading-[1.08] sm:text-6xl md:text-8xl md:leading-[1.02]">
+              城市生命线
+              <span class="block text-white/72">韧性城市数字化服务商</span>
             </h1>
             <p class="mt-10 max-w-none text-xl leading-9 text-white/76 lg:whitespace-nowrap">
-              面向城市水环境、水务和水利场景，构建从在线仪器、智能终端到业务平台的一体化数字底座。
+              从立项咨询、规划设计到建设落地、一体化运维，构建可感知、可预警、可决策的城市运行数字底座。
             </p>
             <div class="mt-12 flex flex-wrap gap-5">
               <a href="#solutions" class="inline-flex h-12 items-center gap-3 rounded-md bg-white px-7 text-sm font-semibold text-ink hover:bg-pale">
@@ -451,7 +484,7 @@
                 <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
               </a>
               <a href="#products" class="inline-flex h-12 items-center rounded-md border border-white/35 px-7 text-sm font-semibold text-white hover:bg-white hover:text-ink">
-                查看产品体系
+                了解全周期服务
               </a>
             </div>
           </div>
@@ -459,15 +492,15 @@
           <div class="mt-20 grid border-y border-white/15 bg-white/[0.03] backdrop-blur-sm lg:grid-cols-3">
             <div class="min-h-28 px-6 py-6 lg:px-10">
               <p class="text-xs uppercase text-white/42">Focus</p>
-              <p class="mt-3 text-lg font-semibold">城市级环保、水务、水利系统解决方案</p>
+              <p class="mt-3 text-lg font-semibold">供水、排水、防涝、燃气、道桥隧五大场景</p>
             </div>
             <div class="min-h-28 border-t border-white/15 px-6 py-6 lg:border-l lg:border-t-0 lg:px-10">
               <p class="text-xs uppercase text-white/42">Technology</p>
-              <p class="mt-3 text-lg font-semibold">在线分析仪器 · 自动采样 · 智能监测终端</p>
+              <p class="mt-3 text-lg font-semibold">数字平台 · 智能感知 · AI算法模型</p>
             </div>
             <div class="min-h-28 border-t border-white/15 px-6 py-6 lg:border-l lg:border-t-0 lg:px-10">
               <p class="text-xs uppercase text-white/42">Service</p>
-              <p class="mt-3 text-lg font-semibold">平台建设、系统集成与全生命周期运维</p>
+              <p class="mt-3 text-lg font-semibold">立项咨询、规划设计、建设落地、一体化运维</p>
             </div>
           </div>
         </div>
@@ -479,29 +512,29 @@
             <div>
               <p class="text-sm font-semibold text-river">关于小桥流水</p>
               <h2 class="mt-6 w-full text-4xl font-semibold leading-tight md:text-6xl">
-                让水环境治理更加可感知、可分析、可决策。
+                以产学研协同，建设城市生命线数字化能力。
               </h2>
             </div>
           </div>
 
           <div class="grid gap-12 lg:grid-cols-[0.95fr_1.05fr] lg:items-center">
-            <img src="assets/company-intro.png" alt="浙江小桥流水环境科技公司介绍" class="w-full object-contain" />
+            <img src="assets/about-park.jpg" alt="浙江小桥流水环境科技办公园区" class="aspect-[16/11] w-full rounded-lg object-cover" />
             <div class="grid gap-7 text-base leading-8 text-slate-600">
               <p>
-                浙江小桥流水环境科技有限公司是一家由海归博士团队及浙江省海外高层次人才项目创新人才领导的国家高新技术企业，专注于为政企提供城市级环保、水务和水利系统解决方案。
+                浙江小桥流水环境科技有限公司由海归博士团队与浙江省海外高层次人才领衔创办，是国家高新技术企业、专精特新企业，集产学研于一体。
               </p>
               <p>
-                公司致力于高端环境、水务在线分析仪器仪表以及水文水利模型等产品的研发和产业化应用。公司设有省级研发中心，同时与浙江大学智慧绿洲携手共建联合研发中心，汇聚了一支具备高度专业素养的科研研发团队，并取得多项专业资质和体系认证证书。
+                公司专注为政企客户提供城市级水务、环保、水利及韧性城市全域整体解决方案，覆盖定制化咨询、智能硬件、专业软件、工程实施及人工智能辅助决策系统，一站式赋能行业数字化升级。
               </p>
               <p>
-                公司目前已经拥有专利60余项、软件著作权40余项。作为专精特新企业，公司承担过《浙江省重大科技攻关首批招标项目》和《浙江生态省建设重大科技攻关项目》。
+                2024年1月，公司与浙江大学长三角智慧绿洲创新中心未来水务实验室共建联合研究中心，围绕高端装备、智能算法和水务模型开展联合技术攻关，加速科研成果产业化落地。
               </p>
             </div>
           </div>
 
           <div class="mt-16 grid gap-6 text-white lg:grid-cols-3">
             <div class="culture-card flex min-h-[300px] flex-col justify-between bg-cover bg-center p-10">
-              <p class="text-3xl font-semibold leading-tight">数字环境生态的引领者</p>
+              <p class="text-3xl font-semibold leading-tight">成为数字环境生态的引领者</p>
               <p class="text-lg font-semibold">企业愿景</p>
             </div>
             <div class="culture-card flex min-h-[300px] flex-col justify-between bg-cover bg-center p-10">
@@ -509,7 +542,7 @@
               <p class="text-lg font-semibold">企业使命</p>
             </div>
             <div class="culture-card flex min-h-[300px] flex-col justify-between bg-cover bg-center p-10">
-              <p class="text-3xl font-semibold leading-tight">诚信、创新、进取、共赢</p>
+              <p class="text-3xl font-semibold leading-tight">诚信创新，进取共赢</p>
               <p class="text-lg font-semibold">核心价值观</p>
             </div>
           </div>
@@ -519,22 +552,22 @@
       <section class="trust-section bg-cover bg-center py-20 text-white lg:py-24">
         <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
           <div class="text-center font-bold">
-            <p class="text-[40px] leading-tight md:text-5xl">您值得信任的伙伴</p>
+            <p class="text-[40px] leading-tight md:text-5xl">城市生命线建设可信赖伙伴</p>
             <p class="pb-12 pt-6 text-base font-semibold md:text-lg">
-              通过安全韧性城市平台、城市安全运行平台，守护城市安全
+              以咨询切入、平台为核、硬件落地，支撑项目从立项到长期运营闭环交付
             </p>
             <div class="mx-auto grid max-w-4xl grid-cols-3 gap-8 text-center">
               <div>
-                <p class="text-5xl font-semibold md:text-6xl">4</p>
+                <p class="text-5xl font-semibold md:text-6xl">10+</p>
                 <p class="mt-3 text-sm font-medium md:text-base">发明专利</p>
               </div>
               <div>
-                <p class="text-5xl font-semibold md:text-6xl">82</p>
-                <p class="mt-3 text-sm font-medium md:text-base">知识产权</p>
+                <p class="text-5xl font-semibold md:text-6xl">14+</p>
+                <p class="mt-3 text-sm font-medium md:text-base">实用新型专利</p>
               </div>
               <div>
-                <p class="text-5xl font-semibold md:text-6xl">2</p>
-                <p class="mt-3 text-sm font-medium md:text-base">国家、省级标准</p>
+                <p class="text-5xl font-semibold md:text-6xl">53</p>
+                <p class="mt-3 text-sm font-medium md:text-base">软件著作权</p>
               </div>
             </div>
           </div>
@@ -546,10 +579,10 @@
           <div class="mb-14 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <div>
               <p class="text-sm font-semibold text-river">资质荣誉</p>
-              <h2 class="mt-6 text-4xl font-semibold md:text-6xl">体系认证与专利成果</h2>
+              <h2 class="mt-6 text-4xl font-semibold md:text-6xl">权威资质与管理体系</h2>
             </div>
             <p class="max-w-xl text-lg leading-8 text-slate-600">
-              以标准化管理、知识产权和持续研发能力支撑项目长期交付。
+              覆盖专精特新、高新技术、省级研发中心、电子与智能化二级，以及 CMMI 3级、CS 2级、DCMM 2级、ITSS 3级和 ISO 管理体系认证。
             </p>
           </div>
           <div class="honor-marquee">
@@ -620,12 +653,12 @@
           </div>
 
           <div class="grid gap-6 lg:grid-cols-[1.35fr_0.65fr]">
-            <a href="#contact" class="group water-bg flex min-h-[560px] items-end bg-cover bg-center p-8 text-white lg:p-12">
+            <a href="products.html?category=analysis" class="group water-bg flex min-h-[560px] items-end bg-cover bg-center p-8 text-white lg:p-12">
               <div class="max-w-2xl">
                 <p class="text-sm text-white/65">Water Quality Analysis</p>
-                <h3 class="mt-4 text-4xl font-semibold">一体化多参数分析留样仪</h3>
+                <h3 class="mt-4 text-4xl font-semibold">水质分析设备</h3>
                 <p class="mt-5 max-w-xl text-base leading-8 text-white/72">
-                  集成水质检测、数据采集和超标留样能力，支持远程平台数据交互，服务地下水、地表水、生活污水和工业废水在线监测。
+                  覆盖全光谱水质分析、多参数在线分析与便携式五参数分析，支持远程平台数据交互与现场水质监测。
                 </p>
                 <span class="mt-8 inline-flex items-center gap-3 text-sm font-semibold">
                   了解产品
@@ -635,17 +668,17 @@
             </a>
 
             <div class="grid gap-6">
-              <a href="product-xw-1d.html" class="group sample-bg flex min-h-[267px] items-end bg-cover bg-center p-8 text-white">
+              <a href="products.html?category=sampling" class="group sample-bg flex min-h-[267px] items-end bg-cover bg-center p-8 text-white">
                 <div>
                   <p class="text-sm text-white/65">Sampling</p>
-                  <h3 class="mt-3 text-2xl font-semibold">水质自动采样器</h3>
+                  <h3 class="mt-3 text-2xl font-semibold">水质采样器</h3>
                   <span class="mt-5 inline-flex items-center gap-2 text-sm font-semibold">
                     查看
                     <i data-lucide="arrow-right" class="h-4 w-4 transition group-hover:translate-x-1"></i>
                   </span>
                 </div>
               </a>
-              <a href="#contact" class="group monitor-bg flex min-h-[267px] items-end bg-cover bg-center p-8 text-white">
+              <a href="products.html?category=monitoring" class="group monitor-bg flex min-h-[267px] items-end bg-cover bg-center p-8 text-white">
                 <div>
                   <p class="text-sm text-white/65">Monitoring Terminal</p>
                   <h3 class="mt-3 text-2xl font-semibold">微功耗无线智能监测终端</h3>
@@ -659,58 +692,80 @@
           </div>
 
           <div class="mt-6 grid gap-6 lg:grid-cols-3">
-            <div class="bg-white p-8 lg:p-10">
+            <a href="products.html?category=sampling" class="bg-white p-8 transition hover:-translate-y-1 hover:shadow-xl lg:p-10">
               <p class="text-sm font-semibold text-river">水质采样</p>
               <h3 class="mt-4 text-2xl font-semibold">定时、等比、触发、远程控制</h3>
-            </div>
-            <div class="bg-white p-8 lg:p-10">
+            </a>
+            <a href="products.html?category=sensor" class="bg-white p-8 transition hover:-translate-y-1 hover:shadow-xl lg:p-10">
+              <p class="text-sm font-semibold text-river">数字传感</p>
+              <h3 class="mt-4 text-2xl font-semibold">COD、氨氮、溶解氧、浊度等在线感知</h3>
+            </a>
+            <a href="products.html?category=monitoring" class="bg-white p-8 transition hover:-translate-y-1 hover:shadow-xl lg:p-10">
               <p class="text-sm font-semibold text-river">管网监测</p>
               <h3 class="mt-4 text-2xl font-semibold">IP68 防护与低功耗部署</h3>
-            </div>
-            <div class="control-bg min-h-[220px] bg-cover bg-center p-8 text-white lg:p-10">
-              <p class="text-sm text-white/70">系统集成</p>
-              <h3 class="mt-4 text-2xl font-semibold">智能控制与现场联动</h3>
-            </div>
+            </a>
           </div>
 
-          <div class="mt-16 grid gap-px overflow-hidden bg-slate-200 lg:grid-cols-5">
+          <div class="mt-6 grid gap-6 lg:grid-cols-2">
+            <a href="products.html?category=control" class="control-bg min-h-[220px] bg-cover bg-center p-8 text-white transition hover:-translate-y-1 hover:shadow-xl lg:p-10">
+              <p class="text-sm text-white/70">系统控制</p>
+              <h3 class="mt-4 text-2xl font-semibold">智能控制与现场联动</h3>
+            </a>
+            <a href="products.html?category=solid" class="bg-white p-8 transition hover:-translate-y-1 hover:shadow-xl lg:p-10">
+              <p class="text-sm font-semibold text-river">固废管理</p>
+              <h3 class="mt-4 text-2xl font-semibold">称重、打码、采集与监管上报</h3>
+            </a>
+          </div>
+
+          <div class="mt-16 grid gap-px overflow-hidden bg-slate-200 md:grid-cols-2 lg:grid-cols-6">
             <div class="bg-white p-7">
               <p class="text-sm font-semibold text-river">水质采样</p>
               <ul class="mt-5 grid gap-3 text-sm leading-6 text-slate-600">
-                <li><a class="hover:text-river" href="product-xw-1d.html">XW-1D型水质自动采样器</a></li>
-                <li>XW-1J2便携式地下水采样器</li>
-                <li>XW-1H型水质自动采样器</li>
-                <li>XW-1B2型水质自动采样器</li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-1d3">XW-1D3户外水质采样器</a></li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-1j2">XW-1J2便携式地下水采样器</a></li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-1h2">XW-1H2环保水质采样器</a></li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-1b3">XW-1B3低功耗水质采样器</a></li>
               </ul>
             </div>
             <div class="bg-white p-7">
               <p class="text-sm font-semibold text-river">水质分析</p>
               <ul class="mt-5 grid gap-3 text-sm leading-6 text-slate-600">
-                <li>XW-9B3型一体化多参数分析留样仪</li>
-                <li>XW-9300型一体化多参数分析留样仪</li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-9308">XW-9308全光谱水质分析仪</a></li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-9b">XW-9B一体化多参数分析仪</a></li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-9203">XW-9203多参数水质在线分析仪</a></li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-p100">XW-P100便携式五参数分析仪</a></li>
+              </ul>
+            </div>
+            <div class="bg-white p-7">
+              <p class="text-sm font-semibold text-river">数字传感</p>
+              <ul class="mt-5 grid gap-3 text-sm leading-6 text-slate-600">
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-2duv">XW-2DUV数字COD传感器</a></li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-2dan">XW-2DAN数字氨氮传感器</a></li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-2ddo">XW-2DDO数字溶解氧传感器</a></li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-2dts">XW-2DTS数字浊度传感器</a></li>
               </ul>
             </div>
             <div class="bg-white p-7">
               <p class="text-sm font-semibold text-river">管网监测</p>
               <ul class="mt-5 grid gap-3 text-sm leading-6 text-slate-600">
-                <li>XW-9103微功耗无线智能监测终端</li>
-                <li>XW-9103多普勒流量计</li>
-                <li>XW-9103S窨井水质多参数监测仪</li>
-                <li>XW-9102浮标监测站</li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-9103">XW-9103微功耗智能终端</a></li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-2ddf">XW-2DDF多普勒流量计</a></li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-9102e">XW-9102E小型浮标站</a></li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-9105lv">XW-9105LV井盖传感器</a></li>
               </ul>
             </div>
             <div class="bg-white p-7">
-              <p class="text-sm font-semibold text-river">系统集成</p>
+              <p class="text-sm font-semibold text-river">系统控制</p>
               <ul class="mt-5 grid gap-3 text-sm leading-6 text-slate-600">
-                <li>XW-4F型智能控制仪</li>
-                <li>阀门控制、数据传输与现场联动</li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-4f2">XW-4F2智能控制仪</a></li>
+                <li><a class="hover:text-river" href="product-detail.html?id=xw-9108">XW-9108雨污分流控制系统</a></li>
               </ul>
             </div>
             <div class="bg-white p-7">
               <p class="text-sm font-semibold text-river">固废管理</p>
-              <p class="mt-5 text-sm leading-6 text-slate-600">
-                敬请期待
-              </p>
+              <ul class="mt-5 grid gap-3 text-sm leading-6 text-slate-600">
+                <li><a class="hover:text-river" href="product-detail.html?id=xs-2s">XS-2S固废管理系统终端</a></li>
+              </ul>
             </div>
           </div>
         </div>
@@ -721,53 +776,53 @@
           <div class="mb-16 w-full">
             <p class="text-sm font-semibold text-white/55">解决方案</p>
             <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">
-              以数据驱动水务、水利与环境监管升级。
+              围绕五大城市生命线场景，构建感知、算法、能力、应用闭环。
             </h2>
           </div>
 
           <div class="grid overflow-hidden border-l border-t border-white/15 md:grid-cols-2 lg:grid-cols-3">
-            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+            <a href="solution-water-supply.html" class="group block border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
               <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">01</p>
-              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">智慧水务</h3>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">智慧供水</h3>
               <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
-                覆盖管网管理、水质溯源、设施巡养和厂站网智能调度。
+                覆盖 DMA 计量分区、管网智能调度、二次供水管理和漏损预警，守护城市水脉。
               </p>
-            </article>
-            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+            </a>
+            <a href="solution-drainage.html" class="group block border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
               <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">02</p>
-              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">智慧水利</h3>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">智慧排水</h3>
               <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
-                支撑水利设施、智慧灌区、防汛调度、河长制和水文水情。
+                打通厂站网河一体感知、排水监管、污染源溯源和管网运维闭环。
               </p>
-            </article>
-            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+            </a>
+            <a href="solution-flood-control.html" class="group block border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
               <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">03</p>
-              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">地下水监测</h3>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">智慧防涝</h3>
               <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
-                融合自动采样、原位监测、模型评估和 GIS 可视化。
+                融合气象预报、管网水位、AI 视频识别和应急调度一张图，提升内涝预警处置能力。
               </p>
-            </article>
-            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+            </a>
+            <a href="solution-gas.html" class="group block border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
               <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">04</p>
-              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">排水监控</h3>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">智慧燃气</h3>
               <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
-                面向雨水口、窨井、断面水质和零直排场景进行实时管控。
+                围绕燃气管网在线监测、泄漏预警、巡检抢修和隐患闭环，严守能源安全。
               </p>
-            </article>
-            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+            </a>
+            <a href="solution-bridge-tunnel.html" class="group block border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
               <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">05</p>
-              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">管网监测</h3>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">智慧道桥隧</h3>
               <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
-                支撑零直排管理、节点液位监测、堵塞诊断和运行历史追溯。
+                通过结构健康监测、智能感知、告警预警和设施全生命周期管理，保障通行安全。
               </p>
-            </article>
-            <article class="group border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
+            </a>
+            <a href="solution-ai.html" class="group block border-b border-r border-white/15 p-8 transition-colors duration-300 hover:bg-white lg:p-10">
               <p class="text-sm text-white/45 transition-colors duration-300 group-hover:text-river">06</p>
-              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">饮用水监测</h3>
+              <h3 class="mt-8 text-3xl font-semibold transition-colors duration-300 group-hover:text-river">AI算法模型</h3>
               <p class="mt-6 text-base leading-8 text-white/62 transition-colors duration-300 group-hover:text-steel">
-                敬请期待
+                建设算法模型中心，支撑空间分析、管道病害识别、内涝预警、水污染动力模型和科学决策。
               </p>
-            </article>
+            </a>
           </div>
         </div>
       </section>
@@ -776,39 +831,45 @@
         <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
           <div class="mb-14 flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
             <div>
-              <p class="text-sm font-semibold text-river">资讯动态</p>
-              <h2 class="mt-6 text-4xl font-semibold md:text-6xl">公司动态与项目实践</h2>
+              <p class="text-sm font-semibold text-river">经典案例</p>
+              <h2 class="mt-6 text-4xl font-semibold md:text-6xl">项目实践与城市样板</h2>
             </div>
             <p class="max-w-xl text-lg leading-8 text-slate-600">
-              展示技术应用、行业活动、联合研发与城市水务项目进展。
+              浙江省内全覆盖，全国业务遍布20余个省份，服务韧性城市、水务治理与零直排监管场景。
             </p>
           </div>
 
           <div class="grid gap-6 lg:grid-cols-3">
-            <article class="bg-white">
-              <img src="http://www.xqls.tech/statics/2025/8e4a7b76aabe4c0897068d613d923d8b.jpg" alt="成都国际管网展" class="aspect-[4/3] w-full object-cover" />
+            <a href="cases.html#case-zhuji" class="block bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <img src="assets/case-flood-control.jpg" alt="诸暨市韧性城市智慧管理中心" class="aspect-[16/9] w-full object-cover" />
               <div class="p-8">
-                <p class="text-sm text-slate-500">2025-12-04</p>
-                <h3 class="mt-4 text-2xl font-semibold leading-snug">2025成都国际管网展精彩落幕</h3>
-                <p class="mt-4 text-sm leading-7 text-slate-600">以创新技术赋能提升城市智慧韧性，持续探索城市生命线安全。</p>
+                <p class="text-sm text-slate-500">韧性城市</p>
+                <h3 class="mt-4 text-2xl font-semibold leading-snug">诸暨市韧性城市智慧管理中心</h3>
+                <p class="mt-4 text-sm leading-7 text-slate-600">以 GIS 空间底座、三级责任贯通、多维风险感知和闭环处置机制，支撑城市智慧管理。</p>
               </div>
-            </article>
-            <article class="bg-white">
-              <img src="http://www.xqls.tech/statics/2025/2153161b069e4554960b0e91a50c1388.png" alt="上虞水务一体化实践" class="aspect-[4/3] w-full object-cover" />
+            </a>
+            <a href="cases.html#case-shangyu" class="block bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <img src="assets/case-shangyu.jpg" alt="上虞数智排水综合管理系统" class="aspect-[16/9] w-full object-cover" />
               <div class="p-8">
-                <p class="text-sm text-slate-500">2025-08-27</p>
-                <h3 class="mt-4 text-2xl font-semibold leading-snug">全链条服务赋能城市更新</h3>
-                <p class="mt-4 text-sm leading-7 text-slate-600">参与上虞水务一体化融投建运管项目，支撑县域水务治理现代化。</p>
+                <p class="text-sm text-slate-500">智慧排水</p>
+                <h3 class="mt-4 text-2xl font-semibold leading-snug">上虞数智排水综合管理系统</h3>
+                <p class="mt-4 text-sm leading-7 text-slate-600">打通信息资源壁垒，联动管网诊断、智能溯源、智慧巡维与辅助决策。</p>
               </div>
-            </article>
-            <article class="bg-white">
-              <img src="http://www.xqls.tech/statics/2025/64cb301975f04a6e9110b4154cbac712.jpg" alt="联合研究中心会议" class="aspect-[4/3] w-full object-cover" />
+            </a>
+            <a href="cases.html#case-changshan" class="block bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl">
+              <img src="assets/case-zero-discharge.jpg" alt="常山片区星级工业园区污水零直排数字化管理平台" class="aspect-[16/9] w-full object-cover" />
               <div class="p-8">
-                <p class="text-sm text-slate-500">2025-02-17</p>
-                <h3 class="mt-4 text-2xl font-semibold leading-snug">联合研究中心2025年首次会议</h3>
-                <p class="mt-4 text-sm leading-7 text-slate-600">携手浙江大学长三角智慧绿洲创新中心，推进水环境科技研发。</p>
+                <p class="text-sm text-slate-500">污水零直排</p>
+                <h3 class="mt-4 text-2xl font-semibold leading-snug">常山片区星级工业园区数字化管理平台</h3>
+                <p class="mt-4 text-sm leading-7 text-slate-600">构建“源-网-厂-口-河”全链条监管，融合水平衡核算与 AI 溯源预警。</p>
               </div>
-            </article>
+            </a>
+          </div>
+          <div class="mt-10 text-center">
+            <a href="cases.html" class="inline-flex h-12 items-center gap-3 rounded-md bg-ink px-7 text-sm font-semibold text-white hover:bg-river">
+              查看全部案例
+              <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+            </a>
           </div>
         </div>
       </section>
@@ -818,24 +879,24 @@
           <div class="mb-16 w-full">
             <p class="text-sm font-semibold text-river">创新能力</p>
             <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">
-              研发、产品、交付一体化。
+              产学研协同与 AI 算法能力。
             </h2>
             <p class="mt-8 max-w-4xl text-lg leading-9 text-slate-600">
-              公司设有省级研发中心，并与浙江大学智慧绿洲共建联合研发中心，持续推进高端环境、水务在线分析仪器仪表以及水文水利模型的研发与产业化应用。
+              公司设有省级研发中心，并与浙江大学长三角智慧绿洲创新中心未来水务实验室共建联合研究中心，持续推进高端装备、智能算法、水务模型和城市生命线场景的研发与产业化应用。
             </p>
           </div>
           <div class="grid gap-px bg-slate-200 lg:grid-cols-3">
             <div class="bg-white p-10 lg:p-12">
               <p class="text-sm font-semibold text-river">Research</p>
-              <h3 class="mt-5 text-3xl font-semibold">省级研发中心</h3>
+              <h3 class="mt-5 text-3xl font-semibold">省级研发中心与联合研究中心</h3>
             </div>
             <div class="bg-white p-10 lg:p-12">
-              <p class="text-sm font-semibold text-river">University Collaboration</p>
-              <h3 class="mt-5 text-3xl font-semibold">浙江大学智慧绿洲联合研发</h3>
+              <p class="text-sm font-semibold text-river">Smart Equipment</p>
+              <h3 class="mt-5 text-3xl font-semibold">漏损监测、管道机器人与泵站联合调度</h3>
             </div>
             <div class="bg-white p-10 lg:p-12">
-              <p class="text-sm font-semibold text-river">Service</p>
-              <h3 class="mt-5 text-3xl font-semibold">全生命周期运维服务</h3>
+              <p class="text-sm font-semibold text-river">AI Algorithm</p>
+              <h3 class="mt-5 text-3xl font-semibold">城市生命线 AI 算法模型中心</h3>
             </div>
           </div>
         </div>
@@ -844,8 +905,8 @@
       <section class="bg-pale py-24 lg:py-32">
         <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
           <div class="mb-14 text-center">
-            <p class="text-sm font-semibold text-river">合作伙伴</p>
-            <h2 class="mt-6 text-4xl font-semibold md:text-6xl">携手共享商业价值</h2>
+            <p class="text-sm font-semibold text-river">生态合作</p>
+            <h2 class="mt-6 text-4xl font-semibold md:text-6xl">产学研用协同共建</h2>
           </div>
           <div class="mx-auto w-full">
             <div class="grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-6">
@@ -869,7 +930,7 @@
       <section id="contact" class="bg-pale py-24 lg:py-32">
         <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
           <div class="mb-12 rounded-lg bg-river px-8 py-12 text-center text-white lg:px-12">
-            <h2 class="text-4xl font-semibold">需要帮助? 我们为您提供解决方案</h2>
+            <h2 class="text-4xl font-semibold">共建城市生命线韧性能力</h2>
             <a href="tel:0571-88212121" class="mt-8 inline-flex h-12 items-center rounded-md bg-white px-7 text-sm font-semibold text-ink hover:bg-pale">
               联系我们
             </a>
@@ -877,14 +938,21 @@
           <div class="grid overflow-hidden rounded-lg bg-white lg:grid-cols-[1.1fr_0.9fr]">
             <div class="p-10 lg:p-16">
               <p class="text-sm font-semibold text-river">联系我们</p>
-              <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">共建水环境数字化能力</h2>
+              <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">让项目从立项到运营真正落地</h2>
               <p class="mt-8 max-w-2xl text-lg leading-9 text-slate-600">
-                需要产品选型、系统集成或智慧水务方案咨询，可联系小桥流水技术团队。
+                需要项目立项咨询、平台建设、智能感知硬件、AI算法模型或一体化运维服务，可联系小桥流水技术团队。
               </p>
+              <a href="tel:0571-88212121" class="mt-9 inline-flex h-12 items-center gap-3 rounded-md bg-ink px-7 text-sm font-semibold text-white hover:bg-river">
+                <i data-lucide="phone" class="h-4 w-4"></i>
+                联系我们
+              </a>
             </div>
             <div class="bg-ink p-10 text-white lg:p-16">
               <div class="grid gap-8 text-base text-white/76">
-                <p class="flex gap-4"><i data-lucide="phone" class="h-5 w-5 shrink-0 text-white"></i>0571-88212121</p>
+                <a href="tel:0571-88212121" class="flex gap-4 hover:text-white">
+                  <i data-lucide="phone" class="h-5 w-5 shrink-0 text-white"></i>
+                  0571-88212121
+                </a>
                 <p class="flex gap-4"><i data-lucide="mail" class="h-5 w-5 shrink-0 text-white"></i>xqls@xqls.com.cn</p>
                 <p class="flex gap-4"><i data-lucide="clock" class="h-5 w-5 shrink-0 text-white"></i>周一至周五（9:00-18:00）</p>
                 <p class="flex gap-4 leading-8"><i data-lucide="map-pin" class="h-5 w-5 shrink-0 text-white"></i>浙江省杭州市余杭区余杭塘路2301号海智中心3号楼801室</p>

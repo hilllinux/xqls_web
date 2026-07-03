@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="zh-CN" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="浙江小桥流水环境科技有限公司经典案例，覆盖韧性城市、智慧排水、五水智治、污水零直排和一体化运维等城市生命线数字化实践。"
+    />
+    <title>经典案例 | 浙江小桥流水环境科技有限公司</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "PingFang SC", "Microsoft YaHei", "Arial", "sans-serif"],
+            },
+            colors: {
+              ink: "#07141C",
+              steel: "#24333D",
+              river: "#0D6F8F",
+              pale: "#F4F7F8",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        text-rendering: optimizeLegibility;
+      }
+      .hero-bg {
+        background-image:
+          radial-gradient(circle at 76% 32%, rgba(13, 111, 143, 0.22), rgba(13, 111, 143, 0) 34%),
+          linear-gradient(90deg, rgba(3, 12, 18, 0.96) 0%, rgba(3, 12, 18, 0.78) 46%, rgba(3, 12, 18, 0.34) 100%),
+          url("assets/case-flood-control.jpg");
+      }
+      .site-header {
+        background: transparent;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+      .site-header.is-scrolled {
+        background: rgba(255, 255, 255, 0.94);
+        color: #07141c;
+        border-color: rgba(15, 23, 42, 0.12);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .site-header:hover {
+        background: rgba(255, 255, 255, 0.96);
+        color: #07141c;
+        border-color: rgba(15, 23, 42, 0.12);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .site-header .phone-link,
+      .site-header .menu-button {
+        border-color: rgba(255, 255, 255, 0.38);
+      }
+      .site-header.is-scrolled .phone-link,
+      .site-header.is-scrolled .menu-button {
+        border-color: rgba(15, 23, 42, 0.22);
+      }
+      .site-header:hover .phone-link,
+      .site-header:hover .menu-button {
+        border-color: rgba(13, 111, 143, 0.32);
+      }
+      .site-header nav {
+        color: rgba(255, 255, 255, 0.72);
+      }
+      .site-header.is-scrolled nav,
+      .site-header:hover nav {
+        color: #07141c;
+      }
+      .site-header:hover .header-brand,
+      .site-header:hover .header-brand-en {
+        color: #0d6f8f;
+      }
+      .site-header nav a:hover {
+        color: #fff !important;
+      }
+      .site-header.is-scrolled nav a:hover {
+        color: #07141c !important;
+      }
+      .site-header:hover nav a:hover {
+        color: #0d6f8f !important;
+      }
+      .site-header .phone-link:hover {
+        background: #fff;
+        color: #07141c;
+      }
+      .site-header.is-scrolled .phone-link:hover {
+        background: #07141c;
+        color: #fff;
+      }
+      .site-header:hover .phone-link:hover {
+        background: #0d6f8f;
+        color: #fff;
+      }
+      .site-header.is-scrolled #mobileMenu {
+        background: #fff;
+        color: #07141c;
+        border-color: rgba(15, 23, 42, 0.12);
+      }
+      .site-header.is-scrolled #mobileMenu .mobile-menu-muted {
+        color: rgba(7, 20, 28, 0.62);
+      }
+      .header-nav {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      }
+      .header-brand {
+        font-size: 22px;
+        font-weight: 500;
+        font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      }
+      .header-brand-en {
+        margin-top: 7px;
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.58);
+        font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      }
+      .site-header.is-scrolled .header-brand-en {
+        color: rgba(7, 20, 28, 0.5);
+      }
+      .brand-logo-color,
+      .brand-logo-white {
+        transition: opacity 0.25s ease;
+      }
+      .brand-logo-color {
+        opacity: 0;
+      }
+      .site-header.is-scrolled .brand-logo-color,
+      .site-header:hover .brand-logo-color {
+        opacity: 1;
+      }
+      .site-header.is-scrolled .brand-logo-white,
+      .site-header:hover .brand-logo-white {
+        opacity: 0;
+      }
+      .nav-link {
+        position: relative;
+        display: inline-flex;
+        height: 86px;
+        align-items: center;
+        color: inherit;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 3px;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.28s ease;
+      }
+      .nav-link:hover::after,
+      .nav-link.is-active::after {
+        transform: scaleX(1);
+      }
+      .nav-dropdown {
+        position: relative;
+        height: 86px;
+        display: inline-flex;
+        align-items: center;
+      }
+      .nav-dropdown-panel {
+        position: fixed;
+        left: 50%;
+        top: 86px;
+        width: min(1180px, calc(100vw - 48px));
+        transform: translateX(-50%) translateY(10px);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+      .nav-dropdown:hover .nav-dropdown-panel {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+      }
+      .product-menu-link:hover {
+        color: #0d6f8f !important;
+      }
+      .case-nav-sticky {
+        position: sticky;
+        top: 85px;
+        z-index: 49;
+        margin-right: -1.5rem;
+        margin-left: -1.5rem;
+        padding: 0.9rem 1.5rem;
+        background: rgba(244, 247, 248, 0.96);
+        border-bottom: 1px solid rgba(15, 23, 42, 0.08);
+        box-shadow: 0 12px 28px rgba(15, 23, 42, 0.08);
+        backdrop-filter: blur(10px);
+      }
+      .case-nav-row {
+        display: grid;
+        grid-auto-flow: column;
+        grid-auto-columns: minmax(210px, 1fr);
+        gap: 0.75rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+      .case-nav-row::-webkit-scrollbar {
+        display: none;
+      }
+      .case-nav-link {
+        display: flex;
+        min-height: 64px;
+        align-items: center;
+        gap: 0.75rem;
+        border: 1px solid rgba(15, 23, 42, 0.08);
+        background: #fff;
+        padding: 0.85rem 1rem;
+        color: #07141c;
+        transition:
+          transform 0.25s ease,
+          border-color 0.25s ease,
+          background 0.25s ease,
+          color 0.25s ease,
+          box-shadow 0.25s ease;
+      }
+      .case-nav-link:hover {
+        transform: translateY(-2px);
+        border-color: rgba(13, 111, 143, 0.28);
+        box-shadow: 0 12px 24px rgba(15, 23, 42, 0.12);
+      }
+      .case-nav-link.is-active {
+        background: #07141c;
+        color: #fff;
+        border-color: #07141c;
+        box-shadow: 0 14px 28px rgba(15, 23, 42, 0.16);
+      }
+      .case-nav-index {
+        color: #0d6f8f;
+      }
+      .case-nav-link.is-active .case-nav-index {
+        color: rgba(255, 255, 255, 0.7);
+      }
+      @media (min-width: 1024px) {
+        .case-nav-sticky {
+          margin-right: -3rem;
+          margin-left: -3rem;
+          padding-right: 3rem;
+          padding-left: 3rem;
+        }
+        .case-nav-row {
+          grid-auto-flow: row;
+          grid-auto-columns: unset;
+          grid-template-columns: repeat(5, minmax(0, 1fr));
+          overflow: visible;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white font-sans text-ink antialiased">
+    <header id="siteHeader" class="site-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md transition-all duration-300">
+      <div class="mx-auto flex h-[86px] max-w-[1440px] items-center justify-between px-6 lg:px-12">
+        <a href="index.html#home" class="flex items-center gap-3 leading-none" aria-label="小桥流水环境科技首页">
+          <span class="relative h-11 w-20 shrink-0">
+            <img src="assets/logo-white.png" alt="小桥流水环境科技 Logo" class="brand-logo-white absolute inset-0 h-full w-full object-contain" />
+            <img src="assets/logo.png" alt="" class="brand-logo-color absolute inset-0 h-full w-full object-contain" />
+          </span>
+          <span>
+            <span class="header-brand block">小桥流水环境科技</span>
+            <span class="header-brand-en block">XQLS Environmental Technology</span>
+          </span>
+        </a>
+
+        <nav class="header-nav hidden items-center gap-7 xl:gap-11 lg:flex" aria-label="主导航">
+          <a class="nav-link" href="index.html#about">关于我们</a>
+          <div class="nav-dropdown">
+            <a class="nav-link" href="products.html">产品与服务</a>
+            <div class="nav-dropdown-panel z-50 rounded-lg border border-slate-200 bg-white p-6 text-ink shadow-xl">
+              <div class="grid gap-5 lg:grid-cols-6">
+                <div>
+                  <a href="products.html?category=sampling" class="product-menu-link text-base font-semibold text-river">水质采样</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xw-1d3">XW-1D3户外水质采样器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-1j2">XW-1J2便携式地下水采样器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-1j">XW-1J地下水在线采样器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-1h2">XW-1H2环保水质采样器</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="products.html?category=analysis" class="product-menu-link text-base font-semibold text-river">水质分析</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9308">XW-9308全光谱水质分析仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9b">XW-9B一体化多参数分析仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9203">XW-9203多参数水质在线分析仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-p100">XW-P100便携式五参数分析仪</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="products.html?category=sensor" class="product-menu-link text-base font-semibold text-river">数字传感</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2duv">XW-2DUV数字COD传感器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2dan">XW-2DAN数字氨氮传感器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2ddo">XW-2DDO数字溶解氧传感器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2dph">XW-2DpH数字pH传感器</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="products.html?category=monitoring" class="product-menu-link text-base font-semibold text-river">管网监测</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9103">XW-9103微功耗智能终端</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2ddf">XW-2DDF多普勒流量计</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9102e">XW-9102E小型浮标站</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9105lv">XW-9105LV井盖传感器</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="products.html?category=control" class="product-menu-link text-base font-semibold text-river">系统控制</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xw-4f2">XW-4F2智能控制仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9108">XW-9108雨污分流控制系统</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="products.html?category=solid" class="product-menu-link text-base font-semibold text-river">固废管理</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xs-2s">XS-2S固废管理系统终端</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a class="nav-link" href="index.html#solutions">解决方案</a>
+            <div class="nav-dropdown-panel z-50 rounded-lg border border-slate-200 bg-white p-6 text-ink shadow-xl">
+              <div class="grid gap-5 lg:grid-cols-6">
+                <div>
+                  <a href="solution-water-supply.html" class="product-menu-link text-base font-semibold text-river">智慧供水</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-water-supply.html#core-systems">DMA计量分区</a>
+                    <a class="product-menu-link" href="solution-water-supply.html#core-systems">管网智能调度</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="solution-drainage.html" class="product-menu-link text-base font-semibold text-river">智慧排水</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-drainage.html#core-systems">厂站网河调度</a>
+                    <a class="product-menu-link" href="solution-drainage.html#core-systems">污染源溯源</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="solution-flood-control.html" class="product-menu-link text-base font-semibold text-river">智慧防涝</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-flood-control.html#core-systems">内涝监测预报</a>
+                    <a class="product-menu-link" href="solution-flood-control.html#core-systems">应急调度一张图</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="solution-gas.html" class="product-menu-link text-base font-semibold text-river">智慧燃气</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-gas.html#core-systems">泄漏监测预警</a>
+                    <a class="product-menu-link" href="solution-gas.html#core-systems">巡检抢修闭环</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="solution-bridge-tunnel.html" class="product-menu-link text-base font-semibold text-river">智慧道桥隧</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-bridge-tunnel.html#core-systems">结构健康监测</a>
+                    <a class="product-menu-link" href="solution-bridge-tunnel.html#core-systems">设施全生命周期</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="solution-ai.html" class="product-menu-link text-base font-semibold text-river">AI算法中心</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-ai.html#core-systems">管道病害识别</a>
+                    <a class="product-menu-link" href="solution-ai.html#core-systems">水污染动力模型</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="nav-link" href="index.html#capability">创新能力</a>
+          <a class="nav-link is-active" href="cases.html">经典案例</a>
+          <a class="nav-link" href="index.html#contact">联系我们</a>
+        </nav>
+
+        <a href="tel:0571-88212121" class="phone-link hidden h-10 items-center gap-2 rounded-md border px-5 text-sm font-medium transition-colors lg:inline-flex">
+          <i data-lucide="phone" class="h-4 w-4"></i>
+          0571-88212121
+        </a>
+
+        <button id="menuToggle" class="menu-button inline-flex h-10 w-10 items-center justify-center border lg:hidden" aria-label="打开导航" type="button">
+          <i data-lucide="menu" class="h-5 w-5"></i>
+        </button>
+      </div>
+
+      <div id="mobileMenu" class="hidden border-t border-white/10 bg-ink px-6 py-5 lg:hidden">
+        <nav class="grid gap-4 text-sm" aria-label="移动端导航">
+          <a href="index.html#about">关于我们</a>
+          <a href="products.html">产品与服务</a>
+          <a href="index.html#solutions">解决方案</a>
+          <div class="grid gap-2 border-l border-river/50 pl-4 text-sm">
+            <a href="solution-water-supply.html" class="mobile-menu-muted text-white/60">智慧供水</a>
+            <a href="solution-drainage.html" class="mobile-menu-muted text-white/60">智慧排水</a>
+            <a href="solution-flood-control.html" class="mobile-menu-muted text-white/60">智慧防涝</a>
+            <a href="solution-gas.html" class="mobile-menu-muted text-white/60">智慧燃气</a>
+            <a href="solution-bridge-tunnel.html" class="mobile-menu-muted text-white/60">智慧道桥隧</a>
+            <a href="solution-ai.html" class="mobile-menu-muted text-white/60">AI算法模型</a>
+          </div>
+          <a href="index.html#capability">创新能力</a>
+          <a href="cases.html">经典案例</a>
+          <a href="index.html#contact">联系我们</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="home">
+      <section class="hero-bg relative flex min-h-[78vh] items-end overflow-hidden bg-cover bg-center text-white">
+        <div class="pointer-events-none absolute inset-x-0 bottom-0 h-44 bg-gradient-to-t from-ink to-transparent"></div>
+        <div class="relative mx-auto w-full max-w-[1440px] px-6 pb-12 pt-32 lg:px-12 lg:pb-16">
+          <div class="max-w-5xl">
+            <p class="mb-8 inline-flex border-l-2 border-white/55 pl-5 text-sm font-semibold uppercase text-white/68">
+              Cases · City Lifeline
+            </p>
+            <h1 class="text-5xl font-semibold leading-[1.08] md:text-7xl md:leading-[1.02]">经典案例</h1>
+            <p class="mt-8 max-w-4xl text-lg leading-9 text-white/76 md:text-xl">
+              从韧性城市智慧管理中心到数智排水、县域五水智治与园区零直排平台，沉淀城市生命线数字化建设的项目经验。
+            </p>
+          </div>
+          <div class="mt-16 grid border-y border-white/15 bg-white/[0.03] backdrop-blur-sm md:grid-cols-3">
+            <div class="px-6 py-6 lg:px-10">
+              <p class="text-xs uppercase text-white/42">Coverage</p>
+              <p class="mt-3 text-lg font-semibold">浙江省内全覆盖</p>
+            </div>
+            <div class="border-t border-white/15 px-6 py-6 md:border-l md:border-t-0 lg:px-10">
+              <p class="text-xs uppercase text-white/42">Footprint</p>
+              <p class="mt-3 text-lg font-semibold">全国业务遍布20余个省份</p>
+            </div>
+            <div class="border-t border-white/15 px-6 py-6 md:border-l md:border-t-0 lg:px-10">
+              <p class="text-xs uppercase text-white/42">Scenario</p>
+              <p class="mt-3 text-lg font-semibold">韧性城市、排水、防涝、零直排</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-pale py-20 lg:py-24">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="flex flex-col justify-between gap-8 lg:flex-row lg:items-end">
+            <div>
+              <p class="text-sm font-semibold text-river">案例索引</p>
+              <h2 class="mt-5 text-4xl font-semibold md:text-5xl">城市级项目实践</h2>
+            </div>
+            <p class="max-w-2xl text-base leading-8 text-slate-600">
+              围绕地上地下空间治理、排水系统监管、源网厂口河闭环、县域五水联动与长效运维，形成可复制的数字化交付路径。
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-white pb-24 lg:pb-32">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <nav id="caseNav" class="case-nav-sticky" aria-label="案例导航">
+            <div class="case-nav-row">
+              <a href="#case-zhuji" class="case-nav-link is-active" aria-current="true">
+                <span class="case-nav-index text-sm font-semibold">01</span>
+                <span class="case-nav-title text-sm font-semibold leading-snug lg:text-base">诸暨韧性城市智慧管理中心</span>
+              </a>
+              <a href="#case-shangyu" class="case-nav-link">
+                <span class="case-nav-index text-sm font-semibold">02</span>
+                <span class="case-nav-title text-sm font-semibold leading-snug lg:text-base">上虞数智排水综合管理系统</span>
+              </a>
+              <a href="#case-yuhuan" class="case-nav-link">
+                <span class="case-nav-index text-sm font-semibold">03</span>
+                <span class="case-nav-title text-sm font-semibold leading-snug lg:text-base">玉环县域五水智治控制中心</span>
+              </a>
+              <a href="#case-changshan" class="case-nav-link">
+                <span class="case-nav-index text-sm font-semibold">04</span>
+                <span class="case-nav-title text-sm font-semibold leading-snug lg:text-base">常山园区污水零直排平台</span>
+              </a>
+              <a href="#case-yuhang" class="case-nav-link">
+                <span class="case-nav-index text-sm font-semibold">05</span>
+                <span class="case-nav-title text-sm font-semibold leading-snug lg:text-base">余杭污水零直排运维平台</span>
+              </a>
+            </div>
+          </nav>
+
+          <div class="grid gap-16 pt-16 lg:pt-20">
+          <article id="case-zhuji" class="scroll-mt-48 grid overflow-hidden bg-pale lg:grid-cols-[1.12fr_0.88fr]">
+            <img src="assets/case-flood-control.jpg" alt="诸暨市韧性城市智慧管理中心平台界面" class="h-full min-h-[360px] w-full object-cover" />
+            <div class="p-8 lg:p-12">
+              <p class="text-sm font-semibold text-river">韧性城市</p>
+              <h2 class="mt-5 text-3xl font-semibold leading-tight md:text-4xl">诸暨市韧性城市智慧管理中心</h2>
+              <p class="mt-6 text-base leading-8 text-slate-600">
+                项目依托 GIS 技术深度融合地下普查数据，打造地上地下一体化空间数字底座，推动城市智慧管理从单点监管走向全域协同。
+              </p>
+              <div class="mt-8 grid gap-4 text-sm leading-7 text-slate-600">
+                <p><span class="font-semibold text-ink">三维数字监管底座：</span>融合地上地下设施数据，形成空间化、可视化的监管基础。</p>
+                <p><span class="font-semibold text-ink">责任体系贯通：</span>构建“政府督部门、部门管企业、企业管设施”的责任闭环。</p>
+                <p><span class="font-semibold text-ink">风险感知网络：</span>布设 240 个设备点位，结合算法分析与仿真模型，实现风险识别、评估预警和预测预报。</p>
+                <p><span class="font-semibold text-ink">闭环处置机制：</span>健全“发现、研判、派单、处置、复盘”全流程管控。</p>
+              </div>
+            </div>
+          </article>
+
+          <article id="case-shangyu" class="scroll-mt-48 grid overflow-hidden bg-pale lg:grid-cols-[0.88fr_1.12fr]">
+            <div class="order-2 p-8 lg:order-1 lg:p-12">
+              <p class="text-sm font-semibold text-river">智慧排水</p>
+              <h2 class="mt-5 text-3xl font-semibold leading-tight md:text-4xl">上虞数智排水综合管理系统</h2>
+              <p class="mt-6 text-base leading-8 text-slate-600">
+                作为浙江省住建厅试点、原五水办“五水共治一张图”试点案例，项目以“一屏统管”为抓手，打通排水系统信息资源壁垒。
+              </p>
+              <div class="mt-8 grid gap-4 text-sm leading-7 text-slate-600">
+                <p><span class="font-semibold text-ink">智慧排水：</span>发挥协同联动、互联互保效能，统一呈现排水运行态势。</p>
+                <p><span class="font-semibold text-ink">智慧管网：</span>通过物联监测与模型联合应用，动态诊断排水管网运行状态。</p>
+                <p><span class="font-semibold text-ink">智能溯源：</span>对污水排放进行全维度管理，发现问题自动预警、精准溯源。</p>
+                <p><span class="font-semibold text-ink">智慧巡维：</span>发布巡检任务计划，形成“厂、站、网、源”一体化运维闭环。</p>
+              </div>
+            </div>
+            <img src="assets/case-shangyu.jpg" alt="上虞数智排水综合管理系统驾驶舱" class="order-1 h-full min-h-[340px] w-full object-cover lg:order-2" />
+          </article>
+
+          <article id="case-yuhuan" class="scroll-mt-48 grid overflow-hidden bg-pale lg:grid-cols-[1.12fr_0.88fr]">
+            <img src="assets/case-yuhuan.jpg" alt="玉环县域五水智治控制中心平台界面" class="h-full min-h-[340px] w-full object-cover" />
+            <div class="p-8 lg:p-12">
+              <p class="text-sm font-semibold text-river">县域五水智治</p>
+              <h2 class="mt-5 text-3xl font-semibold leading-tight md:text-4xl">玉环县域五水智治控制中心</h2>
+              <p class="mt-6 text-base leading-8 text-slate-600">
+                围绕污水治理、水资源保障、河湖健康、防洪排涝、供水节水与联动指挥，构建县域水治理综合驾驶舱。
+              </p>
+              <div class="mt-8 grid gap-4 text-sm leading-7 text-slate-600">
+                <p><span class="font-semibold text-ink">污水治理：</span>覆盖来源、管网收集、泵站提升、污水处理、污泥处置和中水回用全流程。</p>
+                <p><span class="font-semibold text-ink">水资源保障：</span>从水源的量、质、用进行三位一体监管。</p>
+                <p><span class="font-semibold text-ink">河湖健康：</span>结合断面水质、河长制和工程管理实现健康评价。</p>
+                <p><span class="font-semibold text-ink">防洪排涝：</span>联动降水、水库、内涝点、应急闸站和物资情况，形成排涝闭环。</p>
+              </div>
+            </div>
+          </article>
+
+          <article id="case-changshan" class="scroll-mt-48 grid overflow-hidden bg-pale lg:grid-cols-[0.88fr_1.12fr]">
+            <div class="order-2 p-8 lg:order-1 lg:p-12">
+              <p class="text-sm font-semibold text-river">污水零直排</p>
+              <h2 class="mt-5 text-3xl font-semibold leading-tight md:text-4xl">常山片区星级工业园区数字化管理平台</h2>
+              <p class="mt-6 text-base leading-8 text-slate-600">
+                项目构建“源、网、厂、口、河”全链条在线监管体系，支撑园区污水零直排长效闭环管理。
+              </p>
+              <div class="mt-8 grid gap-4 text-sm leading-7 text-slate-600">
+                <p><span class="font-semibold text-ink">全流程智慧监管：</span>实现企业、管网、处理厂、排口及受纳水体全过程管控。</p>
+                <p><span class="font-semibold text-ink">一体化数字台账：</span>整合全域水务数据，建立设施账册、企业清单和环保管控一张图。</p>
+                <p><span class="font-semibold text-ink">智能化成效评档：</span>通过多维评价算法，对企业零直排成效量化评分并评级。</p>
+                <p><span class="font-semibold text-ink">智慧化溯源预警：</span>融合水平衡核算与 AI 溯源算法，保障治理成效长期稳定。</p>
+              </div>
+            </div>
+            <img src="assets/case-zero-discharge.jpg" alt="常山片区星级工业园区污水零直排数字化管理平台" class="order-1 h-full min-h-[360px] w-full object-cover lg:order-2" />
+          </article>
+
+          <article id="case-yuhang" class="scroll-mt-48 grid overflow-hidden bg-pale lg:grid-cols-[1.12fr_0.88fr]">
+            <img src="assets/case-yuhang.jpg" alt="余杭污水零直排运维管理平台" class="h-full min-h-[360px] w-full object-cover" />
+            <div class="p-8 lg:p-12">
+              <p class="text-sm font-semibold text-river">一体化运维</p>
+              <h2 class="mt-5 text-3xl font-semibold leading-tight md:text-4xl">余杭污水零直排运维管理平台</h2>
+              <p class="mt-6 text-base leading-8 text-slate-600">
+                项目面向日常运维和问题闭环，统筹雨污管网、站点设备、预警策略和工单管理，支撑区域零直排长效运维。
+              </p>
+              <div class="mt-8 grid gap-4 text-sm leading-7 text-slate-600">
+                <p><span class="font-semibold text-ink">统筹布局直观：</span>通过不同图层动态展示雨水管网、污水管网及四级分类信息。</p>
+                <p><span class="font-semibold text-ink">资产管理透明：</span>汇总站点、设备等多维对象的历史数据与实时数据。</p>
+                <p><span class="font-semibold text-ink">运维工作便利：</span>覆盖工单发布、工单闭环两大场景，保障日常作业记录准确。</p>
+                <p><span class="font-semibold text-ink">问题发现及时：</span>支持预警记录查询、定制化策略配置和超阈值短信通知。</p>
+              </div>
+            </div>
+          </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="bg-ink py-20 text-white lg:py-24">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="grid gap-10 lg:grid-cols-[1fr_0.55fr] lg:items-center">
+            <div>
+              <p class="text-sm font-semibold text-white/55">案例共性</p>
+              <h2 class="mt-5 text-4xl font-semibold leading-tight md:text-5xl">以咨询切入、平台为核、硬件落地，支撑长期运营。</h2>
+            </div>
+            <div class="grid gap-4 text-sm leading-7 text-white/65">
+              <p>围绕城市生命线建设，项目交付从现状调研、数据接入、平台建设、算法模型到运维闭环持续推进。</p>
+              <a href="index.html#contact" class="inline-flex h-12 w-fit items-center gap-3 rounded-md bg-white px-7 text-sm font-semibold text-ink hover:bg-pale">
+                联系我们
+                <i data-lucide="arrow-up-right" class="h-4 w-4"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-ink py-8 text-white">
+      <div class="mx-auto flex max-w-[1440px] flex-col gap-4 px-6 text-sm text-white/55 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+        <div>
+          <p>© <span id="year"></span> 浙江小桥流水环境科技有限公司 All rights reserved</p>
+          <p class="mt-2">浙ICP备12045722号-3 · 浙公网安备 33011002016969号</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <img src="assets/qr-code.png" alt="小桥流水公众号二维码" class="h-20 w-20 rounded bg-white p-1" />
+          <div>
+            <p class="font-semibold text-white/75">关注公众号</p>
+            <p class="mt-1">小桥流水</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const siteHeader = document.getElementById("siteHeader");
+      const heroSection = document.querySelector(".hero-bg");
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const caseNav = document.getElementById("caseNav");
+      const caseNavLinks = Array.from(document.querySelectorAll(".case-nav-link"));
+      const caseSections = caseNavLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+      const updateHeader = () => {
+        const threshold = heroSection.offsetHeight - siteHeader.offsetHeight;
+        siteHeader.classList.toggle("is-scrolled", window.scrollY >= threshold);
+      };
+      let activeCaseId = "";
+      const setActiveCase = (activeId, shouldReveal = false) => {
+        if (!activeId || activeCaseId === activeId) return;
+        activeCaseId = activeId;
+        caseNavLinks.forEach((link) => {
+          const isActive = link.getAttribute("href") === `#${activeId}`;
+          link.classList.toggle("is-active", isActive);
+          if (isActive) {
+            link.setAttribute("aria-current", "true");
+            if (shouldReveal && window.matchMedia("(max-width: 1023px)").matches) {
+              link.scrollIntoView({ block: "nearest", inline: "center" });
+            }
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      };
+      const updateActiveCase = () => {
+        if (!caseSections.length) return;
+        const stickyOffset = siteHeader.offsetHeight + (caseNav ? caseNav.offsetHeight : 0) + 64;
+        const activeSection =
+          caseSections
+            .slice()
+            .reverse()
+            .find((section) => section.getBoundingClientRect().top <= stickyOffset) || caseSections[0];
+        setActiveCase(activeSection.id);
+      };
+      let caseScrollTicking = false;
+      const requestActiveCaseUpdate = () => {
+        if (caseScrollTicking) return;
+        caseScrollTicking = true;
+        requestAnimationFrame(() => {
+          updateActiveCase();
+          caseScrollTicking = false;
+        });
+      };
+      updateHeader();
+      updateActiveCase();
+      window.addEventListener("scroll", updateHeader, { passive: true });
+      window.addEventListener("scroll", requestActiveCaseUpdate, { passive: true });
+      window.addEventListener("resize", updateHeader);
+      window.addEventListener("resize", updateActiveCase);
+      caseNavLinks.forEach((link) => {
+        link.addEventListener("click", () => setActiveCase(link.getAttribute("href").slice(1), true));
+      });
+      menuToggle.addEventListener("click", () => {
+        mobileMenu.classList.toggle("hidden");
+      });
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => mobileMenu.classList.add("hidden"));
+      });
+      document.getElementById("year").textContent = new Date().getFullYear();
+      lucide.createIcons();
+    </script>
+  </body>
+</html>

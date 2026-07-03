@@ -1,0 +1,183 @@
+body {
+  text-rendering: optimizeLegibility;
+}
+.site-header {
+  background: transparent;
+  color: #fff;
+  border-color: rgba(255, 255, 255, 0.15);
+}
+.site-header.is-scrolled {
+  background: rgba(255, 255, 255, 0.94);
+  color: #07141c;
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+.site-header:hover {
+  background: rgba(255, 255, 255, 0.96);
+  color: #07141c;
+  border-color: rgba(15, 23, 42, 0.12);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+}
+.site-header .phone-link,
+.site-header .menu-button {
+  border-color: rgba(255, 255, 255, 0.38);
+}
+.site-header.is-scrolled .phone-link,
+.site-header.is-scrolled .menu-button {
+  border-color: rgba(15, 23, 42, 0.22);
+}
+.site-header:hover .phone-link,
+.site-header:hover .menu-button {
+  border-color: rgba(13, 111, 143, 0.32);
+}
+.site-header nav {
+  color: rgba(255, 255, 255, 0.72);
+}
+.site-header.is-scrolled nav,
+.site-header:hover nav {
+  color: #07141c;
+}
+.site-header:hover .header-brand,
+.site-header:hover .header-brand-en {
+  color: #0d6f8f;
+}
+.site-header nav a:hover {
+  color: #fff !important;
+}
+.site-header.is-scrolled nav a:hover {
+  color: #07141c !important;
+}
+.site-header:hover nav a:hover {
+  color: #0d6f8f !important;
+}
+.site-header .phone-link:hover {
+  background: #fff;
+  color: #07141c;
+}
+.site-header.is-scrolled .phone-link:hover {
+  background: #07141c;
+  color: #fff;
+}
+.site-header:hover .phone-link:hover {
+  background: #0d6f8f;
+  color: #fff;
+}
+.site-header.is-scrolled #mobileMenu {
+  background: #fff;
+  color: #07141c;
+  border-color: rgba(15, 23, 42, 0.12);
+}
+.site-header.is-scrolled #mobileMenu .mobile-menu-muted {
+  color: rgba(7, 20, 28, 0.62);
+}
+.header-nav {
+  font-size: 16px;
+  font-weight: 400;
+  font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+.header-brand {
+  font-size: 22px;
+  font-weight: 500;
+  font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+.header-brand-en {
+  margin-top: 7px;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.58);
+  font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+}
+.site-header.is-scrolled .header-brand-en {
+  color: rgba(7, 20, 28, 0.5);
+}
+.brand-logo-color,
+.brand-logo-white {
+  transition: opacity 0.25s ease;
+}
+.brand-logo-color {
+  opacity: 0;
+}
+.site-header.is-scrolled .brand-logo-color,
+.site-header:hover .brand-logo-color {
+  opacity: 1;
+}
+.site-header.is-scrolled .brand-logo-white,
+.site-header:hover .brand-logo-white {
+  opacity: 0;
+}
+.nav-link {
+  position: relative;
+  display: inline-flex;
+  height: 86px;
+  align-items: center;
+  color: inherit;
+}
+.nav-link::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.28s ease;
+}
+.nav-link:hover::after,
+.nav-link.is-active::after {
+  transform: scaleX(1);
+}
+.nav-dropdown {
+  position: relative;
+  display: inline-flex;
+  height: 86px;
+  align-items: center;
+}
+.nav-dropdown-panel {
+  position: fixed;
+  top: 86px;
+  left: 50%;
+  width: min(1180px, calc(100vw - 48px));
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(-50%) translateY(10px);
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+.nav-dropdown:hover .nav-dropdown-panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+.product-menu-link:hover {
+  color: #0d6f8f !important;
+}
+.solution-hero {
+  background-size: cover;
+  background-position: center;
+}
+.solution-preview {
+  aspect-ratio: 16 / 9;
+}
+.solution-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+.solution-card {
+  min-height: 250px;
+}
+.solution-menu-link[aria-current="page"] {
+  color: #07141c !important;
+}
+@media (max-width: 640px) {
+  .header-brand {
+    font-size: 18px;
+  }
+  .header-brand-en {
+    display: none;
+  }
+}

@@ -1,0 +1,599 @@
+<!doctype html>
+<html lang="zh-CN" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="浙江小桥流水环境科技有限公司硬件产品详情，查看产品概述、产品特点与技术参数。"
+    />
+    <title>产品详情 | 浙江小桥流水环境科技有限公司</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "PingFang SC", "Microsoft YaHei", "Arial", "sans-serif"],
+            },
+            colors: {
+              ink: "#07141C",
+              steel: "#24333D",
+              river: "#0D6F8F",
+              pale: "#F4F7F8",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        text-rendering: optimizeLegibility;
+      }
+      .site-header {
+        background: transparent;
+        color: #fff;
+        border-color: rgba(255, 255, 255, 0.15);
+      }
+      .site-header.is-scrolled {
+        background: rgba(255, 255, 255, 0.94);
+        color: #07141c;
+        border-color: rgba(15, 23, 42, 0.12);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .site-header:hover {
+        background: rgba(255, 255, 255, 0.96);
+        color: #07141c;
+        border-color: rgba(15, 23, 42, 0.12);
+        box-shadow: 0 10px 30px rgba(15, 23, 42, 0.08);
+      }
+      .site-header .phone-link,
+      .site-header .menu-button {
+        border-color: rgba(255, 255, 255, 0.38);
+      }
+      .site-header.is-scrolled .phone-link,
+      .site-header.is-scrolled .menu-button {
+        border-color: rgba(15, 23, 42, 0.22);
+      }
+      .site-header:hover .phone-link,
+      .site-header:hover .menu-button {
+        border-color: rgba(13, 111, 143, 0.32);
+      }
+      .site-header nav {
+        color: rgba(255, 255, 255, 0.72);
+      }
+      .site-header.is-scrolled nav,
+      .site-header:hover nav {
+        color: #07141c;
+      }
+      .site-header:hover .header-brand,
+      .site-header:hover .header-brand-en {
+        color: #0d6f8f;
+      }
+      .site-header nav a:hover {
+        color: #fff !important;
+      }
+      .site-header.is-scrolled nav a:hover {
+        color: #07141c !important;
+      }
+      .site-header:hover nav a:hover {
+        color: #0d6f8f !important;
+      }
+      .site-header .phone-link:hover {
+        background: #fff;
+        color: #07141c;
+      }
+      .site-header.is-scrolled .phone-link:hover {
+        background: #07141c;
+        color: #fff;
+      }
+      .site-header:hover .phone-link:hover {
+        background: #0d6f8f;
+        color: #fff;
+      }
+      .site-header.is-scrolled #mobileMenu {
+        background: #fff;
+        color: #07141c;
+        border-color: rgba(15, 23, 42, 0.12);
+      }
+      .site-header.is-scrolled #mobileMenu .mobile-menu-muted {
+        color: rgba(7, 20, 28, 0.62);
+      }
+      .header-nav {
+        font-size: 16px;
+        font-weight: 400;
+        font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      }
+      .header-brand {
+        font-size: 22px;
+        font-weight: 500;
+        font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      }
+      .header-brand-en {
+        margin-top: 7px;
+        font-size: 12px;
+        font-weight: 400;
+        color: rgba(255, 255, 255, 0.58);
+        font-family: Arial, "Microsoft YaHei", "PingFang SC", sans-serif;
+      }
+      .site-header.is-scrolled .header-brand-en {
+        color: rgba(7, 20, 28, 0.5);
+      }
+      .brand-logo-color,
+      .brand-logo-white {
+        transition: opacity 0.25s ease;
+      }
+      .brand-logo-color {
+        opacity: 0;
+      }
+      .site-header.is-scrolled .brand-logo-color,
+      .site-header:hover .brand-logo-color {
+        opacity: 1;
+      }
+      .site-header.is-scrolled .brand-logo-white,
+      .site-header:hover .brand-logo-white {
+        opacity: 0;
+      }
+      .nav-link {
+        position: relative;
+        display: inline-flex;
+        height: 86px;
+        align-items: center;
+        color: inherit;
+      }
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 3px;
+        background: currentColor;
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.28s ease;
+      }
+      .nav-link:hover::after {
+        transform: scaleX(1);
+      }
+      .nav-dropdown {
+        position: relative;
+        height: 86px;
+        display: inline-flex;
+        align-items: center;
+      }
+      .nav-dropdown-panel {
+        position: fixed;
+        left: 50%;
+        top: 86px;
+        width: min(1180px, calc(100vw - 48px));
+        transform: translateX(-50%) translateY(10px);
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.2s ease,
+          transform 0.2s ease;
+      }
+      .nav-dropdown:hover .nav-dropdown-panel {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+      }
+      .product-menu-link:hover {
+        color: #0d6f8f !important;
+      }
+      .product-hero {
+        background-image:
+          linear-gradient(90deg, rgba(3, 12, 18, 0.96) 0%, rgba(3, 12, 18, 0.78) 46%, rgba(3, 12, 18, 0.26) 100%),
+          url("assets/hero-lifeline-bg.jpg");
+      }
+      .detail-image-frame {
+        height: 520px;
+      }
+      .detail-image {
+        width: min(100%, 460px);
+        height: 460px;
+        object-fit: contain;
+        object-position: center;
+      }
+      .related-image {
+        width: 190px;
+        height: 150px;
+        object-fit: contain;
+        object-position: center;
+      }
+      @media (max-width: 640px) {
+        .detail-image-frame {
+          height: 360px;
+        }
+        .detail-image {
+          width: min(100%, 300px);
+          height: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body class="bg-white font-sans text-ink antialiased">
+    <header id="siteHeader" class="site-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md transition-all duration-300">
+      <div class="mx-auto flex h-[86px] max-w-[1440px] items-center justify-between px-6 lg:px-12">
+        <a href="index.html#home" class="flex items-center gap-3 leading-none" aria-label="小桥流水环境科技首页">
+          <span class="relative h-11 w-20 shrink-0">
+            <img src="assets/logo-white.png" alt="小桥流水环境科技 Logo" class="brand-logo-white absolute inset-0 h-full w-full object-contain" />
+            <img src="assets/logo.png" alt="" class="brand-logo-color absolute inset-0 h-full w-full object-contain" />
+          </span>
+          <span>
+            <span class="header-brand block">小桥流水环境科技</span>
+            <span class="header-brand-en block">XQLS Environmental Technology</span>
+          </span>
+        </a>
+
+        <nav class="header-nav hidden items-center gap-7 xl:gap-11 lg:flex" aria-label="主导航">
+          <a class="nav-link" href="index.html#about">关于我们</a>
+          <div class="nav-dropdown">
+            <a class="nav-link" href="products.html">产品与服务</a>
+            <div class="nav-dropdown-panel z-50 rounded-lg border border-slate-200 bg-white p-6 text-ink shadow-xl">
+              <div class="grid gap-5 lg:grid-cols-6">
+                <div>
+                  <a href="products.html?category=sampling" class="product-menu-link text-base font-semibold text-river">水质采样</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xw-1d3">XW-1D3户外水质采样器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-1j2">XW-1J2便携式地下水采样器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-1j">XW-1J地下水在线采样器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-1h2">XW-1H2环保水质采样器</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="products.html?category=analysis" class="product-menu-link text-base font-semibold text-river">水质分析</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9308">XW-9308全光谱水质分析仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9b">XW-9B一体化多参数分析仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9203">XW-9203多参数水质在线分析仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-p100">XW-P100便携式五参数分析仪</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="products.html?category=sensor" class="product-menu-link text-base font-semibold text-river">数字传感</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2duv">XW-2DUV数字COD传感器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2dan">XW-2DAN数字氨氮传感器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2ddo">XW-2DDO数字溶解氧传感器</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2dph">XW-2DpH数字pH传感器</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="products.html?category=monitoring" class="product-menu-link text-base font-semibold text-river">管网监测</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9103">XW-9103微功耗智能终端</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-2ddf">XW-2DDF多普勒流量计</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9102e">XW-9102E小型浮标站</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9105lv">XW-9105LV井盖传感器</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="products.html?category=control" class="product-menu-link text-base font-semibold text-river">系统控制</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xw-4f2">XW-4F2智能控制仪</a>
+                    <a class="product-menu-link" href="product-detail.html?id=xw-9108">XW-9108雨污分流控制系统</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="products.html?category=solid" class="product-menu-link text-base font-semibold text-river">固废管理</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="product-detail.html?id=xs-2s">XS-2S固废管理系统终端</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="nav-dropdown">
+            <a class="nav-link" href="index.html#solutions">解决方案</a>
+            <div class="nav-dropdown-panel z-50 rounded-lg border border-slate-200 bg-white p-6 text-ink shadow-xl">
+              <div class="grid gap-5 lg:grid-cols-6">
+                <div>
+                  <a href="solution-water-supply.html" class="product-menu-link text-base font-semibold text-river">智慧供水</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-water-supply.html#core-systems">DMA计量分区</a>
+                    <a class="product-menu-link" href="solution-water-supply.html#core-systems">管网智能调度</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="solution-drainage.html" class="product-menu-link text-base font-semibold text-river">智慧排水</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-drainage.html#core-systems">厂站网河调度</a>
+                    <a class="product-menu-link" href="solution-drainage.html#core-systems">污染源溯源</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="solution-flood-control.html" class="product-menu-link text-base font-semibold text-river">智慧防涝</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-flood-control.html#core-systems">内涝监测预报</a>
+                    <a class="product-menu-link" href="solution-flood-control.html#core-systems">应急调度一张图</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="solution-gas.html" class="product-menu-link text-base font-semibold text-river">智慧燃气</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-gas.html#core-systems">泄漏监测预警</a>
+                    <a class="product-menu-link" href="solution-gas.html#core-systems">巡检抢修闭环</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="solution-bridge-tunnel.html" class="product-menu-link text-base font-semibold text-river">智慧道桥隧</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-bridge-tunnel.html#core-systems">结构健康监测</a>
+                    <a class="product-menu-link" href="solution-bridge-tunnel.html#core-systems">设施全生命周期</a>
+                  </div>
+                </div>
+                <div>
+                  <a href="solution-ai.html" class="product-menu-link text-base font-semibold text-river">AI算法中心</a>
+                  <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+                    <a class="product-menu-link" href="solution-ai.html#core-systems">管道病害识别</a>
+                    <a class="product-menu-link" href="solution-ai.html#core-systems">水污染动力模型</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a class="nav-link" href="cases.html">经典案例</a>
+          <a class="nav-link" href="index.html#capability">创新能力</a>
+          <a class="nav-link" href="#contact">联系我们</a>
+        </nav>
+
+        <div class="flex items-center gap-3">
+          <a href="tel:0571-88212121" class="phone-link hidden h-11 items-center gap-2 rounded-md border px-4 text-sm font-semibold transition md:inline-flex">
+            <i data-lucide="phone" class="h-4 w-4"></i>
+            0571-88212121
+          </a>
+          <button id="menuToggle" class="menu-button inline-flex h-11 w-11 items-center justify-center rounded-md border transition lg:hidden" aria-label="打开菜单" aria-expanded="false">
+            <i data-lucide="menu" class="h-5 w-5"></i>
+          </button>
+        </div>
+      </div>
+
+      <div id="mobileMenu" class="mx-4 mb-4 hidden rounded-lg border border-white/15 bg-ink/95 p-6 text-white shadow-xl lg:hidden">
+        <nav class="grid gap-4 text-base" aria-label="移动端导航">
+          <a href="index.html#about">关于我们</a>
+          <a href="products.html">产品与服务</a>
+          <div class="grid gap-2 border-l border-river/50 pl-4 text-sm">
+            <a href="products.html?category=sampling" class="mobile-menu-muted text-white/60">水质采样</a>
+            <a href="products.html?category=analysis" class="mobile-menu-muted text-white/60">水质分析</a>
+            <a href="products.html?category=sensor" class="mobile-menu-muted text-white/60">数字传感</a>
+            <a href="products.html?category=monitoring" class="mobile-menu-muted text-white/60">管网监测</a>
+            <a href="products.html?category=control" class="mobile-menu-muted text-white/60">系统控制</a>
+            <a href="products.html?category=solid" class="mobile-menu-muted text-white/60">固废管理</a>
+          </div>
+          <a href="index.html#solutions">解决方案</a>
+          <div class="grid gap-2 border-l border-river/50 pl-4 text-sm">
+            <a href="solution-water-supply.html" class="mobile-menu-muted text-white/60">智慧供水</a>
+            <a href="solution-drainage.html" class="mobile-menu-muted text-white/60">智慧排水</a>
+            <a href="solution-flood-control.html" class="mobile-menu-muted text-white/60">智慧防涝</a>
+            <a href="solution-gas.html" class="mobile-menu-muted text-white/60">智慧燃气</a>
+            <a href="solution-bridge-tunnel.html" class="mobile-menu-muted text-white/60">智慧道桥隧</a>
+            <a href="solution-ai.html" class="mobile-menu-muted text-white/60">AI算法模型</a>
+          </div>
+          <a href="cases.html">经典案例</a>
+          <a href="index.html#capability">创新能力</a>
+          <a href="#contact">联系我们</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="productPage">
+      <section class="product-hero bg-cover bg-center text-white">
+        <div class="mx-auto grid min-h-[680px] max-w-[1440px] items-end gap-10 px-6 pb-12 pt-32 lg:grid-cols-[1fr_0.82fr] lg:px-12 lg:pb-16">
+          <div>
+            <a href="products.html" class="mb-8 inline-flex h-11 items-center gap-2 rounded-md border border-white/30 px-4 text-sm font-semibold text-white/78 hover:bg-white hover:text-ink">
+              <i data-lucide="arrow-left" class="h-4 w-4"></i>
+              返回产品中心
+            </a>
+            <p id="heroCategory" class="mb-7 inline-flex border-l-2 border-white/55 pl-5 text-sm font-semibold uppercase text-white/68">Product Detail</p>
+            <h1 id="heroTitle" class="max-w-5xl text-5xl font-semibold leading-[1.04] md:text-7xl">产品详情</h1>
+            <p id="heroSummary" class="mt-8 max-w-3xl text-xl leading-9 text-white/76"></p>
+            <div class="mt-10 flex flex-wrap gap-4">
+              <a href="#contact" class="inline-flex h-12 items-center rounded-md border border-white/35 px-7 text-sm font-semibold text-white hover:bg-white hover:text-ink">联系咨询</a>
+            </div>
+          </div>
+          <div class="detail-image-frame flex items-center justify-center rounded-lg bg-white/95 p-8 shadow-2xl">
+            <img id="heroImage" src="" alt="" class="detail-image" />
+          </div>
+        </div>
+      </section>
+
+      <section id="overview" class="bg-white py-20 lg:py-24">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="grid gap-12 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+            <div>
+              <p class="text-sm font-semibold text-river">产品概述</p>
+              <h2 id="overviewTitle" class="mt-5 text-4xl font-semibold leading-tight md:text-5xl"></h2>
+              <p id="overviewSummary" class="mt-8 text-lg leading-9 text-slate-600"></p>
+            </div>
+            <div>
+              <div id="featureGrid" class="grid gap-px overflow-hidden bg-slate-200 md:grid-cols-2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="specs" class="bg-pale py-20 lg:py-24">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <div>
+              <p class="text-sm font-semibold text-river">技术参数</p>
+              <h2 class="mt-5 text-4xl font-semibold md:text-5xl">关键规格</h2>
+            </div>
+            <a id="catalogButton" href="products.html" class="inline-flex h-12 w-fit items-center gap-3 rounded-md border border-slate-300 px-6 text-sm font-semibold text-ink hover:border-river hover:text-river">
+              <i data-lucide="layout-grid" class="h-4 w-4"></i>
+              查看同类产品
+            </a>
+          </div>
+          <dl id="specList" class="overflow-hidden rounded-lg border border-slate-200 bg-white"></dl>
+        </div>
+      </section>
+
+      <section id="related" class="bg-white py-20 lg:py-24">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="mb-10 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+            <div>
+              <p class="text-sm font-semibold text-river">相关产品</p>
+              <h2 class="mt-5 text-4xl font-semibold md:text-5xl">同类硬件</h2>
+            </div>
+          </div>
+          <div id="relatedGrid" class="grid gap-6 md:grid-cols-2 xl:grid-cols-3"></div>
+        </div>
+      </section>
+
+      <section id="contact" class="bg-pale py-20 lg:py-24">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="grid overflow-hidden rounded-lg bg-white lg:grid-cols-[1.1fr_0.9fr]">
+            <div class="p-10 lg:p-16">
+              <p class="text-sm font-semibold text-river">联系咨询</p>
+              <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">获取产品选型与项目方案支持</h2>
+              <p class="mt-8 max-w-2xl text-lg leading-9 text-slate-600">
+                如需确认型号配置、安装条件、平台联动或运维方式，可联系小桥流水技术团队。
+              </p>
+              <a href="tel:0571-88212121" class="mt-9 inline-flex h-12 items-center gap-3 rounded-md bg-ink px-7 text-sm font-semibold text-white hover:bg-river">
+                <i data-lucide="phone" class="h-4 w-4"></i>
+                联系我们
+              </a>
+            </div>
+            <div class="bg-ink p-10 text-white lg:p-16">
+              <div class="grid gap-8 text-base text-white/76">
+                <p class="flex gap-4"><i data-lucide="phone" class="h-5 w-5 shrink-0 text-white"></i>0571-88212121</p>
+                <p class="flex gap-4"><i data-lucide="mail" class="h-5 w-5 shrink-0 text-white"></i>xqls@xqls.com.cn</p>
+                <p class="flex gap-4"><i data-lucide="clock" class="h-5 w-5 shrink-0 text-white"></i>周一至周五（9:00-18:00）</p>
+                <p class="flex gap-4 leading-8"><i data-lucide="map-pin" class="h-5 w-5 shrink-0 text-white"></i>浙江省杭州市余杭区余杭塘路2301号海智中心3号楼801室</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="bg-ink py-10 text-white/60">
+      <div class="mx-auto flex max-w-[1440px] flex-col gap-4 px-6 text-sm lg:flex-row lg:items-center lg:justify-between lg:px-12">
+        <p>© 2026 浙江小桥流水环境科技有限公司</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="index.html#about" class="hover:text-white">关于我们</a>
+          <a href="products.html" class="hover:text-white">产品中心</a>
+          <a href="#contact" class="hover:text-white">联系我们</a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="products-data.js"></script>
+    <script>
+      const header = document.getElementById("siteHeader");
+      const menuToggle = document.getElementById("menuToggle");
+      const mobileMenu = document.getElementById("mobileMenu");
+      const products = window.XQLS_PRODUCTS || [];
+      const params = new URLSearchParams(window.location.search);
+      const requestedId = (params.get("id") || window.location.hash.replace("#", "") || "").toLowerCase();
+
+      const escapeHtml = (value) =>
+        String(value || "")
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;")
+          .replaceAll('"', "&quot;")
+          .replaceAll("'", "&#039;");
+
+      const setHeaderState = () => {
+        header.classList.toggle("is-scrolled", window.scrollY > 8);
+      };
+
+      window.addEventListener("scroll", setHeaderState);
+      setHeaderState();
+
+      menuToggle.addEventListener("click", () => {
+        const isOpen = !mobileMenu.classList.contains("hidden");
+        mobileMenu.classList.toggle("hidden");
+        menuToggle.setAttribute("aria-expanded", String(!isOpen));
+      });
+
+      mobileMenu.querySelectorAll("a").forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.add("hidden");
+          menuToggle.setAttribute("aria-expanded", "false");
+        });
+      });
+
+      const product = products.find((item) => item.id === requestedId) || products[0];
+
+      const renderNotFound = () => {
+        document.title = "未找到产品 | 浙江小桥流水环境科技有限公司";
+        document.getElementById("heroTitle").textContent = "未找到产品";
+        document.getElementById("heroSummary").textContent = "请返回产品中心重新选择产品。";
+        document.getElementById("heroImage").remove();
+        document.getElementById("overview").remove();
+        document.getElementById("specs").remove();
+        document.getElementById("related").remove();
+      };
+
+      const renderProduct = (item) => {
+        if (!item || (requestedId && item.id !== requestedId)) {
+          renderNotFound();
+          lucide.createIcons();
+          return;
+        }
+
+        document.title = `${item.title} | 浙江小桥流水环境科技有限公司`;
+        const description = document.querySelector('meta[name="description"]');
+        if (description) description.setAttribute("content", item.summary);
+
+        document.getElementById("heroCategory").textContent = `${item.categoryName} · ${item.model}`;
+        document.getElementById("heroTitle").textContent = item.title;
+        document.getElementById("heroSummary").textContent = item.summary;
+        document.getElementById("heroImage").src = item.image;
+        document.getElementById("heroImage").alt = item.title;
+        document.getElementById("overviewTitle").textContent = `${item.name}产品能力`;
+        document.getElementById("overviewSummary").textContent = item.summary;
+        document.getElementById("catalogButton").href = `products.html?category=${encodeURIComponent(item.category)}`;
+
+        document.getElementById("featureGrid").innerHTML = item.features
+          .map(
+            (feature, index) => `
+              <article class="bg-white p-7 lg:p-8">
+                <p class="text-sm font-semibold text-river">${String(index + 1).padStart(2, "0")}</p>
+                <p class="mt-5 text-base leading-8 text-slate-700">${escapeHtml(feature)}</p>
+              </article>
+            `,
+          )
+          .join("");
+
+        document.getElementById("specList").innerHTML = item.specs
+          .map(
+            ([key, value]) => `
+              <div class="grid gap-3 border-b border-slate-200 px-7 py-5 last:border-b-0 md:grid-cols-[220px_1fr] lg:px-10">
+                <dt class="text-sm font-semibold text-slate-500">${escapeHtml(key)}</dt>
+                <dd class="text-base leading-7 text-ink">${escapeHtml(value)}</dd>
+              </div>
+            `,
+          )
+          .join("");
+
+        const related = products.filter((candidate) => candidate.category === item.category && candidate.id !== item.id).slice(0, 3);
+        document.getElementById("relatedGrid").innerHTML = related
+          .map(
+            (candidate) => `
+              <a href="product-detail.html?id=${encodeURIComponent(candidate.id)}" class="group grid gap-6 rounded-lg border border-slate-200 bg-white p-6 transition duration-300 hover:-translate-y-1 hover:shadow-xl md:grid-cols-[190px_1fr]">
+                <div class="flex h-[170px] items-center justify-center bg-slate-50">
+                  <img src="${escapeHtml(candidate.image)}" alt="${escapeHtml(candidate.title)}" class="related-image transition duration-300 group-hover:scale-[1.03]" />
+                </div>
+                <div class="self-center">
+                  <p class="text-sm font-semibold text-river">${escapeHtml(candidate.categoryName)}</p>
+                  <h3 class="mt-3 text-2xl font-semibold leading-snug">${escapeHtml(candidate.title)}</h3>
+                </div>
+              </a>
+            `,
+          )
+          .join("");
+
+        lucide.createIcons();
+      };
+
+      renderProduct(product);
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
