@@ -12,7 +12,16 @@
       .replaceAll("'", "&#039;");
 
   const solutionMenu = () =>
-    solutions
+    `
+      <div>
+        <a href="index.html#lifeline-platform" class="solution-menu-link product-menu-link text-base font-semibold text-river">综合服务平台</a>
+        <div class="mt-4 grid gap-2 text-sm leading-6 text-slate-600">
+          <a class="product-menu-link" href="index.html#lifeline-platform">城市运行总览</a>
+          <a class="product-menu-link" href="index.html#lifeline-platform">风险监测与闭环处置</a>
+        </div>
+      </div>
+    ` + solutions
+      .filter((item) => item.id !== "ai")
       .map(
         (item) => `
           <div>
@@ -110,8 +119,7 @@
               <div class="grid gap-5 lg:grid-cols-6">${solutionMenu()}</div>
             </div>
           </div>
-          <a class="nav-link" href="index.html#capability">创新能力</a>
-          <a class="nav-link" href="cases.html">经典案例</a>
+          <a class="nav-link" href="cases.html">典型客户</a>
           <a class="nav-link" href="#contact">联系我们</a>
         </nav>
 
@@ -132,12 +140,13 @@
           <a href="products.html">产品与服务</a>
           <a href="index.html#solutions">解决方案</a>
           <div class="grid gap-2 border-l border-river/50 pl-4 text-sm">
+            <a href="index.html#lifeline-platform" class="mobile-menu-muted text-white/60">综合服务平台</a>
             ${solutions
+              .filter((item) => item.id !== "ai")
               .map((item) => `<a href="${item.page}" class="mobile-menu-muted text-white/60">${escapeHtml(item.menuTitle)}</a>`)
               .join("")}
           </div>
-          <a href="index.html#capability">创新能力</a>
-          <a href="cases.html">经典案例</a>
+          <a href="cases.html">典型客户</a>
           <a href="#contact">联系我们</a>
         </nav>
       </div>
@@ -195,9 +204,16 @@
       )
       .join("");
 
-  const relatedSolutions = () =>
-    solutions
-      .filter((item) => item.id !== solution.id)
+  const relatedSolutions = () => {
+    const platformCard = `
+      <a href="index.html#lifeline-platform" class="group border border-white/12 bg-white/[0.04] p-6 transition hover:bg-white hover:text-ink">
+        <p class="text-sm text-white/45 transition group-hover:text-river">PLATFORM</p>
+        <h3 class="mt-5 text-xl font-semibold">综合服务平台</h3>
+        <p class="mt-4 text-sm leading-6 text-white/58 transition group-hover:text-slate-600">城市运行总览、风险监测与闭环处置</p>
+      </a>
+    `;
+    const sceneCards = solutions
+      .filter((item) => item.id !== solution.id && item.id !== "ai")
       .map(
         (item) => `
           <a href="${item.page}" class="group border border-white/12 bg-white/[0.04] p-6 transition hover:bg-white hover:text-ink">
@@ -208,6 +224,8 @@
         `,
       )
       .join("");
+    return platformCard + sceneCards;
+  };
 
   const mainTemplate = () => `
     <main>
@@ -215,8 +233,8 @@
         class="solution-hero bg-cover bg-center text-white"
         style="background-image: linear-gradient(90deg, rgba(3, 12, 18, 0.96) 0%, rgba(3, 12, 18, 0.78) 46%, rgba(3, 12, 18, 0.28) 100%), url('${solution.image}')"
       >
-        <div class="mx-auto grid min-h-[720px] max-w-[1440px] items-end gap-10 px-6 pb-12 pt-32 lg:grid-cols-[1fr_0.88fr] lg:px-12 lg:pb-16">
-          <div>
+        <div class="mx-auto flex min-h-[720px] max-w-[1440px] items-end px-6 pb-12 pt-32 lg:px-12 lg:pb-16">
+          <div class="max-w-5xl">
             <a href="index.html#solutions" class="mb-8 inline-flex h-11 items-center gap-2 rounded-md border border-white/30 px-4 text-sm font-semibold text-white/78 hover:bg-white hover:text-ink">
               <i data-lucide="arrow-left" class="h-4 w-4"></i>
               返回解决方案
@@ -225,9 +243,6 @@
             <p class="mt-6 text-2xl font-semibold text-white/86">${escapeHtml(solution.subtitle)}</p>
             <p class="mt-8 max-w-3xl text-xl leading-9 text-white/76">${escapeHtml(solution.description)}</p>
             <div class="mt-10 grid gap-3 sm:grid-cols-2 xl:grid-cols-4">${statItems()}</div>
-          </div>
-          <div class="solution-preview overflow-hidden rounded-lg border border-white/16 bg-white/10 p-2 shadow-2xl backdrop-blur-sm">
-            <img src="${solution.image}" alt="${escapeHtml(solution.title)}方案预览" />
           </div>
         </div>
       </section>
