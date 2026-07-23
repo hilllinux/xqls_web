@@ -101,7 +101,7 @@
           </span>
           <span>
             <span class="header-brand block">小桥流水环境科技</span>
-            <span class="header-brand-en block">XQLS Environmental Technology</span>
+            <span class="header-brand-en block" title="ZheJiang BridgeWater Sci-tech Of Environment Co., Ltd">BridgeWater Sci-tech Of Environment</span>
           </span>
         </a>
 
@@ -119,6 +119,7 @@
               <div class="grid gap-5 lg:grid-cols-6">${solutionMenu()}</div>
             </div>
           </div>
+          <a class="nav-link" href="news.html">新闻中心</a>
           <a class="nav-link" href="cases.html">典型客户</a>
           <a class="nav-link" href="#contact">联系我们</a>
         </nav>
@@ -146,6 +147,7 @@
               .map((item) => `<a href="${item.page}" class="mobile-menu-muted text-white/60">${escapeHtml(item.menuTitle)}</a>`)
               .join("")}
           </div>
+          <a href="news.html">新闻中心</a>
           <a href="cases.html">典型客户</a>
           <a href="#contact">联系我们</a>
         </nav>
@@ -231,7 +233,7 @@
     <main>
       <section
         class="solution-hero bg-cover bg-center text-white"
-        style="background-image: linear-gradient(90deg, rgba(3, 12, 18, 0.96) 0%, rgba(3, 12, 18, 0.78) 46%, rgba(3, 12, 18, 0.28) 100%), url('${solution.image}')"
+        style="background-image: radial-gradient(circle at 72% 40%, rgba(13, 111, 143, 0.2), rgba(13, 111, 143, 0) 34%), linear-gradient(90deg, rgba(3, 12, 18, 0.96) 0%, rgba(3, 12, 18, 0.78) 44%, rgba(3, 12, 18, 0.14) 100%), url('assets/hero-lifeline-bg.jpg')"
       >
         <div class="mx-auto flex min-h-[720px] max-w-[1440px] items-end px-6 pb-12 pt-32 lg:px-12 lg:pb-16">
           <div class="max-w-5xl">
@@ -273,7 +275,7 @@
       </section>
 
       <section class="bg-white py-20 lg:py-24">
-        <div class="mx-auto grid max-w-[1440px] gap-12 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-12 lg:items-start">
+        <div class="mx-auto grid max-w-[1440px] gap-12 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:items-stretch lg:px-12">
           <div class="bg-ink p-9 text-white lg:p-12">
             <p class="text-sm font-semibold text-white/55">关键支撑</p>
             <h2 class="mt-5 text-4xl font-semibold leading-tight">${escapeHtml(solution.supportTitle)}</h2>
@@ -287,7 +289,9 @@
         <div class="mx-auto grid max-w-[1440px] gap-12 px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-12 lg:items-center">
           <div>
             <p class="text-sm font-semibold text-river">交付价值</p>
-            <h2 class="mt-5 text-4xl font-semibold leading-tight md:text-5xl">从方案设计到平台落地，形成可运营的城市生命线能力。</h2>
+            <h2 class="mt-5 line-clamp-2 text-[clamp(1.5rem,2.6vw,2.5rem)] font-semibold leading-tight">
+              从方案设计到平台落地，形成可运营的城市生命线能力。
+            </h2>
           </div>
           <ul class="grid gap-5 text-lg leading-9 text-slate-700">${valueItems()}</ul>
         </div>
@@ -314,7 +318,7 @@
           <div class="grid overflow-hidden rounded-lg bg-white lg:grid-cols-[1.1fr_0.9fr]">
             <div class="p-10 lg:p-16">
               <p class="text-sm font-semibold text-river">联系咨询</p>
-              <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">获取解决方案与项目建设支持</h2>
+              <h2 class="mt-6 whitespace-nowrap text-[clamp(1rem,3vw,3rem)] font-semibold leading-tight">获取解决方案与项目建设支持</h2>
               <p class="mt-8 max-w-2xl text-lg leading-9 text-slate-600">如需确认项目场景、点位布设、平台联动、算法能力或运维方式，可联系小桥流水技术团队。</p>
               <a href="tel:0571-88212121" class="mt-9 inline-flex h-12 items-center gap-3 rounded-md bg-ink px-7 text-sm font-semibold text-white hover:bg-river">
                 <i data-lucide="phone" class="h-4 w-4"></i>

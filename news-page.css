@@ -1,0 +1,55 @@
+body { text-rendering: optimizeLegibility; }
+.news-header { background: rgba(255,255,255,.96); box-shadow: 0 8px 30px rgba(15,23,42,.08); }
+.news-list-header {
+  background: transparent;
+  color: #fff;
+  border-bottom: 1px solid rgba(255,255,255,.15);
+  box-shadow: none;
+  transition: background .3s ease, color .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.news-list-header .news-brand-en { color: rgba(255,255,255,.58); }
+.news-list-header .news-logo-color { opacity: 0; }
+.news-list-header .news-logo-white { opacity: 1; }
+.news-list-header:not(.is-scrolled):not(:hover) nav a { color: rgba(255,255,255,.78); }
+.news-list-header #menuToggle { border-color: rgba(255,255,255,.38); }
+.news-list-header.is-scrolled,
+.news-list-header:hover {
+  background: rgba(255,255,255,.96);
+  color: #07141c;
+  border-color: rgba(15,23,42,.12);
+  box-shadow: 0 8px 30px rgba(15,23,42,.08);
+}
+.news-list-header.is-scrolled .news-brand-en,
+.news-list-header:hover .news-brand-en { color: rgba(7,20,28,.5); }
+.news-list-header.is-scrolled .news-logo-color,
+.news-list-header:hover .news-logo-color { opacity: 1; }
+.news-list-header.is-scrolled .news-logo-white,
+.news-list-header:hover .news-logo-white { opacity: 0; }
+.news-list-header.is-scrolled #menuToggle,
+.news-list-header:hover #menuToggle { border-color: rgba(15,23,42,.22); }
+.news-logo-color,
+.news-logo-white { transition: opacity .25s ease; }
+.news-list-header.is-scrolled nav a:hover,
+.news-list-header:hover nav a:hover { color: #0d6f8f; }
+.news-list-header #mobileMenu { background: rgba(7,20,28,.96); color: #fff; }
+.news-list-header.is-scrolled #mobileMenu,
+.news-list-header:hover #mobileMenu { background: #fff; color: #07141c; }
+.news-hero {
+  background-image: linear-gradient(90deg,rgba(3,12,18,.92),rgba(3,12,18,.48)),url("assets/news/chengdu-pipeline-expo.jpg");
+}
+.news-card-image { transition: transform .5s ease; }
+.news-card:hover .news-card-image { transform: scale(1.035); }
+.article-copy p { margin-top: 1.5rem; color: #475569; font-size: 1.0625rem; line-height: 2; }
+.article-copy strong { color: #07141c; font-weight: 600; }
+.article-copy img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 720px;
+  margin: 2.5rem auto;
+  object-fit: contain;
+}
+.article-copy br + br { display: none; }
+@media (max-width: 1023px) {
+  .desktop-nav { display: none; }
+}

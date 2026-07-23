@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>新闻详情 | 浙江小桥流水环境科技有限公司</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script>
+      tailwind.config={theme:{extend:{fontFamily:{sans:["Inter","PingFang SC","Microsoft YaHei","Arial","sans-serif"]},colors:{ink:"#07141C",steel:"#24333D",river:"#0D6F8F",pale:"#F4F7F8"}}}};
+    </script>
+    <link rel="stylesheet" href="news-page.css" />
+  </head>
+  <body class="bg-white font-sans text-ink antialiased">
+    <header class="news-header fixed inset-x-0 top-0 z-50">
+      <div class="mx-auto flex h-[86px] max-w-[1440px] items-center justify-between px-6 lg:px-12">
+        <a href="index.html#home" class="flex items-center gap-3"><img src="assets/logo.png" alt="小桥流水环境科技 Logo" class="h-11 w-20 object-contain" /><span><span class="block text-[22px] font-medium">小桥流水环境科技</span><span class="mt-1.5 block text-xs text-slate-500">BridgeWater Sci-tech Of Environment</span></span></a>
+        <nav class="desktop-nav flex items-center gap-8 text-base"><a href="index.html#about" class="hover:text-river">关于我们</a><a href="products.html" class="hover:text-river">产品与服务</a><a href="index.html#solutions" class="hover:text-river">解决方案</a><a href="news.html" class="font-semibold text-river">新闻中心</a><a href="cases.html" class="hover:text-river">典型客户</a><a href="#contact" class="hover:text-river">联系我们</a></nav>
+        <button id="menuToggle" class="inline-flex h-10 w-10 items-center justify-center border border-slate-300 lg:hidden" aria-label="打开导航"><i data-lucide="menu" class="h-5 w-5"></i></button>
+      </div>
+      <nav id="mobileMenu" class="hidden grid gap-4 border-t border-slate-200 bg-white px-6 py-5 text-sm lg:hidden"><a href="index.html#about">关于我们</a><a href="products.html">产品与服务</a><a href="index.html#solutions">解决方案</a><a href="news.html" class="font-semibold text-river">新闻中心</a><a href="cases.html">典型客户</a><a href="#contact">联系我们</a></nav>
+    </header>
+    <main class="pt-[86px]">
+      <article id="article" class="mx-auto max-w-[1440px] px-6 py-16 lg:px-12 lg:py-24"></article>
+      <section class="border-t border-slate-200 bg-pale">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div id="articleNav" class="grid gap-px bg-slate-200 md:grid-cols-2"></div>
+        </div>
+      </section>
+      <section id="contact" class="bg-pale py-20 lg:py-24">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="grid overflow-hidden rounded-lg bg-white lg:grid-cols-[1.1fr_0.9fr]">
+            <div class="p-10 lg:p-16">
+              <p class="text-sm font-semibold text-river">联系咨询</p>
+              <h2 class="mt-6 whitespace-nowrap text-[clamp(1rem,3vw,3rem)] font-semibold leading-tight">获取项目咨询与技术支持</h2>
+              <p class="mt-8 max-w-2xl text-lg leading-9 text-slate-600">
+                如需了解城市生命线、智慧水务、环境监测或项目建设服务，可联系小桥流水技术团队。
+              </p>
+              <a href="tel:0571-88212121" class="mt-9 inline-flex h-12 items-center gap-3 rounded-md bg-ink px-7 text-sm font-semibold text-white hover:bg-river">
+                <i data-lucide="phone" class="h-4 w-4"></i>
+                联系我们
+              </a>
+            </div>
+            <div class="bg-ink p-10 text-white lg:p-16">
+              <div class="grid gap-8 text-base text-white/76">
+                <a href="tel:0571-88212121" class="flex gap-4 hover:text-white"><i data-lucide="phone" class="h-5 w-5 shrink-0 text-white"></i>0571-88212121</a>
+                <p class="flex gap-4"><i data-lucide="mail" class="h-5 w-5 shrink-0 text-white"></i>xqls@xqls.com.cn</p>
+                <p class="flex gap-4"><i data-lucide="clock" class="h-5 w-5 shrink-0 text-white"></i>周一至周五（9:00-18:00）</p>
+                <p class="flex gap-4 leading-8"><i data-lucide="map-pin" class="h-5 w-5 shrink-0 text-white"></i>浙江省杭州市余杭区余杭塘路2301号海智中心3号楼801室</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer class="bg-ink py-8 text-white">
+      <div class="mx-auto flex max-w-[1440px] flex-col gap-4 px-6 text-sm text-white/55 lg:flex-row lg:items-center lg:justify-between lg:px-12">
+        <div>
+          <p>© <span id="year"></span> 浙江小桥流水环境科技有限公司 All rights reserved</p>
+          <p class="mt-2">浙ICP备12045722号-3 · 浙公网安备 33011002016969号</p>
+        </div>
+        <div class="flex items-center gap-3">
+          <img src="assets/qr-code.png" alt="小桥流水公众号二维码" class="h-20 w-20 rounded bg-white p-1" />
+          <div>
+            <p class="font-semibold text-white/75">关注公众号</p>
+            <p class="mt-1">小桥流水</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script src="news-data.js"></script>
+    <script src="news-content.js"></script>
+    <script>
+      const id=new URLSearchParams(location.search).get("id"),index=newsItems.findIndex(item=>item.id===id),item=newsItems[index]||newsItems[0];
+      document.title=`${item.title} | 浙江小桥流水环境科技有限公司`;
+      const fullContent=window.newsContents?.[item.id];
+      const articleContent=fullContent||item.paragraphs.map(p=>`<p>${p}</p>`).join("");
+      document.getElementById("article").innerHTML=`<a href="news.html" class="inline-flex items-center gap-2 text-sm font-semibold text-river"><i data-lucide="arrow-left" class="h-4 w-4"></i>返回新闻中心</a><p class="mt-12 text-sm text-slate-500">${item.date}<span class="mx-3">·</span>公司动态</p><h1 class="mt-5 text-4xl font-semibold leading-[1.35] md:text-5xl">${item.title}</h1><p class="mt-7 border-l-2 border-river pl-6 text-lg leading-8 text-slate-600">${item.summary}</p><img src="${item.image}" alt="${item.title}" class="mt-12 max-h-[620px] w-full bg-pale object-contain"><div class="article-copy mt-10">${articleContent}</div>`;
+      const previous=newsItems[index-1],next=newsItems[index+1];
+      document.getElementById("articleNav").innerHTML=`${previous?`<a href="news-detail.html?id=${previous.id}" class="bg-pale p-8 hover:bg-white"><span class="text-sm text-slate-500">上一篇</span><strong class="mt-3 block leading-7">${previous.title}</strong></a>`:`<div class="bg-pale p-8"></div>`}${next?`<a href="news-detail.html?id=${next.id}" class="bg-pale p-8 text-right hover:bg-white"><span class="text-sm text-slate-500">下一篇</span><strong class="mt-3 block leading-7">${next.title}</strong></a>`:`<div class="bg-pale p-8"></div>`}`;
+      document.getElementById("menuToggle").addEventListener("click",()=>document.getElementById("mobileMenu").classList.toggle("hidden"));
+      document.getElementById("year").textContent=new Date().getFullYear();
+      lucide.createIcons();
+    </script>
+  </body>
+</html>
