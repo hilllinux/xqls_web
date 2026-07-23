@@ -10,37 +10,45 @@
     <script>
       tailwind.config={theme:{extend:{fontFamily:{sans:["Inter","PingFang SC","Microsoft YaHei","Arial","sans-serif"]},colors:{ink:"#07141C",steel:"#24333D",river:"#0D6F8F",pale:"#F4F7F8"}}}};
     </script>
+    <link rel="stylesheet" href="solution-pages.css" />
     <link rel="stylesheet" href="news-page.css" />
   </head>
   <body class="bg-pale font-sans text-ink antialiased">
-    <header id="siteHeader" class="news-header news-list-header fixed inset-x-0 top-0 z-50">
+    <header id="siteHeader" class="site-header fixed inset-x-0 top-0 z-50 border-b backdrop-blur-md transition-all duration-300">
       <div class="mx-auto flex h-[86px] max-w-[1440px] items-center justify-between px-6 lg:px-12">
-        <a href="index.html#home" class="flex items-center gap-3">
+        <a href="index.html#home" class="flex items-center gap-3 leading-none" aria-label="小桥流水环境科技首页">
           <span class="relative h-11 w-20 shrink-0">
-            <img src="assets/logo-white.png" alt="小桥流水环境科技 Logo" class="news-logo-white absolute inset-0 h-full w-full object-contain" />
-            <img src="assets/logo.png" alt="" class="news-logo-color absolute inset-0 h-full w-full object-contain" />
+            <img src="assets/logo-white.png" alt="小桥流水环境科技 Logo" class="brand-logo-white absolute inset-0 h-full w-full object-contain" />
+            <img src="assets/logo.png" alt="" class="brand-logo-color absolute inset-0 h-full w-full object-contain" />
           </span>
           <span>
-            <span class="block text-[22px] font-medium">小桥流水环境科技</span>
-            <span class="news-brand-en mt-1.5 block text-xs">BridgeWater Sci-tech Of Environment</span>
+            <span class="header-brand block">小桥流水环境科技</span>
+            <span class="header-brand-en block">BridgeWater Sci-tech Of Environment</span>
           </span>
         </a>
-        <nav class="desktop-nav flex items-center gap-8 text-base">
-          <a href="index.html#about" class="hover:text-river">关于我们</a>
-          <a href="products.html" class="hover:text-river">产品与服务</a>
-          <a href="index.html#solutions" class="hover:text-river">解决方案</a>
-          <a href="news.html" class="font-semibold text-river">新闻中心</a>
-          <a href="cases.html" class="hover:text-river">典型客户</a>
-          <a href="#contact" class="hover:text-river">联系我们</a>
+        <nav class="header-nav hidden items-center gap-7 xl:gap-11 lg:flex" aria-label="主导航">
+          <a class="nav-link" href="index.html#about">关于我们</a>
+          <a class="nav-link" href="products.html">产品与服务</a>
+          <a class="nav-link" href="index.html#solutions">解决方案</a>
+          <a class="nav-link is-active" href="news.html">新闻中心</a>
+          <a class="nav-link" href="cases.html">典型客户</a>
+          <a class="nav-link" href="#contact">联系我们</a>
         </nav>
-        <button id="menuToggle" class="inline-flex h-10 w-10 items-center justify-center border border-slate-300 lg:hidden" aria-label="打开导航">
-          <i data-lucide="menu" class="h-5 w-5"></i>
-        </button>
+        <div class="flex items-center gap-3">
+          <a href="tel:0571-88212121" class="phone-link hidden h-11 items-center gap-2 rounded-md border px-4 text-sm font-semibold transition md:inline-flex">
+            <i data-lucide="phone" class="h-4 w-4"></i>0571-88212121
+          </a>
+          <button id="menuToggle" class="menu-button inline-flex h-11 w-11 items-center justify-center rounded-md border transition lg:hidden" aria-label="打开菜单" aria-expanded="false" type="button">
+            <i data-lucide="menu" class="h-5 w-5"></i>
+          </button>
+        </div>
       </div>
-      <nav id="mobileMenu" class="hidden grid gap-4 border-t border-slate-200 bg-white px-6 py-5 text-sm lg:hidden">
-        <a href="index.html#about">关于我们</a><a href="products.html">产品与服务</a><a href="index.html#solutions">解决方案</a>
-        <a href="news.html" class="font-semibold text-river">新闻中心</a><a href="cases.html">典型客户</a><a href="#contact">联系我们</a>
-      </nav>
+      <div id="mobileMenu" class="mx-4 mb-4 hidden rounded-lg border border-white/15 bg-ink/95 p-6 text-white shadow-xl lg:hidden">
+        <nav class="grid gap-4 text-base" aria-label="移动端导航">
+          <a href="index.html#about">关于我们</a><a href="products.html">产品与服务</a><a href="index.html#solutions">解决方案</a>
+          <a href="news.html" class="font-semibold">新闻中心</a><a href="cases.html">典型客户</a><a href="#contact">联系我们</a>
+        </nav>
+      </div>
     </header>
     <main>
       <section class="news-hero flex min-h-[520px] items-end bg-cover bg-center text-white">
@@ -110,10 +118,11 @@
       grid.innerHTML=items.map(item=>`<a href="news-detail.html?id=${item.id}" class="news-card group overflow-hidden bg-white transition duration-300 hover:-translate-y-1 hover:shadow-xl"><div class="overflow-hidden"><img src="${item.image}" alt="${item.title}" class="news-card-image aspect-[4/3] w-full object-cover"></div><div class="p-7"><p class="text-sm text-slate-500">${item.date}</p><h3 class="mt-4 min-h-[4.1rem] text-xl font-semibold leading-[1.65] group-hover:text-river">${item.title}</h3><p class="mt-4 text-sm leading-7 text-slate-600">${item.summary}</p><span class="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-river">查看详情 <i data-lucide="arrow-up-right" class="h-4 w-4"></i></span></div></a>`).join("");
       document.getElementById("newsCount").textContent=`共 ${newsItems.length} 条`;
       pager.innerHTML=Array.from({length:pages},(_,i)=>i+1).map(n=>`<a href="news.html?page=${n}" class="inline-flex h-10 w-10 items-center justify-center border ${n===page?"border-river bg-river text-white":"border-slate-300 bg-white hover:border-river hover:text-river"}">${n}</a>`).join("");
-      document.getElementById("menuToggle").addEventListener("click",()=>document.getElementById("mobileMenu").classList.toggle("hidden"));
+      document.getElementById("menuToggle").addEventListener("click",event=>{const menu=document.getElementById("mobileMenu");menu.classList.toggle("hidden");event.currentTarget.setAttribute("aria-expanded",String(!menu.classList.contains("hidden")));});
+      document.querySelectorAll("#mobileMenu a").forEach(link=>link.addEventListener("click",()=>{document.getElementById("mobileMenu").classList.add("hidden");document.getElementById("menuToggle").setAttribute("aria-expanded","false");}));
       document.getElementById("year").textContent=new Date().getFullYear();
-      const siteHeader=document.getElementById("siteHeader"),hero=document.querySelector(".news-hero");
-      const updateHeader=()=>siteHeader.classList.toggle("is-scrolled",window.scrollY>=hero.offsetHeight-siteHeader.offsetHeight);
+      const siteHeader=document.getElementById("siteHeader");
+      const updateHeader=()=>siteHeader.classList.toggle("is-scrolled",window.scrollY>8);
       updateHeader();
       window.addEventListener("scroll",updateHeader,{passive:true});
       lucide.createIcons();

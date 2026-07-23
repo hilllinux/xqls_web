@@ -250,6 +250,9 @@
           linear-gradient(180deg, rgba(7, 20, 28, 0.08), rgba(7, 20, 28, 0.34)),
           url("assets/culture-bg.png");
       }
+      .solutions-heading {
+        font-size: clamp(0.5rem, calc((min(100vw, 90rem) - 7rem) / 29), 3.75rem);
+      }
       @keyframes honor-scroll {
         from {
           transform: translateX(0);
@@ -565,25 +568,113 @@
         </div>
       </section>
 
+      <section id="team" class="bg-pale py-24 lg:py-32">
+        <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
+          <div class="mb-14 max-w-4xl">
+            <p class="text-sm font-semibold text-river">核心团队</p>
+            <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">汇聚产业实践与高校科研力量</h2>
+            <p class="mt-8 text-lg leading-9 text-slate-600">
+              围绕城市生命线、智慧水务与环境科技，形成企业经营、技术研发、联合研究和成果转化协同推进的专业团队。
+            </p>
+          </div>
+
+          <div class="grid gap-px bg-slate-200 md:grid-cols-2 lg:grid-cols-5">
+            <article class="flex h-full flex-col bg-white">
+              <img src="assets/team/jin-li.jpg" alt="小桥流水环境科技CEO金立" class="aspect-[4/5] w-full object-cover object-top" />
+              <div class="flex flex-1 flex-col p-7">
+                <p class="text-xs font-semibold tracking-[0.1em] text-slate-500">小桥流水环境科技 CEO</p>
+                <h3 class="mt-4 text-2xl font-semibold">金立</h3>
+                <span class="mt-4 h-1 w-14 rounded-full bg-river"></span>
+                <ul class="mt-7 grid gap-3 text-sm leading-7 text-slate-600">
+                  <li>浙江大学博士、高级工程师</li>
+                  <li>尖兵领雁研发攻关计划参与单位负责人</li>
+                  <li>主持浙江制造团体标准</li>
+                  <li>浙大绿洲—小桥流水联合研究中心副主任</li>
+                  <li>余杭区环保协会秘书长</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="flex h-full flex-col bg-white">
+              <img src="assets/team/liu-kai.jpg" alt="小桥流水环境科技CTO刘凯" class="aspect-[4/5] w-full object-cover object-top" />
+              <div class="flex flex-1 flex-col p-7">
+                <p class="text-xs font-semibold tracking-[0.1em] text-slate-500">小桥流水环境科技 CTO</p>
+                <h3 class="mt-4 text-2xl font-semibold">刘凯</h3>
+                <span class="mt-4 h-1 w-14 rounded-full bg-river"></span>
+                <ul class="mt-7 grid gap-3 text-sm leading-7 text-slate-600">
+                  <li>西湖大学教授、特聘研究员</li>
+                  <li>西湖大学博士生导师</li>
+                  <li>水与能源弹性可持续发展技术研究实验室主任</li>
+                  <li>浙江省千人计划创新人才</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="flex h-full flex-col bg-white">
+              <img src="assets/team/yu-tingchao.jpg" alt="联合研究中心主任俞亭超" class="aspect-[4/5] w-full object-cover object-top" />
+              <div class="flex flex-1 flex-col p-7">
+                <p class="text-xs font-semibold tracking-[0.1em] text-slate-500">联合研究中心主任</p>
+                <h3 class="mt-4 text-2xl font-semibold">俞亭超</h3>
+                <span class="mt-4 h-1 w-14 rounded-full bg-river"></span>
+                <ul class="mt-7 grid gap-3 text-sm leading-7 text-slate-600">
+                  <li>浙江大学教授、博士生导师</li>
+                  <li>浙江省饮用水安全与输配技术重点实验室副主任</li>
+                  <li>浙江省“五水共治”技术服务团抓节水专业组组长</li>
+                  <li>浙江省水协常务理事、副秘书长</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="flex h-full flex-col bg-white">
+              <img src="assets/team/zhou-yongchao.jpg" alt="联合研究中心主任助理周永潮" class="aspect-[4/5] w-full object-cover object-top" />
+              <div class="flex flex-1 flex-col p-7">
+                <p class="text-xs font-semibold tracking-[0.1em] text-slate-500">联合研究中心主任助理</p>
+                <h3 class="mt-4 text-2xl font-semibold">周永潮</h3>
+                <span class="mt-4 h-1 w-14 rounded-full bg-river"></span>
+                <ul class="mt-7 grid gap-3 text-sm leading-7 text-slate-600">
+                  <li>浙江大学教授、博士生导师</li>
+                  <li>浙江省“海绵城市”专家组成员</li>
+                  <li>浙江省“污水零直排”专家组成员</li>
+                </ul>
+              </div>
+            </article>
+
+            <article class="flex h-full flex-col bg-white">
+              <img src="assets/team/zhang-yiping.jpg" alt="联合研究中心专家张仪萍" class="aspect-[4/5] w-full object-cover object-top" />
+              <div class="flex flex-1 flex-col p-7">
+                <p class="text-xs font-semibold tracking-[0.1em] text-slate-500">联合研究中心专家</p>
+                <h3 class="mt-4 text-2xl font-semibold">张仪萍</h3>
+                <span class="mt-4 h-1 w-14 rounded-full bg-river"></span>
+                <ul class="mt-7 grid gap-3 text-sm leading-7 text-slate-600">
+                  <li>浙江大学教授</li>
+                  <li>浙江大学博士生导师</li>
+                  <li>市政工程研究所所长</li>
+                </ul>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section class="trust-section bg-cover bg-center py-20 text-white lg:py-24">
         <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
           <div class="text-center font-bold">
-            <p class="text-[40px] leading-tight md:text-5xl">让城市运行更安全、更智慧、更有韧性</p>
-            <p class="pb-12 pt-6 text-base font-semibold md:text-lg">
+            <p class="text-[clamp(1.5rem,4vw,3rem)] leading-tight">让城市运行更安全、更智慧、更有韧性</p>
+            <p class="pb-10 pt-5 text-[clamp(0.875rem,1.5vw,1.125rem)] font-semibold leading-7 md:pb-12 md:pt-6">
               从前期咨询到建设实施与长期运营，提供贯穿项目全周期的数字化服务
             </p>
-            <div class="mx-auto grid max-w-4xl grid-cols-3 gap-8 text-center">
-              <div>
-                <p class="text-5xl font-semibold md:text-6xl">专精特新</p>
-                <p class="mt-3 text-sm font-medium md:text-base">企业创新能力</p>
+            <div class="mx-auto grid max-w-4xl grid-cols-3 gap-3 text-center md:gap-8">
+              <div class="px-2 [container-type:inline-size] md:px-4">
+                <p class="whitespace-nowrap text-[clamp(1rem,14cqi,3rem)] font-semibold leading-none">专精特新</p>
+                <p class="mt-3 whitespace-nowrap text-[clamp(0.625rem,5cqi,1rem)] font-medium">企业创新能力</p>
               </div>
-              <div>
-                <p class="text-5xl font-semibold md:text-6xl">省级</p>
-                <p class="mt-3 text-sm font-medium md:text-base">研发中心</p>
+              <div class="px-2 [container-type:inline-size] md:px-4">
+                <p class="whitespace-nowrap text-[clamp(1rem,14cqi,3rem)] font-semibold leading-none">省级</p>
+                <p class="mt-3 whitespace-nowrap text-[clamp(0.625rem,5cqi,1rem)] font-medium">研发中心</p>
               </div>
-              <div>
-                <p class="text-5xl font-semibold md:text-6xl">全周期</p>
-                <p class="mt-3 text-sm font-medium md:text-base">项目服务能力</p>
+              <div class="px-2 [container-type:inline-size] md:px-4">
+                <p class="whitespace-nowrap text-[clamp(1rem,14cqi,3rem)] font-semibold leading-none">全周期</p>
+                <p class="mt-3 whitespace-nowrap text-[clamp(0.625rem,5cqi,1rem)] font-medium">项目服务能力</p>
               </div>
             </div>
           </div>
@@ -740,7 +831,7 @@
         <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
           <div class="mb-16 w-full">
             <p class="text-sm font-semibold text-white/55">解决方案</p>
-            <h2 class="mt-6 text-4xl font-semibold leading-tight md:text-6xl">
+            <h2 class="solutions-heading mt-6 whitespace-nowrap font-semibold leading-tight">
               围绕五大城市生命线场景，构建感知、算法、能力、应用闭环。
             </h2>
           </div>
@@ -897,7 +988,7 @@
         </div>
       </section>
 
-      <section id="capability" class="bg-pale py-24 lg:py-32">
+      <section id="capability" class="bg-pale pb-0 pt-24 lg:pb-0 lg:pt-32">
         <div class="mx-auto max-w-[1440px] px-6 lg:px-12">
           <div class="mb-16 w-full">
             <p class="text-sm font-semibold text-river">创新能力</p>
@@ -921,6 +1012,15 @@
               <p class="text-sm font-semibold text-river">成果转化</p>
               <h3 class="mt-5 text-3xl font-semibold">面向城市生命线场景持续落地应用</h3>
             </div>
+          </div>
+          <div class="grid gap-px bg-slate-200 lg:grid-cols-3">
+            <figure class="overflow-hidden bg-white lg:col-span-3">
+              <img
+                src="assets/innovation-collaboration.jpg"
+                alt="产学研合作、科研创新中心、高端装备与智能算法"
+                class="h-auto w-full object-contain"
+              />
+            </figure>
           </div>
         </div>
       </section>

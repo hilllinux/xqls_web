@@ -170,6 +170,11 @@ body {
 .solution-card {
   min-height: 250px;
 }
+.solution-architecture-title {
+  max-width: 100%;
+  font-size: clamp(1.35rem, 3vw, 3rem);
+  white-space: nowrap;
+}
 .solution-menu-link[aria-current="page"] {
   color: #07141c !important;
 }

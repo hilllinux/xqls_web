@@ -252,7 +252,7 @@
       <section id="overview" class="bg-white py-20 lg:py-24">
         <div class="mx-auto grid max-w-[1440px] gap-12 px-6 lg:grid-cols-[0.78fr_1.22fr] lg:px-12">
           <div>
-            <h2 class="text-4xl font-semibold leading-tight md:text-5xl">${escapeHtml(solution.title)}解决方案架构</h2>
+            <h2 class="solution-architecture-title font-semibold leading-tight">${escapeHtml(solution.title)}解决方案架构</h2>
             <p class="mt-8 text-lg leading-9 text-slate-600">${escapeHtml(solution.description)}</p>
           </div>
           <div class="overflow-hidden rounded-lg border border-slate-200 bg-pale p-3">
